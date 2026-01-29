@@ -1,0 +1,485 @@
+{% include 'header.twig' %}
+<marquee width="100%" ="scroll"="" bgcolor=""><span style="font-weight: bolder;"><font color="white"> {{ user['name'] }} WELCOME TO {{ site["site_name"] }}. SALE IS LIVE</font></span></marquee><p></p><div class="form-group">
+
+
+</div>
+</div>
+</div>
+</div>
+<style>.news-title{
+    background: #334e6e15;
+    padding:8px;
+    margin-top:8px;
+    border-radius:10px 10px 0px 0px;
+}
+.news-content{
+    background: #334e6e15;
+    margin-top:-8px;
+    padding:5px 10px 10px;
+    border-radius:0px 0px 10px 10px;
+}
+.news-date {
+    margin-top:8px;
+    font-size:12px;
+    background: #334e6e35;
+    padding:0px 8px 0px 8px;
+    border-radius:6px;
+    width:max-content;
+}
+.headsir{
+    font-weight:900;
+    font-size:20px;
+    margin-top:-5px;
+    margin-bottom:10px;
+}
+
+
+.ssw{max-height: 450px;overflow-y: auto;}.body .summary-card{border-radius: 22px;background: rgb(255 255 255 / 35%);border: 1.5px solid rgb(255 255 255 / 32%) !important;backdrop-filter: none;}</style>
+<div class="wrapper-content">
+<div class="wrapper-content__header">
+  
+<div class="wrapper-content__body">
+  <!-- Main variables *content* -->
+<div id="block_93">
+    <div class="new_order-block ">
+<div class="bg"></div>
+<div class="divider-top"></div>
+<div class="divider-bottom"></div>
+<div class="container">
+       <div class="row">
+
+<div class="component_form_group component_card component_radio_button">
+<div class="">
+<div class="component_button_forms">
+
+{% if contentText %}
+<div class="card ">																
+{{ contentText }}
+</div>
+{% endif %}
+</div>
+</form>
+</div>
+</div></div>
+</div>
+</div></div>
+</div>
+   
+   <div id="block_93">
+
+<div class="totals mt-2">
+<div class="container-fluid">
+<div class="row align-items-stretch justify-content-center">
+<div class="col-lg-3 col-md-6 col-sm-12 mb-2">
+<div {% if settings ["summary_card_background_color"] == "fixed_colour" %} style="background: #58287F;" {% endif %} class="card h-100 summary-card">
+<div class="totals-block__card">
+<div class="totals-block__card-left">
+<link rel="stylesheet" type="text/css" href="css/search.css">
+
+<div class="totals-block__count">
+<h2 class="totals-block__count-value style-text-primary">
+{{ user["username"] }}<img src="https://i.imgur.com/YLalTAd.png" width="20" height="20"> 
+</h2>
+</div>
+<div class="totals-block__card-name">
+<span>Welcome To OUR SMM PANEL </span>
+</div>
+</div>
+<div class="totals-block__card-right">
+<div class="totals-block__icon-preview style-border-radius-default style-text-primary">
+<i class="fad fa-user"></i>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+<div class="col-lg-3 col-md-6 col-sm-12 mb-2">
+<div  {% if settings ["summary_card_background_color"] == "fixed_colour" %}  style="background: #1F8A70;" {% endif %}  class="card h-100 summary-card">
+<div class="totals-block__card">
+<div class="totals-block__card-left">
+
+
+<div class="totals-block__count">
+<h2 class="totals-block__count-value style-text-primary">
+{{ user["spent"]}}
+</h2>
+</div>
+<div class="totals-block__card-name">
+<p>
+Total Spent
+</p>
+</div>
+</div>
+<div class="totals-block__card-right">
+<div class="totals-block__icon-preview  style-border-radius-default style-text-primary">
+<i class="fad fa-dollar-sign"></i>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+
+<div class="col-lg-3 col-md-6 col-sm-12 mb-2">
+<div  {% if settings ["summary_card_background_color"] == "fixed_colour" %}  style="background: #FF7000;" {% endif %}  class="card h-100 summary-card">
+<div class="totals-block__card">
+<div class="totals-block__card-left">
+
+
+<div class="totals-block__count">
+<h2 class="totals-block__count-value style-text-primary">
+{{ totalorders }}
+</h2>
+</div>
+<div class="totals-block__card-name">
+<p>
+Total Orders
+</p>
+</div>
+</div>
+<div class="totals-block__card-right">
+<div class="totals-block__icon-preview style-border-radius-default style-text-primary">
+<i class="fad fa-layer-plus"></i>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+<div class="col-lg-3 col-md-6 col-sm-12 mb-2">
+<div  {% if settings ["summary_card_background_color"] == "fixed_colour" %}  style="background: #850000;" {% endif %}  class="card h-100 summary-card">
+<div class="totals-block__card">
+
+
+<div class="totals-block__card-left">
+
+
+
+<div class="totals-block__count">
+<h2 class="totals-block__count-value style-text-primary">
+{{ user["balance"]}} </h2>
+
+</div>
+
+<div class="totals-block__card-name">
+<p>
+Total Balance
+</p>
+</div>
+
+
+</div>
+
+
+
+<div class="totals-block__card-right">
+
+<div class="totals-block__icon-preview  style-border-radius-default style-text-primary" style="
+">
+<i class="fad fa-wallet"></i>
+</div>
+
+
+
+
+
+
+
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+<svg style="transform:rotateX(180deg);margin-bottom:-8px;margin-top:4px;" width="100%" height="40px" viewBox="50 0 1180 140" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+              <g fill="#ffffff">
+                <path d="M0 47.44L170 0l626.48 94.89L1110 87.11l170-39.67V140H0V47.44z" fill-opacity=".5"/>
+                <path d="M0 90.72l140-28.28 315.52 24.14L796.48 65.8 1140 104.89l140-14.17V140H0V90.72z"/>
+              </g>
+            </svg>
+
+
+<div id="block_44">
+  <div class="new_order-block ">
+<div class="bg"></div>
+<div class="divider-top"></div>
+<div class="divider-bottom"></div>
+<div class="container-fluid">
+  <div class="row">
+
+  <div class="col-lg-7 mb-3">
+<div class="component_form_group component_card component_radio_button">
+<div class="card ">
+{% if error %}
+<div class="alert alert-dismissible alert-danger">
+{{ errorText }}
+</div>
+{% endif %}
+
+{% if data["order"]["success"] == 1 %}
+<div class="order-success-card" id="order-success-card">
+<center>checkmark</center>
+<h2>Your order has been placed.</h2>
+<div class="order-details">
+<p>
+<span class="service-name">
+<b>Service :</b><br />{{data['order']['service']}}</span>
+</p>
+<p>
+<span class="link"><b>Link :</b><br /><a href="{{data['order']['link']}}">{{data['order']['link']}}</a></span>
+</p>
+<p>
+<span class="paid-amount"><b>You paid :</b>&nbsp;&nbsp;<span style="color:#7743DB">{{ data['order']['price'] }}</span></span><span class="quantity"><b>Quantity :</b>&nbsp;&nbsp;<span style="color:#E0144C">{{data['order']['quantity']}}</span></span>
+</p>
+</div>
+<div class="user-details">
+<p>
+Order ID :&nbsp;&nbsp;{{data['order']['id']}}
+</p>
+<p>
+Remaining balance :&nbsp;&nbsp;{{ data['order']['balance'] }}
+</p>
+</div>
+<button type="button" onclick="closeOrderReceiptCard()">OK</button>
+</div>
+
+<script>
+
+setTimeout(function() {
+var el = $("#order-success-card");
+el.addClass("order-success-card-active");
+}, 1000);
+function closeOrderReceiptCard() {
+
+var el = document.getElementById("order-success-card");
+
+el.classList.remove("order-success-card-active");
+}
+</script>
+
+{% endif %}
+{% if data["order"]["success"] == 2 %}
+<div class="alert alert-dismissible alert-success">
+<strong> {{ lang["neworder.success.id"] }}: </strong> {{ data['order']['id'] }} <br>
+<strong> {{ lang["neworder.success.service"] }}: </strong> {{ data['order']['service'] }} <br>
+<strong> {{ lang["neworder.success.username"] }}: </strong> {{ data['order']['link'] }} <br>
+<strong> {{ lang["neworder.success.quantity"] }}: </strong> {{ data['order']['min'] }} - {{ data['order']['max'] }} <br>
+<strong> {{ lang["neworder.success.posts"] }}: </strong> {{ data['order']['posts'] }} <br>
+<strong> {{ lang["neworder.success.delay"] }}: </strong>{{ data['order']['delay'] }} <br>
+</div>
+
+
+
+{% endif %}
+
+	<marquee width="100%" ="scroll"="" bgcolor=""><span style="font-weight: bolder;"><font color="red"><img src="https://i.postimg.cc/d0yDjfWc/In-Shot-20240117-212913904.png''" width="100" alt="Natural" style="border-style: none;">Account must be public.When you buy service.Because order don't complete when your account private.  </font></span></marquee><p></p><div class="form-group">
+ 
+
+ 
+<form method="post" action="">
+<div class="component_button_forms">
+<div class="form-group" bis_skin_checked="1"><div class="search_sevices_content" bis_skin_checked="1"><span class="parent_searches"><span><input type="search" id="search_services_field" class="form-control" placeholder="Search for a service..." data-gtm-form-interact-field-id="0"></span></span></div><div id="dropdown_for_search" class="dropdown" style="display: block;" bis_skin_checked="1">
+
+
+</div></div>								
+		
+			
+<form method="post" action="">
+<div class="component_button_forms">
+<div class="form-group">
+<label for="orderformorderform-service" class="control-label">{{ lang["neworder.category"] }}</label>
+<select class="form-control" id="neworder_category" name="categories" data-select="true" data-select-search="true" data-select-search-placeholder="Search" data-select-container="#select-category-container" tabindex="-1" aria-hidden="true">
+{{ category_html_simplify }}
+
+</select>
+<div id="select-category-container" class="position-relative"></div>
+</div>
+</div>
+
+
+<div class="form-group">
+<label for="orderform-service" class="control-label">{{ lang["neworder.service"] }}</label>
+<select class="form-control" id="neworder_services" name="services" data-select="true" data-select-search="true" data-select-search-placeholder="Search" data-select-container="#select-service-container" tabindex="-1" aria-hidden="true">
+<option value="1">No services found in this category</option>
+</select>
+<div id="select-service-container" class="position-relative"></div>
+</div>
+<div id="neworder_fields"></div>
+
+
+<div class="form-group" id="charge_div">
+<label for="charge" class="control-label">{{ lang["neworder.charge"] }}</label>
+<input type="text" class="form-control" id="charge" readonly>
+</div>
+<button type="submit" class="btn btn-block btn-primary">{{ lang["neworder.button"] }}</button>
+</form>
+
+</div>
+   </div>
+</div>
+    </div>
+							</div>
+						</div>
+					</div>	</div>
+							
+
+<div class="col-lg-5">
+  <div class="component_content_card component_content_button component_content_headers">
+{% if news %}
+    <div class="card"style="max-height: 550px;">
+      <div class="headsir"><i class="fal fa-newspaper mr-2"></i>Latest News</div>
+      <div class="ssw">
+      {% for new in news %}
+      <div class="news-item">
+        <div class="news-details">
+          <p class="news-date"><i class="fad fa-calendar-alt mr-1" style="--fa-secondary-opacity: 0.65;"></i>{{ new['news_date'] }}</p>
+          <h4 class="news-title">
+            <span class="icon-container">
+              <img width="30" class="news-icon-inline" src="{{ new['news_icon'] }}" alt="News Icon">
+            </span>
+            {{ new['news_title'] }}
+          </h4>
+          <div class="news-content">{{ new['news_content'] }}</div>
+        </div>
+      </div>
+      {% endfor %}
+      </div>
+  </div>
+  </div></div>{% endif%}
+								</div>
+							</div>
+						</div>
+					</div>	</div>
+		
+						
+
+<div id="block_93"style="margin-top:0px">
+    <div class="new_order-block ">
+<div class="bg"></div>
+<div class="divider-top"></div>
+<div class="divider-bottom"></div>
+<div class="container">
+       <div class="row">
+<div class="col-lg-7 mb-3 mb-lg-0">
+<div class="component_form_group component_card component_radio_button">
+<div class="">
+<div class="component_button_forms">
+</div>
+</form>
+</div>
+</div>
+</div>
+<div class="col-lg-5 mb-3">
+<div class="component_content_card component_content_button">
+
+<div class="new-order__content-image">
+</div>
+<div class="new-order__content-title">
+<div class="position-relative">
+<div>
+{% if contentText2 %}
+<div class="card">
+{{ contentText2 }}
+</div>
+{% endif %}
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+
+
+
+
+
+</div>
+<div class="wrapper-content__footer">
+   </div>
+  </div>
+	<div class="col-lg-5">
+  <div class="component_content_card component_content_button component_content_headers">
+<img src="https://i.postimg.cc/tTQL29Kg/image.jpg"'' alt="Hello dear user" class="img-fluid logo-white" >
+				
+</div></div></div></div></div>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+<script>
+function serviceclicked(sid,cid){
+ 
+ console.log(sid, cid)
+ $(`#neworder_category option[value=${cid}]`).prop('selected', 'selected').change();
+setTimeout(servd, 1000)
+function servd(){
+  console.log('run after 1 second');
+ $(`#neworder_services option[value=${sid}]`).prop('selected', 'selected').change();
+  var h23 = $(`#neworder_services option[value=${sid}]`).attr('data-content');
+  console.log(h23);
+ h23 = h23.replace('<span class="badge badge-secondary style-text-primary badge-rounded">','');
+ h23 = h23.replace('</span>','');
+ h23 = h23.replace('</b>','');
+ h23 = h23.replace('<b>','');
+  $('#dropdown_for_search').html('');
+ 
+  $('#search_services_field').val(h23);
+}
+
+
+ 
+ }
+$(document).ready(function () {
+    // Event listener for changes in the serviceSearch input
+ 
+    $('#search_services_field').on('input', function () {
+        // Get the input value
+        var inputValue = $(this).val();
+if(!inputValue){
+   $('#dropdown_for_search').html('');
+}else{
+        // Making an AJAX request
+        $.ajax({
+            type: 'POST',
+            url: '/ajax_data',  // Replace '/neworder' with the actual URL of your neworder route
+            data: { 
+                action: 'service_search' ,
+                search_term: inputValue
+            },
+            beforeSend: function(){
+               $('#dropdown_for_search').html(`<div class="dropdown-item"  bis_skin_checked="1" style="padding: 6px 9px; cursor: pointer;"><span class="badge service_id_badge bg-primary">Searching</span> Please Wait...</div>`);
+            },
+            success: function (response) {
+                // Handle the response from the server
+              
+                 $('#dropdown_for_search').html(response);
+              
+                // You can update the DOM or perform other actions based on the response
+            },
+            error: function (error) {
+                console.error('AJAX error:', error);
+            }
+        });
+    }});
+});
+</script>
+
+{% include 'footer.twig' %}

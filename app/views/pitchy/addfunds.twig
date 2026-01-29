@@ -1,0 +1,149 @@
+{% include 'header.twig' %}
+   <div class="paddingbody"></div>
+			<div class="container-fluid container-fluid-spacious">
+				<div class="row">
+					<div class="col-md-12">
+						<div  class="well">
+							<button class="btn btn-block btn-primary">
+<marquee>
+<font color="Yellow"><i <="" i="">&nbsp;हमारे QR Code से Koi Sacm Kar रहा है Ager Humko uska pata lagta हैं तो हम पुलिस शिकायत दर्ज करेंगे / 
+So Be Carefull All Sacmer <i <="" i=""></i></i></font><i <="" i=""><i <="" i=""><i <="" i="">
+</i></i></i></marquee>
+</button>
+
+<h3><font color="#ff0000"><br></font></h3><h3><font color="#ff0000">You Facing Any Payment Issue So contact Over Support team ☺️</font></h3><h3><font color="#ff0000">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 👇👇👇</font></h3><h2><font color="#ff9c00">Payment Support</font></h2><h2><font color="#ff9c00">&nbsp;~&nbsp;</font><a href="https://wa.me/+917551050342" style="background-color: rgb(255, 255, 0);">Click Here </a></h2><h4><font color="#00ffff">Only Payment Support Not Solve Other Issue&nbsp;</font></h4><div><font color="#ff00ff" style="font-family: inherit; font-size: 24px;"><br></font></div><div><font color="#ff00ff" style="font-family: inherit; font-size: 24px;">😍 Make&nbsp;</font><font color="#0000ff" style="font-family: inherit; font-size: 24px;">100% </font><font color="#ff00ff" style="font-family: inherit; font-size: 24px;">Safe Payment&nbsp;</font><font color="#0000ff" style="font-family: inherit; font-size: 24px;">♻️</font><br></div><p><font color="#0000ff">😍 Paytm QR minimum Payment - </font><font color="#ff00ff">10rs</font></p><p><font color="#ff00ff">😍 Use Phone pay Method And get </font><font color="#0000ff">2%</font><font color="#ff00ff">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;extra bonus 🤩</font></p><p><font color="#ff00ff">😍 Use Parfact Money 💲 And Get </font><font color="#0000ff">5%&nbsp; </font><font color="#ff00ff">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Extra Bonus 🤩</font></p><p><font color="#ff00ff"><br></font></p><h3><font color="#00ff00"><b>&nbsp; &nbsp;Use Any VPN If QR Not Show&nbsp;</b></font></h3>
+						</div>
+
+						<div  class="well">
+						<form method="post" id="addfundsForm" action="/addfunds">
+
+											<div class="form-group">
+												<label for="method" class="control-label">{{ lang['addfunds.method'] }}</label>
+												<select class="form-control" id="payment_method" name="payment_type">
+													{% for method in site["paymentMethods"] %}
+														<option value="{{ method['id'] }}">{{ method['name'] }}</option>
+													{% endfor %}
+												</select>
+											</div>
+											<div id="addfunds_fields"></div>
+										</form>
+										<div id="formSubmitResponseMessage"></div>
+										<div id="formSubmitResponseContent"></div>
+      </div>
+		</div>
+	</div>
+</div>
+
+<div class="col-md-12">
+					<div id="order-page" class="well well-float table-responsive">
+						<table class="table ">
+							<thead>
+												<tr>
+													<th>ID</th>
+													<th>Date</th>
+													<th>Method</th>
+													<th>Amount</th>
+												</tr>
+											</thead>
+											<tbody>
+												{% for payment in payments %}
+													<tr>
+														<td>{{ payment['id'] }}</td>
+														<td>{{ payment['date'] }}
+														</td>
+														<td>{{ payment['name'] }}</td>
+														<td>
+															{{ payment['amount'] }}
+														</td>
+													</tr>
+
+												{% endfor %}
+											</tbody>
+						</table>
+					</div>
+				</div>
+
+{% include 'footer.twig' %}
+
+<script>
+				var paymentMethods = {{ site["paymentMethodsJSON"] }};
+			</script>
+			<script>
+				const addfundsRoute = "/addfunds";
+function addfundsInit() {
+var addfundsForm = $("#addfundsForm");
+var fields = $("#addfunds_fields");
+var selectedMethod = $("#payment_method").val();
+var instructions = paymentMethods[selectedMethod][0].instructions;
+$.ajax({
+url: addfundsRoute,
+data: "action=getForm&selectedMethod=" + selectedMethod,
+type: "POST",
+success: function (json) {
+if (json.success == true) {
+if (instructions.length > 0) {
+var methodInstruction = '<div class="form-group"><label class="control-label">Instructions</label><div class="panel-body border-solid border-rounded">' + instructions + '</div></div>';
+} else {
+var methodInstruction = "";
+} fields.html(methodInstruction + json.content);
+extraFeeInit(selectedMethod);
+}
+}
+});
+}
+
+function extraFeeInit(method) {
+var fee = parseFloat(paymentMethods[method][0].fee).toFixed(2);
+var fields = $("#fee_fields");
+if (fee > 0) {
+fields.html('<div class="form-group"><label class="control-label">Extra fee</label><input type="text" class="form-control" id="methodExtraFee" disabled value="0.00"/></div><div class="form-group"><label class="control-label">Total Amount</label><input type="text" id="totalAmount" class="form-control" disabled value="0.00" /></div>');
+}
+}
+function preparePrice(t) {
+n = 2;
+var r = (t = $.trim(t.toString().replace(",", "."))).split(".");
+return void 0 !== r[1] && (r[1] = r[1].replace(/0+$/g, ""), r[1].length > n && (n = 2 < r[1].length ? 2 : r[1].length)),
+1e3 <= (t =( t = parseFloat(t)).toFixed(n)) && (t = t.toString().replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, "$1" + "")),
+t = t.toString().replace(/\.(\d+)$/g, "." + "$1");
+return t.toFixed(n)
+}
+$(document).ready(function () {
+$(document).on("keyup", "#paymentAmount", function () {
+var selectedMethod = $("#payment_method").val();
+var amount = parseFloat($(this).val());
+var feePercentage = parseFloat(paymentMethods[selectedMethod][0].fee);
+var feeInput = $("#methodExtraFee");
+var totalAmountInput = $("#totalAmount");
+var fee = amount * (feePercentage / 100);
+feeInput.val(preparePrice(fee));
+totalAmountInput.val(preparePrice(amount + fee));
+});
+addfundsInit();
+});
+$("#payment_method").change(function () {
+addfundsInit();
+});
+
+$("#addfundsForm").submit(function (e) {
+e.preventDefault();
+var data = $(this).serialize();
+
+$.ajax({
+url: addfundsRoute,
+data: data,
+type: "POST",
+success: function (json) {
+if (json.success == true) {
+var msgDiv = $("#formSubmitResponseMessage");
+msgDiv.html('<div class="alert alert-success alert-dismissible show mt-2" role="alert">' + json.message + '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button></div>');
+var contentDiv = $("#formSubmitResponseContent");
+contentDiv.html(json.content);
+} else {
+var msgDiv = $("#formSubmitResponseMessage");
+msgDiv.html('<div class="alert alert-danger alert-dismissible show mt-2" role="alert">' + json.message + '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button></div>');
+}
+}
+
+});
+});
+			</script>

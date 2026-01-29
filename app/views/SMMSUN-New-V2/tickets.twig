@@ -1,0 +1,263 @@
+{% include 'header.twig' %}
+
+<main class="main_content">
+                <div class="container-fluid">
+  <div class="row">
+      <div class="col-lg-12 col-12">
+          <div class="mb-3">
+              <div class="alert alert-warning fs-16">
+                  Please make sure to read our Terms before opening a ticket! Check out our general, service, and
+                  refund policy here: Terms and Service
+              </div>
+          </div>
+          <div class="card card_type_3">
+              <div class="card-header">
+                  <ul class="nav nav-pills" id="pills-tab" role="tablist">
+                      <li class="nav-item" role="presentation">
+                          <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill"
+                              data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home"
+                              aria-selected="true">
+                              <span class="text">
+                                  Tickets
+                              </span>
+                          </button>
+                      </li>
+                      <li class="nav-item" role="presentation">
+                          <button class="nav-link" id="pills-profile-tab" data-bs-toggle="modal"
+                              data-bs-target="#staticBackdrop">
+                              <span class="text">
+                                  New Tickets
+                              </span>
+                          </button>
+                      </li>
+                  </ul>
+              </div>
+              <div class="card-body p-0">
+                  <div class="tab-content" id="pills-tabContent">
+                      <div class="tab-pane fade show active" id="pills-home" role="tabpanel"
+                          aria-labelledby="pills-home-tab" tabindex="0">
+                          <table class="table ">
+                              <thead>
+                                  <tr>
+                                      <th>ID</th>
+                                      <th>Subject</th>
+                                      <th>Status</th>
+                                      <th class="nowrap">Last update</th>
+                                  </tr>
+                              </thead>
+                              <tbody>
+                                                                    <tr>
+                                      {% for ticket in ticketList %}
+                <tr>
+                  <td>{{ ticket['ticket_id'] }}</td>
+                  {% if ticket["support_new"] == 2 %}
+                    <td><a href="tickets/{{ ticket['ticket_id'] }}"><strong>{{ ticket['subject'] }}</strong></a></td>
+                  {% else %}
+                    <td><a href="tickets/{{ ticket['ticket_id'] }}">{{ ticket['subject'] }}</a></td>
+                  {% endif %}
+                  <td>{{ ticket['status'] }}</td>
+                  <td><span class="wrap">{{ ticket['lastupdate_time'] }}</span></td>
+                </tr>
+              {% endfor %}
+</td>
+                                                                </tbody>
+                          </table>
+                      </div>
+                  </div>
+
+              </div>
+
+          </div>
+      </div>
+  </div>
+</div>
+
+<!-- Ticket Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+  aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog  modal-dialog-centered">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h1 class="modal-title fs-5" id="staticBackdropLabel">New Ticket</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+              <form  method="post" action="" id="ticketsend" onsubmit="createTicket();">
+                  <div class="alert alert-dismissible alert-danger ticket-danger "
+                      style="display: none">
+                      <button type="button" class="close">×</button>
+                      <div></div>
+                  </div>
+
+                 
+                  <div class="row">
+                      <div class="col-md-12">
+                        <div class="form-group mt-3">
+                         <select  type="text" class="form-control" id="subject" name="subject">
+                                  {% for subjects in orders %}
+                   <option value"{{ subjects['subject'] }}">{{ subjects['subject'] }}</option>
+                  {% endfor %}
+                              </select>
+                        </div>
+                       <!-- <div class="form-group mt-3" id="order-group">
+                          <input type="text" id="orderid" class="form-control" placeholder="ORDERS ID">
+                        </div>
+                        <div class="form-group mt-3" id="type-group">
+                          <select id="want" class="form-select" placeholder="REQUEST">
+                            <option value="Refill" selected="">Refill</option>
+                            <option value="Cancel">Cancel</option>
+                            <option value="Speed-up">Speed Up</option>
+                            <option value="Other">Other</option>
+                          </select>
+                        </div>
+                        <div class="form-group mt-3" id="payment-group" style="display: none;">
+                          <select id="payment" class="form-select" placeholder="Payment">
+                            <option value="Paypal" selected="">Paypal</option>
+                            <option value="Skrill">Skrill</option>
+                            <option value="Payoneer">Payoneer</option>
+                            <option value="Perfect-money">Perfect Money</option>
+                            <option value="Western-union">Western Union</option>
+                            <option value="BTC">BTC</option>
+                            <option value="Crypto-currency">Crypto Currency</option>
+                            <option value="Other">Other</option>
+                          </select>
+                        </div>
+                        <div class="form-group mt-3" id="request-group" style="display: none;">
+                          <select id="type" class="form-select" placeholder="Type">
+                            <option value="feature" selected="">A Feature</option>
+                            <option value="service">A Service</option>
+                            <option value="other">Other</option>
+                          </select>
+                        </div>
+                        <div class="form-group mt-3" id="point-group" style="display: none;">
+                          <select id="point" class="form-select" placeholder="I want to:">
+                            <option value="redeem" selected="">Redeem My Points</option>
+                            <option value="question">Ask A Question About Points</option>
+                            <option value="other">Other</option>
+                          </select>
+                        </div>
+                        <div class="form-group mt-3" id="voucher-group" style="display: none;">
+                          <select id="voucher" class="form-select" placeholder="Type">
+                            <option value="redeem" selected="">Redeem A Voucher</option>
+                            <option value="other">Other</option>
+                          </select>
+                        </div> -->
+                        <div class="form-group mt-3">
+                         <textarea class="form-control" rows="7" id="message" name="message" placeholder="MESSAGE">{{ data['message'] }}</textarea>
+                        </div>
+                       
+                        <input type="hidden" id="hmessage" name="TicketForm[message]">
+
+
+                  <div class="form-group">
+                      <div class="tickets-uploader" data-rtl="false"
+                          data-lang-button-attach="Attach files"
+                          data-lang-file-format-incorrect="Invalid file format"
+                          data-lang-file-size-incorrect="File is too large (limit 5 MB)">
+                      </div>
+                  </div>
+                  <input type="hidden" name="_csrf" value="J824MwQ7GiBnAz5X8d1J_YUFGHbEndO3C4JWxufSB2hkqdpWcVNoUj1LbjqukR2l7mpdBI_nlN1l8hn2k71gJw==">
+                  <button type="submit" class="btn btn-primary w-100"><strong>SUBMIT</strong> NOW</button>
+              </form>
+          </div>
+      </div>
+  </div>
+</div>
+
+<script>
+  function handleOrderType(selectObject) {
+    var element = document.getElementById("order-group");
+    var element2 = document.getElementById("payment-group");
+    var element3 = document.getElementById("request-group");
+    var element4 = document.getElementById("type-group");
+    var element5 = document.getElementById("point-group");
+    var element6 = document.getElementById("voucher-group");
+    
+    if (selectObject.value.indexOf("RealFollower") >= 0 || selectObject.value.indexOf("Giveaway") == "Giveaway") {
+      element.style.display = "none";
+      element2.style.display = "none";
+      element3.style.display = "none";
+      element4.style.display = "none";
+      element5.style.display = "none";
+      element6.style.display = "none";
+    } else if (selectObject.value.indexOf("Order") >= 0) {
+      element.style.display = "block";
+      element2.style.display = "none";
+      element3.style.display = "none";
+      element4.style.display = "block";
+      element5.style.display = "none";
+      element6.style.display = "none";
+    } else if (selectObject.value.indexOf("Payment") >= 0) {
+      element.style.display = "none";
+      element2.style.display = "block";
+      element3.style.display = "none";
+      element4.style.display = "none";
+      element5.style.display = "none";
+      element6.style.display = "none";
+    } else if (selectObject.value.indexOf("Other") >= 0) {
+      element.style.display = "none";
+      element2.style.display = "none";
+      element3.style.display = "none";
+      element4.style.display = "none";
+      element5.style.display = "none";
+      element6.style.display = "none";
+    } else if (selectObject.value.indexOf("Request") >= 0) {
+      element.style.display = "none";
+      element2.style.display = "none";
+      element3.style.display = "block";
+      element4.style.display = "none";
+      element5.style.display = "none";
+      element6.style.display = "none";
+    } else if (selectObject.value.indexOf("Point") >= 0) {
+      element.style.display = "none";
+      element2.style.display = "none";
+      element3.style.display = "none";
+      element4.style.display = "none";
+      element5.style.display = "block";
+      element6.style.display = "none";
+    } else if (selectObject.value.indexOf("Voucher") >= 0) {
+      element.style.display = "none";
+      element2.style.display = "none";
+      element3.style.display = "none";
+      element4.style.display = "none";
+      element5.style.display = "none";
+      element6.style.display = "block";
+    } else if (selectObject.value.indexOf("ChildPanel") >= 0) {
+      element.style.display = "none";
+      element2.style.display = "none";
+      element3.style.display = "none";
+      element4.style.display = "none";
+      element5.style.display = "none";
+      element6.style.display = "none";
+    }
+  }
+
+  function createTicket() {
+    var subject = document.getElementById("subject").value;
+    var message = "";
+    if (subject == "Order" || subject == "VIP-Order" || subject == "ELITE-Order" || subject == "FREQUENT-Order" || subject == "JUNIOR-Order" || subject == "MASTER-Order" || subject == "DIAMOND-Order") {
+      message = "Order ID: " + document.getElementById("orderid").value + "\n" + "Request: " + document.getElementById("want").value  + "\n" + document.getElementById("message").value;
+    } else if (subject == "Payment" || subject == "VIP-Payment" || subject == "ELITE-Payment" || subject == "FREQUENT-Payment" || subject == "JUNIOR-Payment" || subject == "MASTER-Payment" || subject == "DIAMOND-Payment") {
+      message = "Payment: " + document.getElementById("payment").value  + "\n" + document.getElementById("message").value;
+    } else if (subject == "Request" || subject == "VIP-Request" || subject == "ELITE-Request" || subject == "FREQUENT-Request" || subject == "JUNIOR-Request" || subject == "MASTER-Request" || subject == "DIAMOND-Request") {
+      message = "Type: " + document.getElementById("type").value  + "\n" +  document.getElementById("message").value;
+    } else if (subject == "Point" || subject == "VIP-Point" || subject == "ELITE-Point" || subject == "FREQUENT-Point" || subject == "JUNIOR-Point" || subject == "MASTER-Point" || subject == "DIAMOND-Point") {
+      message = "I want to: " + document.getElementById("point").value  + "\n" +  document.getElementById("message").value;
+    } else if (subject == "Voucher" || subject == "VIP-Voucher"  || subject == "ELITE-Voucher" || subject == "FREQUENT-Voucher" || subject == "JUNIOR-Voucher" || subject == "MASTER-Voucher" || subject == "DIAMOND-Voucher") {
+      message = "Type: " + document.getElementById("voucher").value  + "\n" +  document.getElementById("message").value;
+    } else {
+      message = document.getElementById("message").value;
+    }
+
+    document.getElementById("hmessage").value = message;
+
+    return true;
+  }
+
+ 
+</script>
+            </main>
+        </div>
+    </div>
+
+ {% include 'footer.twig' %}

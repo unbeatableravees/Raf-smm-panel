@@ -1,0 +1,259 @@
+{% include 'header.twig' %}
+ <!-- Main variables *content* -->
+         <div class="app-content">
+            <!-- page-content -->
+            <div class="container-fluid">
+               <div class="row mt-4">
+                  <div class="col-lg-12">
+                     <section class="order-side">
+                        <div class="row">
+                           <div class="col-lg-6 col-12 mb-5 mb-lg-0">
+                              <div class="d-card dc-dblue">
+                                 <div class="d-card-body" id="dc-body">
+                                    <form  method="post" action="tickets" id="ticketsend">
+                                        {% if error %}
+                                            <div class="alert alert-dismissible alert-danger {% if site['rtl'] %} rtl-alert {% endif %}">
+                                              <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                              {{ errorText }}
+                                            </div>
+                                          {% elseif success %}
+                                            <div class="alert alert-dismissible alert-success {% if site['rtl'] %} rtl-alert {% endif %}">
+                                              <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                              {{ successText }}
+                                            </div>
+                                          {% endif %}
+                                       <div class="alert alert-dismissible alert-danger ticket-danger " style="display: none">
+                                          <button type="button" class="close">&times;</button>
+                                          <div></div>
+                                       </div>
+                                       <div class="form-group">
+                                          <label for="subject" class="control-label">Subject</label>
+                                          <input type="text" class="form-control" id="subject" name="subject" value="{{ data['subject'] }}">
+                                       </div>
+                                       <div class="form-group message">
+                                          <label for="message" class="control-label">Message <span id="optional"> (optional) </span></label>
+                                          <textarea class="form-control" rows="7" id="message" name="message" placeholder="Please enter your message ..." style="height:150px!important">{{ data['message'] }}</textarea>
+                                       </div>
+                                       <input id="hmessage" name="TicketForm[message]" type="hidden">
+                                       <button type="submit" class="btn btn-primary">Submit ticket</button>
+                                    </form>
+                                    <script>
+                                       var element2 = document.getElementById("payment-group").style="display:none";
+                                       function handleOrderType(selectObject) {
+                                       var element = document.getElementById("order-group");
+                                       var element2 = document.getElementById("payment-group");
+                                       var optional = document.getElementById("optional");
+                                       if (selectObject.value == "Sipariş" || selectObject.value == "VIP-Order") {
+                                       element.style.display = "block";
+                                       element2.style.display = "none";
+                                       optional.style.display = "inline";
+                                       } else if (selectObject.value == "Ödeme" || selectObject.value == "VIP-Payment") {
+                                       element.style.display = "none";
+                                       element2.style.display = "block";
+                                       optional.style.display = "none";
+                                       } else if (selectObject.value == "Bayilik" || selectObject.value == "VIP-Panel" ) {
+                                       element.style.display = "none";
+                                       element2.style.display = "none";
+                                       optional.style.display = "none";
+                                       } else if (selectObject.value == "Diğer" || selectObject.value == "VIP-Other" ) {
+                                       element.style.display = "none";
+                                       element2.style.display = "none";
+                                       optional.style.display = "none";
+                                       }
+                                       }
+                                       
+                                       function createTicket(e) {
+                                       if (e.preventDefault) e.preventDefault();
+                                       
+                                       var subject = document.getElementById("subject").value;
+                                       var message = "";
+                                       if (subject == "Sipariş" || subject == "VIP-Order") {
+                                       message = "Sipariş no: " + document.getElementById("orderid").value + "\n" + "İstek: " + document.getElementById("want").value  + "\n" + document.getElementById("message").value;
+                                       } else if (subject == "Ödeme" || subject == "VIP-Payment") {
+                                             message = "Ödeme Türü: " + document.getElementById("payment").value  + "\n Gönderen Ad Soyad: " + document.getElementById("PaymentID").value + "\n Tutar: " + document.getElementById("addamount").value + "\n" + document.getElementById("message").value;
+                                       
+                                       } else {
+                                       message = document.getElementById("message").value;
+                                       }
+                                       
+                                       document.getElementById("hmessage").value = message;
+                                       
+                                       return true;
+                                       }
+                                       
+                                       var form = document.getElementById("ticketsend");
+                                       if (form.attachEvent) {
+                                       form.attachEvent("submit", createTicket);
+                                       } else {
+                                       form.addEventListener("submit", createTicket);
+                                       }
+                                    </script>
+                                 </div>
+                              </div>
+                              <!-- d-card end -->
+                           </div>
+                           <!-- col item end-->
+                           <div class="col-lg-6 col-12 mb-5 mb-lg-0">
+                              <div class="d-card dc-dblue">
+                                 <ul class="nav nav-pills fastside">
+                                    <li class="nav-item col-6 mb-2" style="padding:0">
+                                       <a class="nav-link active" data-toggle="pill" href="#oldTickets" role="tab" aria-controls="pills-oldTickets" aria-selected="true">My previous requests</a>
+                                    </li>
+                                    <li class="nav-item col-6 mb-2" style="padding:0">
+                                       <a class="nav-link second" data-toggle="pill" href="#sssTab" role="tab" aria-controls="pills-sssTab" aria-selected="false">Frequently asked Questions</a>
+                                    </li>
+                                 </ul>
+                                 <div class="d-card-body" id="dc2-body" style="overflow-y: auto;max-height: 500px">
+                                    <div class="tab-content mt-3">
+                                       <div class="tab-pane fade active show" id="oldTickets" role="tabpanel" aria-labelledby="oldTickets">
+											<div class="table-responsive">
+																							<table class="table">
+												  <thead>
+													<tr>
+													  <th>ID</th>
+													  <th>Subject</th>
+													  <th>Status</th>
+													  <th>Last update</th>
+													</tr>
+												  </thead>
+													<tbody>
+														{% for ticket in ticketList %}
+                                                        <tr>
+                                                          <td>{{ ticket['ticket_id'] }}</td>
+                                                          {% if ticket["support_new"] == 2 %}
+                                                            <td><a href="tickets/{{ ticket['ticket_id'] }}"><strong>{{ ticket['subject'] }}</strong></a></td>
+                                                          {% else %}
+                                                            <td><a href="tickets/{{ ticket['ticket_id'] }}">{{ ticket['subject'] }}</a></td>
+                                                          {% endif %}
+                                                          <td>{{ ticket['status'] }}</td>
+                                                          <td><span class="nowrap">{{ ticket['lastupdate_time'] }}</span></td>
+                                                        </tr>
+                                                      {% endfor %}
+													</tbody>
+												</table>
+																							</div>
+										</div>
+
+                                       <div class="tab-pane fade" id="sssTab" role="tabpanel" aria-labelledby="sssTab-tab">
+										<div class="faq-ss-tabs">
+										 <div class="home-ss-tab">
+											<div class="ss-tab-head">
+											   <div class="row">
+												  <div class="col">
+													 What is Social Media Boost?
+												  </div>
+												  <div class="col-auto align-self-center right-p">
+													 <i class="fas fa-plus"></i>
+													 <i class="fas fa-minus"></i>
+												  </div>
+											   </div>
+											</div>
+											<div class="ss-tab-content">
+											  Social Media Boost means "Virtualization" in the term adapted by our panel to our language. Virtualization; it means showing as an assumption that social media accounts have a certain audience. Taking into account the visual perception issue of the profiles shown as hypothetical (virtualization), it is proven every day by our applications that social media accounts can reach their goals more easily
+											</div>
+										 </div>
+										 <!-- home-ss-tab end -->
+										 <div class="home-ss-tab">
+											<div class="ss-tab-head">
+											   <div class="row">
+												  <div class="col">
+													 Is My Account At Risk?
+												  </div>
+												  <div class="col-auto align-self-center right-p">
+													 <i class="fas fa-plus"></i>
+													 <i class="fas fa-minus"></i>
+												  </div>
+											   </div>
+											</div>
+											<div class="ss-tab-content">
+											   We record and observe the effect of orders placed through our panel on social media accounts instantly. We want you to know that since the date our panel was put into practice, we have not observed any risk in the accounts, unless there was abuse by our users. However, we would like you to know that our panel does not take any responsibility for any problem that may arise.
+											</div>
+										 </div>
+										 <!-- home-ss-tab end -->
+										 <div class="home-ss-tab">
+											<div class="ss-tab-head">
+											   <div class="row">
+												  <div class="col">
+													 What is the effect on my account?
+												  </div>
+												  <div class="col-auto align-self-center right-p">
+													 <i class="fas fa-plus"></i>
+													 <i class="fas fa-minus"></i>
+												  </div>
+											   </div>
+											</div>
+											<div class="ss-tab-content">
+											   You can be sure that you will see its impact if you monitor progress in a controlled and regular manner in your orders through our panel. If we need to explain with a few examples; The posts you share on Instagram go to the "Discover" section. This allows your post to reach more Instagram users. Another example is that you are more likely to appear in the "Recommended" section on videos you share on Youtube. This helps your video post to be seen by more Youtube users.
+											</div>
+										 </div>
+										 <!-- home-ss-tab end -->
+										 <div class="home-ss-tab">
+											<div class="ss-tab-head">
+											   <div class="row">
+												  <div class="col">
+													 How to Create a Support Request?
+												  </div>
+												  <div class="col-auto align-self-center right-p">
+													 <i class="fas fa-plus"></i>
+													 <i class="fas fa-minus"></i>
+												  </div>
+											   </div>
+											</div>
+											<div class="ss-tab-content">
+											   If you are logging in with a desktop computer, click the "Support Center" icon from the menu on the left, if you are logging in with mobile, click the menu button on the top right, then click the button that says "Support Center". On the page that opens, select the topic you want to create a support request. Then fill in the required fields and click the "Create Support Request" button.
+											</div>
+										 </div>
+										 <!-- home-ss-tab end -->
+										 <div class="home-ss-tab">
+											<div class="ss-tab-head">
+											   <div class="row">
+												  <div class="col">
+													How Do I Load Balance?
+												  </div>
+												  <div class="col-auto align-self-center right-p">
+													 <i class="fas fa-plus"></i>
+													 <i class="fas fa-minus"></i>
+												  </div>
+											   </div>
+											</div>
+											<div class="ss-tab-content">
+											   If you are logging in with a desktop computer after successfully registering on our panel, click the "Add Balance" icon from the menu on the left, if you are logging in with mobile, click the menu button on the top right, then click the button that says "Add Balance". From this page, you can pay with PayTR 24/7 without commission. Your card information is by no means available in our panel infrastructure. The payments you make with PayTR are protected by the 3D secure system.
+											</div>
+										 </div>
+										 <!-- home-ss-tab end -->
+										 <div class="home-ss-tab">
+											<div class="ss-tab-head">
+											   <div class="row">
+												  <div class="col">
+													 How Can I Order?
+												  </div>
+												  <div class="col-auto align-self-center right-p">
+													 <i class="fas fa-plus"></i>
+													 <i class="fas fa-minus"></i>
+												  </div>
+											   </div>
+											</div>
+											<div class="ss-tab-content">
+											  If you are logging in with a desktop computer, click the "So Order" icon from the menu on the left, if you are logging in with mobile, click the menu button on the top right, then click the button that says "New Order". On the page that opens, there are all the services of our panel in the "Categories" section. Select the category you want to order from this menu. Then, select the service you want to order from the "Service" menu. The price on the service you choose is 1000 pieces. After making sure that you have read the "Service Description" section in detail, write the link type specified in the description to the place where it says "Link". Then, in the amount section, write an amount between the maximum or minimum values ​​you can give from that service. After doing these operations, click the "Place Order" button. Your order will be completed within the time specified in the description section.
+											</div>
+										 </div>
+										 <!-- home-ss-tab end -->
+									  </div>
+                                       </div>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </section>
+                  </div>
+                  <!-- page-content end -->
+               </div>
+               <!-- app-content -->
+            </div>
+         </div>
+
+      </div>
+
+{% include 'footer.twig' %}

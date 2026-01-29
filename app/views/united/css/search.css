@@ -1,0 +1,24 @@
+#dropdown_for_search {
+    display: none;
+    max-height: 300px;
+    overflow-y: auto;
+    border: 1px solid #fdfdfd;
+    border-radius: 5px;
+    position: inherit;
+    z-index: 1000;
+    background: white;
+}
+
+.selectme {
+    padding: 10px;
+    cursor: pointer;
+    list-style-type: none; 
+}
+
+.selectme:hover {
+    background-color: #ff8c00; 
+}
+
+.highlight {
+    font-weight: bold; 
+}

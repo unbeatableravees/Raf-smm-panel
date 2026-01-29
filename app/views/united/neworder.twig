@@ -1,0 +1,523 @@
+
+{% include 'header.twig' %}
+{% if contentText %}
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <div class="well ">
+{{ contentText }}
+
+{% endif %}
+<style>
+    .Kpcss {
+
+        min-height: 20px;
+        padding: 19px;
+        margin-bottom: 20px;
+        background-color: #ffffff;
+        border: 1px solid #ffffff;
+        border-radius: 13px;
+
+        box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, .2),
+        -1px -1px 5px rgba(0, 0, 0, .1);
+
+    }
+</style>
+<style>
+.Kp1 {
+        width: 100%;
+        height: 101px;
+        padding: 19px;
+        margin-bottom: 8px;
+        background-color:#0576ff ;
+        border: 1px solid #0576ff;
+        border-radius: 13px;
+        
+        
+        box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, .2),
+        -1px -1px 5px rgba(0, 0, 0, .1);
+         font-family: inherit;
+    font-weight: 300;
+    line-height: 1.1;
+    color:#317eac ;
+    }
+    </style>
+    
+    <style>
+.Kp2 {
+        width: 100%;
+        height: 56px;
+        padding: 13px;
+        margin-bottom: 8px;
+        background-color:#f2fcfc ;
+        border: 1px solid #f2fcfc;
+        border-radius: 13px;
+                box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, .2),
+        -1px -1px 5px rgba(0, 0, 0, .1);
+         font-family: inherit;
+    font-weight: 300;
+    line-height: 1.1;
+    color:#317eac ;
+  
+        
+  }
+    </style>
+	
+<div class="paddingbody"></div>
+<div class="container-fluid container-fluid-spacious">
+	<div class="row">
+<div class="col-md-4" >
+		<div class="Kp2">
+  		<div class="col-md-8 col-md-offset-2">
+<center><h3 class="totals-block__count-value style-text-primary">Hi,
+{{ user["username"] }}<img src="https://i.imgur.com/YLalTAd.png" width="20" height="20"> 
+</h3></center>
+		</div></div></div>
+			         </div>
+        </div>
+       			
+<p></p>		
+	
+                  
+  	
+				
+			
+        <div class="col-md-4">
+                <div class="Kp1">
+                    <div class="card-body">
+                        <h3 class="card"><font color="white">Total Spend</font></span></h3>
+                            <h3 class="card-text text-right"><font color="white">{{ user["spent"] }}</font></span></h3>
+			
+                    </div>
+                </div>
+            </div>
+
+            
+        <div class="col-md-4">
+            <div class="Kp1">
+                <div class="card-body">
+                    <h3 class="Text2"  ><font color="white">Total Orders</font></span></h3>
+                        <h3 class="card-text text-right" ><font color="white">{{totalorders}}</font></span></h3>
+                        
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-md-4">
+                    <div class="Kp1">
+                        <div class="card-body">
+                            <h3 class="card-title"><font color="white">Total Balance</font></span></h3>
+                                <h3 class="card-text text-right"><font color="white">{{ user["balance"] }}</font></span></h3>
+                            </div>
+                        </div>
+                        </div>
+                   </div>
+</div></div>
+                        </div>
+                   </div>
+        
+<div class="col-md-4" >
+                  
+ 
+  <div class="Kpcss2">
+                
+
+	
+		<div class="alert alert-dismissible alert-danger">Warning ⚠️ , Account must be public.When you buy service.Because order don't complete when your account private.
+          <button type="button" class="close" data-dismiss="alert">×</button>
+          						
+
+  
+</div>
+
+    {% if error %}
+      <div class="alert alert-dismissible alert-danger">
+        {{ errorText }}
+      </div>
+    {% endif %}
+
+    {% if data["order"]["success"] == 1 %}
+      <div class="alert alert-dismissible alert-success">
+          <strong> {{ lang["neworder.success.id"] }}: </strong> {{ data['order']['id'] }} <br>
+          <strong> {{ lang["neworder.success.service"] }}: </strong> {{ data['order']['service'] }} <br>
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">❌</span></button>
+          
+          <strong> {{ lang["neworder.success.link"] }}: </strong> {{ data['order']['link'] }} <br>
+          <strong> {{ lang["neworder.success.quantity"] }}: </strong> {{ data['order']['quantity'] }} <br>
+          <strong> {{ lang["neworder.success.link"] }}: </strong> {{ data['order']['price'] }} <br>
+          <strong> {{ lang["neworder.success.balance"] }}: </strong>{{ data['order']['balance'] }} <br>
+      
+
+      </div>    {% endif %}
+    {% if data["order"]["success"] == 2 %}
+      <div class="alert alert-dismissible alert-success">
+         <strong> {{ lang["neworder.success.id"] }}: </strong> {{ data['order']['id'] }} <br>
+         <strong> {{ lang["neworder.success.service"] }}: </strong> {{ data['order']['service'] }} <br>
+         <strong> {{ lang["neworder.success.username"] }}: </strong> {{ data['order']['link'] }} <br>
+         <strong> {{ lang["neworder.success.quantity"] }}: </strong> {{ data['order']['min'] }} - {{ data['order']['max'] }} <br>
+         <strong> {{ lang["neworder.success.posts"] }}: </strong> {{ data['order']['posts'] }} <br>
+         <strong> {{ lang["neworder.success.delay"] }}: </strong>{{ data['order']['delay'] }} <br>
+      
+       </div>
+  
+    {% endif %}
+						
+<form method="post" action="">
+<div class="component_button_forms">
+	<div class="form-hidden form-group">
+<div class="form-group" bis_skin_checked="1"><div class="search_sevices_content" bis_skin_checked="1"><span class="parent_searches"><span><input type="search" id="search_services_field" class="form-control" placeholder="Search for a service..." data-gtm-form-interact-field-id="0"></span></span></div><div id="dropdown_for_search" class="dropdown" style="display: block;" bis_skin_checked="1">
+
+
+</div>								
+
+<form method="post" action="">
+							<div class="form-hidden form-group">
+<div class="component_button_forms">
+            <div class="form-group">
+              <label for="orderform-category" class="control-label">{{ lang["neworder.category"] }}</label>
+              <select class="form-control" id="neworder_category" name="categories" data-select="true" data-select-search="true" data-select-search-placeholder="Search" data-select-container="#select-category-container" tabindex="-1" aria-hidden="true">
+{{ category_html_simplify }}
+</select>
+</div>
+
+             
+            </div>
+            <div class="form-group">
+              <label for="orderform-service" class="control-label">{{ lang["neworder.service"] }}</label>
+              <select class="form-control" id="neworder_services" name="services" data-select="true" data-select-search="true" data-select-search-placeholder="Search" data-select-container="#select-service-container" tabindex="-1" aria-hidden="true"><option value="1">No services found in this category</option>
+</select>
+            </div>
+
+
+
+
+
+            <div id="neworder_fields"></div>
+
+
+<div class="form-group" id="charge_div">
+              <label for="charge" class="control-label">{{ lang["neworder.charge"] }}</label>
+              <input type="text" class="form-control" id="charge" readonly>
+            </div>
+
+
+
+
+          
+          <button type="submit" class="btn btn-primary">{{ lang["neworder.button"] }}</button>
+</form>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</div></div></div>
+	
+	
+	                            </div>
+
+<div class="col-md-4">
+    				
+								  <div id="main-page" class="Kpcss"class="well  table-responsive">		
+        <h4 style="text-align: center; "><span style="font-family: " times="" new="" roman";="" background-color:="" rgb(255,="" 255,="" 0);"="" background-color:""="" ;"=""><font color="#000000" style=""><b>How To add funds and order service {{ site["site_name"]  }}</b></font></span></h4><p style="text-align: center; ">
+                        <iframe width="315" height="560" src="https://www.youtube.com/embed/WQfq3Hqnq8I" title="Main Smm panel service provider in india, smm panel, SMM Panel India, Cheap SMM Panel" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></p><p style="text-align: center; "><br></p><div class="benefit-box benefit-box1">
+        </div>
+    </div>
+</div>
+	
+	
+	
+	<div class="col-md-4" >
+                  
+ 
+        
+						
+        
+                <div class="Kpcss2">
+			
+
+<div class="col-lg-5">
+  <div class="component_content_card component_content_button component_content_headers">
+{% if news %}
+    <div class="card"style="max-height: 550px;">
+      <div class="headsir"><i class="fal fa-newspaper mr-2"></i>Latest News</div>
+      <div class="ssw">
+      {% for new in news %}
+      <div class="news-item">
+        <div class="news-details">
+          <p class="news-date"><i class="fad fa-calendar-alt mr-1" style="--fa-secondary-opacity: 0.65;"></i>{{ new['news_date'] }}</p>
+          <h4 class="news-title">
+            <span class="icon-container">
+              <img width="30" class="news-icon-inline" src="{{ new['news_icon'] }}" alt="News Icon">
+            </span>
+            {{ new['news_title'] }}
+          </h4>
+          <div class="news-content">{{ new['news_content'] }}</div>
+        </div>
+      </div>
+      {% endfor %}
+      </div>
+  </div>
+  </div></div>{% endif%}
+								</div>
+							</div>
+						</div>
+					</div>	</div>
+		<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+<script>
+function serviceclicked(sid,cid){
+ 
+ console.log(sid, cid)
+ $(`#neworder_category option[value=${cid}]`).prop('selected', 'selected').change();
+setTimeout(servd, 1000)
+function servd(){
+  console.log('run after 1 second');
+ $(`#neworder_services option[value=${sid}]`).prop('selected', 'selected').change();
+  var h23 = $(`#neworder_services option[value=${sid}]`).attr('data-content');
+  console.log(h23);
+ h23 = h23.replace('<span class="badge badge-secondary style-text-primary badge-rounded">','');
+ h23 = h23.replace('</span>','');
+ h23 = h23.replace('</b>','');
+ h23 = h23.replace('<b>','');
+  $('#dropdown_for_search').html('');
+ 
+  $('#search_services_field').val(h23);
+}
+
+
+ 
+ }
+$(document).ready(function () {
+    // Event listener for changes in the serviceSearch input
+ 
+    $('#search_services_field').on('input', function () {
+        // Get the input value
+        var inputValue = $(this).val();
+if(!inputValue){
+   $('#dropdown_for_search').html('');
+}else{
+        // Making an AJAX request
+        $.ajax({
+            type: 'POST',
+            url: '/ajax_data',  // Replace '/neworder' with the actual URL of your neworder route
+            data: { 
+                action: 'service_search' ,
+                search_term: inputValue
+            },
+            beforeSend: function(){
+               $('#dropdown_for_search').html(`<div class="dropdown-item"  bis_skin_checked="1"  cursor: pointer;"><span class="badge service_id_badge bg-primary">Searching</span> Please Wait...</div>`);
+            },
+            success: function (response) {
+                // Handle the response from the server
+              
+                 $('#dropdown_for_search').html(response);
+              
+                // You can update the DOM or perform other actions based on the response
+            },
+            error: function (error) {
+                console.error('AJAX error:', error);
+            }
+        });
+    }});
+});
+</script>					
+
+    
+        
+<script>
+$(document).ready(function(){
+
+  /* Katogeriye ait servisleri Ã§ek */
+  category_detail();
+  $("#neworder_category").change(function(){
+    category_detail();
+  });
+  /* Katogeriye ait servisleri Ã§ek */
+  /* Servise ait verileri Ã§ek */
+  $("#neworder_services").change(function(){
+    service_detail();
+  });
+  /* Servise ait verileri Ã§ek */
+  /* SipariÅŸ miktarÄ± deÄŸiÅŸince fiyat hesapla */
+  $(document).on('keyup', '#order_quantity', function() {
+    var service   = $("#neworder_services").val();
+    var quantity  = $("#neworder_quantity").val();
+    var runs      = $("#dripfeed-runs").val();
+      if( $("#dripfeedcheckbox").prop('checked') ){
+        var dripfeed  = "var";
+      }else{
+        var dripfeed  = "bos";
+      }
+    $.post('ajax_data',{action:'service_price',service:service,quantity:quantity,dripfeed:dripfeed,runs:runs}, function(data){
+        $("#charge").val(data.price);
+        $("#dripfeed-totalquantity").val(data.totalQuantity);
+    }, 'json');
+  });
+  $(document).on('keyup', '#dripfeed-runs', function() {
+    var service   = $("#neworder_services").val();
+    var quantity  = $("#neworder_quantity").val();
+    var runs      = $("#dripfeed-runs").val();
+      if( $("#dripfeedcheckbox").prop('checked') ){
+        var dripfeed  = "var";
+      }else{
+        var dripfeed  = "bos";
+      }
+    $.post('ajax_data',{action:'service_price',service:service,quantity:quantity,dripfeed:dripfeed,runs:runs}, function(data){
+        $("#charge").val(data.price);
+        $("#dripfeed-totalquantity").val(data.totalQuantity);
+    }, 'json');
+  });
+  $(document).on('keyup', '#neworder_comment', function() {
+    comment_charge();
+  });
+  /* SipariÅŸ miktarÄ± deÄŸiÅŸince fiyat hesapla */
+  /* Dripfeed deÄŸiÅŸtir */
+  $(document).on('change', '#dripfeedcheckbox', function() {
+    var dripfeed = $(this).prop('checked');
+    if( dripfeed ){
+      $("#dripfeed-options").removeClass();
+      dripfeed_charge();
+    }else{
+      $("#dripfeed-options").addClass('hidden');
+      dripfeed_charge();
+    }
+  });
+  /* Dripfeed deÄŸiÅŸtir */
+});
+
+function category_detail(){
+  var category_now = $("#neworder_category").val();
+  $.post('ajax_data',{action:'services_list',category:category_now}, function(data){
+      $("#neworder_services").html(data.services);
+      service_detail();
+  }, 'json');
+}
+
+function service_detail(){
+  var service_now = $("#neworder_services").val();
+  $.post('ajax_data',{action:'service_detail',service:service_now}, function(data){
+      if( data.empty == 1 ){
+        $("#charge_div").hide();
+      }else{
+        $("#charge_div").show();
+        $("#neworder_fields").html(data.details);
+        $("#charge").val(data.price);
+      }
+      $(".datetime").datepicker({
+         format: "dd/mm/yyyy",
+         language: "tr",
+         startDate: new Date(),
+       }).on('change', function(ev){
+         $(".datetime").datepicker('hide');
+       });
+      $("#clearExpiry").click(function(){
+           $("#expiryDate").val('');
+       });
+       var dripfeed = $("#dripfeedcheckbox").prop('checked');
+       if( dripfeed ){
+         $("#dripfeed-options").removeClass();
+       }
+       comment_charge();
+        if( $("#dripfeedcheckbox").prop('checked') ){
+          dripfeed_charge();
+        }
+          if( data.sub ){
+            $("#charge_div").hide();
+          }else{
+            $("#charge_div").show();
+          }
+  }, 'json');
+}
+
+function comment_charge(){
+  var service   = $("#neworder_services").val();
+  var comments  = $("#neworder_comment").val();
+    if( comments ){
+      $.post('ajax_data',{action:'service_price',service:service,comments:comments}, function(data){
+          $("#neworder_quantity").val(data.commentsCount);
+          $("#charge").val(data.price);
+      }, 'json');
+    }
+}
+
+function dripfeed_charge(){
+  var service     = $("#neworder_services").val();
+  var quantity    = $("#neworder_quantity").val();
+  var runs        = $("#dripfeed-runs").val();
+    if( $("#dripfeedcheckbox").prop('checked') ){
+      var dripfeed  = "var";
+    }else{
+      var dripfeed  = "bos";
+    }
+  $.post('ajax_data',{action:'service_detail',service:service,quantity:quantity,dripfeed:dripfeed,runs:runs}, function(data){
+      $("#charge").val(data.price);
+  }, 'json');
+}
+
+</script>
+<br>
+<br>
+<br>
+
+{% include 'footer.twig' %}
+
+
+	
+
+
+<style>.news-title{
+    background: #334e6e15;
+    padding:8px;
+    margin-top:8px;
+    border-radius:10px 10px 0px 0px;
+}
+.news-content{
+    background: #334e6e15;
+    margin-top:-8px;
+    padding:5px 10px 10px;
+    border-radius:0px 0px 10px 10px;
+}
+.news-date {
+    margin-top:8px;
+    font-size:12px;
+    background: #334e6e35;
+    padding:0px 8px 0px 8px;
+    border-radius:6px;
+    width:max-content;
+}
+.headsir{
+    font-weight:900;
+    font-size:20px;
+    margin-top:-5px;
+    margin-bottom:10px;
+}
+.ssw{max-height: 450px;overflow-y: auto;}.body .summary-card{border-radius: 22px;background: rgb(255 255 255 / 35%);border: 1.5px solid rgb(255 255 255 / 32%) !important;backdrop-filter: none;}
+
+
+
+
+
+#dropdown_for_search {
+    display: flex;
+    max-height: 300px;
+    overflow-y: auto;
+    border: 1px solid #fdfdfd;
+    border-radius: 5px;
+    position: inherit;
+    z-index: 1000;
+    background: white;
+    padding: 6px 12px;	
+                         
+	
+				
+				
+				
+    
+    
+}
+
+			
+
+</style>

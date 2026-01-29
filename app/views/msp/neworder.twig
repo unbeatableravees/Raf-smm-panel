@@ -1,0 +1,211 @@
+{% include 'header.twig' %}
+
+<!-- Main variables *content* -->
+<div class="app-content">
+		<!-- page-content -->
+		<div class="container-fluid">
+			<div class="row mt-4">
+				<div class="col-lg-12">
+					<section class="dash-home-status">
+					<div class="row">
+						<div class="col-lg-3 col-md-6 col-6 mb-4 mb-lg-0">
+							<div class="dhs-item dhs-item--1">
+								<div class="row">
+								<div class="col-auto align-self-center d-none d-md-block">
+									<div class="dhs-item--icon">
+										<img src="https://cdn.mypanel.link/oewf4r/jf8rko5l2ch4uc8i.png" class="dhs-item--icon-img" alt="">
+									</div>
+								</div>
+								<div class="col align-self-center">
+									<div class="dhs-item--title">
+										Current Balance
+									</div>
+									<div class="dhs-item--text">
+										{% if settings['site_currency'] == "TRY" %}{{ "&#8378;" }}{% elseif settings['site_currency'] == "USD" %} {{ "&#36;" }}{% elseif settings['site_currency'] == "INR" %} {{ "₹" }}{% else %}{{ "&#8364;" }}{% endif %}{{ user['balance'] }}
+									</div>
+								</div>
+								</div>
+								<!-- row end -->
+							</div>
+							<!-- dhs-item end -->
+						</div>
+						<!-- dhs-item col end -->
+						<div class="col-lg-3 col-md-6 col-6 mb-4 mb-lg-0">
+							<div class="dhs-item dhs-item--2">
+								<div class="row">
+								<div class="col-auto align-self-center d-none d-md-block">
+									<div class="dhs-item--icon">
+										<img src="https://cdn.mypanel.link/oewf4r/xcsrnpgtrmzl2qpk.png" class="dhs-item--icon-img" alt="">
+									</div>
+								</div>
+								<div class="col align-self-center">
+									<div class="dhs-item--title">
+										Amount Spent
+									</div>
+									<div class="dhs-item--text">
+									{% if settings['site_currency'] == "TRY" %}{{ "&#8378;" }}{% elseif settings['site_currency'] == "USD" %}{{ "&#36;" }}{% elseif settings['site_currency'] == "INR" %} {{ "₹" }}{% else %}{{ "&#8364;" }}{% endif %}{{ user['spent'] }}
+									</div>
+								</div>
+								</div>
+								<!-- row end -->
+							</div>
+							<!-- dhs-item end -->
+						</div>
+						<!-- dhs-item col end -->
+						<div class="col-lg-3 col-md-6 col-6 mb-4 mb-lg-0">
+							<div class="dhs-item dhs-item--3">
+								<div class="row">
+								<div class="col-auto align-self-center d-none d-md-block">
+									<div class="dhs-item--icon">
+										<img src="https://cdn.mypanel.link/oewf4r/8i1eccrzahm7uhz9.png" class="dhs-item--icon-img" alt="">
+									</div>
+								</div>
+								<div class="col align-self-center">
+									<div class="dhs-item--title">
+										Balance Status
+									</div>
+																					<div class="dhs-item--text">
+												Low
+											</div>
+																		</div>
+								</div>
+								<!-- row end -->
+							</div>
+							<!-- dhs-item end -->
+						</div>  
+						
+
+						<!-- dhs-item col end -->
+						<div class="col-lg-3 col-md-6 col-6 mb-4 mb-lg-0">
+							<div class="dhs-item dhs-item--4">
+								<div class="row">
+								<div class="col-auto align-self-center d-none d-md-block">
+									<div class="dhs-item--icon">
+										<img src="https://cdn.mypanel.link/oewf4r/mr878al3g6qjpfz0.png" class="dhs-item--icon-img" alt="">
+									</div>
+								</div>
+								<div class="col align-self-center">
+									<div class="dhs-item--title">
+										Membership Status
+									</div>
+									<div class="dhs-item--text">
+										<span id="accStats" class="userStatus"></span>
+									</div>
+								</div>
+								</div>
+								<!-- row end -->
+							</div>
+							<!-- dhs-item end -->
+						</div>
+						<!-- dhs-item col end -->
+					</div>
+					<!-- dhs items row end -->
+					</section>
+					
+					<section class="order-side">
+                        <div class="row">
+                           <div class="col-lg-7 col-12 mb-5 mb-lg-0">
+                              <div class="d-card dc-dblue">
+                                 <div class="d-card-body" id="dc-body">
+                                    <form  action="/" method="post" id="order-form">
+										  
+										     {% if error %}
+                                                  <div class="alert alert-dismissible alert-danger">
+                                                    {{ errorText }}
+                                                  </div>
+                                                {% endif %}
+                                            
+                                                {% if data["order"]["success"] == 1 %}
+                                                  <div class="alert alert-dismissible alert-success">
+                                                      <strong> {{ lang["neworder.success.id"] }}: </strong> {{ data['order']['id'] }} <br>
+                                                      <strong> {{ lang["neworder.success.service"] }}: </strong> {{ data['order']['service'] }} <br>
+                                                      <strong> {{ lang["neworder.success.link"] }}: </strong> {{ data['order']['link'] }} <br>
+                                                      <strong> {{ lang["neworder.success.quantity"] }}: </strong> {{ data['order']['quantity'] }} <br>
+                                                      <strong> {{ lang["neworder.success.charge"] }}: </strong> {{ data['order']['price'] }} <br>
+                                                      <strong> {{ lang["neworder.success.balance"] }}: </strong>{{ data['order']['balance'] }} <br>
+                                                  </div>
+                                                {% endif %}
+                                                {% if data["order"]["success"] == 2 %}
+                                                  <div class="alert alert-dismissible alert-success">
+                                                     <strong> {{ lang["neworder.success.id"] }}: </strong> {{ data['order']['id'] }} <br>
+                                                     <strong> {{ lang["neworder.success.service"] }}: </strong> {{ data['order']['service'] }} <br>
+                                                     <strong> {{ lang["neworder.success.username"] }}: </strong> {{ data['order']['link'] }} <br>
+                                                     <strong> {{ lang["neworder.success.quantity"] }}: </strong> {{ data['order']['min'] }} - {{ data['order']['max'] }} <br>
+                                                     <strong> {{ lang["neworder.success.posts"] }}: </strong> {{ data['order']['posts'] }} <br>
+                                                     <strong> {{ lang["neworder.success.delay"] }}: </strong>{{ data['order']['delay'] }} <br>
+                                                   </div>
+                                                {% endif %} 
+										  										  
+									  <div class="form-group mb-4 mt-3">
+                                          <label for="orderform-category" class="control-label">Category</label>
+
+										    <select class="form-control" id="neworder_category" name="categories">
+                                                {% for category in categories %}
+                                                    <option value="{{ category["category_id"] }}" {% if category["category_id"] == data['categories'] %} selected {% endif %} >{{ category["category_name"] }}</option>
+                                                {% endfor %}
+                                            </select>
+                                       </div>
+									   									   
+                                      <div class="form-group mb-4">
+                                          <label for="service" class="control-label">{{ lang["neworder.service"] }}<strong class="main-color"><span id="s_id"></span></strong></label>
+                                          <select class="form-control" id="neworder_services" name="services">
+                            
+                                          </select>
+                                       </div>
+                                       
+                                        <div class="form-group hidden fields" id="service_description">
+                                          <label>
+                                         Explanation
+                                          </label>
+                                          <div class="panel-body border-solid border-rounded" id="service_description">
+                                             
+                                          </div>
+                                       </div>
+                                      <div id="neworder_fields"></div>
+                                       
+									   
+                                       <div class="form-group">
+                                          <label>
+                                          Amount
+                                          </label>
+                                          <div class="input-group">
+                                             <input class="form-control" type="text" id="charge" value="" readonly>
+                                          </div>
+                                       </div>
+                                     										<button id="neworderbutton" onclick="submitPoll()" class="btn btn-primary btn-lg btn-block mb-4">Place Order</button>     
+									
+                                    </form>
+                                 </div>
+                              </div>
+                              <!-- d-card end -->
+                           </div>
+                           <!-- col item end-->
+                           
+                           <div class="col-lg-5 col-12 mb-5 mb-lg-0">
+                              <div class="d-card dc-dblue">
+                                 <div class="d-card-body" id="dc2-body" style="overflow-y: auto;">
+                                    <div class="tab-content mt-3">
+                                      
+                                       <div class="form-group">
+                                    {{ contentText }}     
+                                       </div>
+
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </section>
+                     
+                     
+			</div>
+		</div>
+	</div>
+</div>
+
+<style>
+    #service_description{
+        overflow:scroll;
+    }
+</style>
+{% include 'footer.twig' %}

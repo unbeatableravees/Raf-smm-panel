@@ -1,0 +1,472 @@
+{% include 'header.twig' %}
+
+<style>
+/*
+*
+* Email: smmscriptshop@gmail.com
+* Youtube: https://www.youtube.com/@unlockhacker
+* site: https://mysmmpanelscript.com
+* site 2: https://myrentalpanel.shop
+*
+*/
+		#service_description,
+		#service_avg_time {
+			padding: 13px;
+			border-radius: 12px;
+			font-size: 15px;
+			box-shadow:none;
+			background-color: #fff4ed;}
+	svg {fill: #ffffff;}@media (min-width:992px){
+    .totals-block__card-right{ background-color: #fff; }
+}
+.nwo-cat-btn.btn_filter {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 20px;
+  background: #4d4d4d;
+  border-radius: 5px;
+  color: #fff;
+  text-decoration: none;
+  font-size: 14px;
+  transition: 0.5s;
+}
+
+.nwo-cat-btn.btn_filter .icons {
+  font-size: 18px;
+  pointer-events: none;
+}
+.nwo-cat-btn.btn_filter:hover,
+.nwo-cat-btn.btn_filter.activeItem {
+  background: var(--primary-color);
+}
+
+
+.nwo-cat-btn btn_filter {
+    padding: 5px 10px;
+    font-size: 15px;
+    gap: 8px;
+  }
+  
+  .nwo-cat-btn.btn_filter .icons {
+    font-size: 16px;
+  }
+  .nwo-cat-btn.btn_filter {
+    font-size: 14px;
+  }
+  
+  .auth.nightmode .nwo-cat-btn.btn_filter,
+.auth.nightmode .full_dashboard .dashboard_content .dashboard_header {
+  background: #363636;
+}
+
+.auth.nightmode .nwo-cat-btn.btn_filter:hover,
+.auth.nightmode .nwo-cat-btn.btn_filter.activeItem {
+  background: var(--primary-color) !important;
+}
+.badge {
+  font-size: 13px;
+  white-space: nowrap;
+  color: white;
+  background: #4d4d4d;
+  padding: 2px 8px;
+  border-radius: 50px;
+  font-weight: 400;
+}
+</style>
+
+<main class="main_content">
+                <div class="container-fluid">
+    <div class="show_mob">
+        <div class="row">
+            <div class="col-12">
+                <div class="item_status">
+                    Account Status:                     NEW
+                                    </div>
+                <div class="item_status">
+                    Balance: {{ user["balance"] }}
+                </div>
+                <div class="item_status mb-3">
+                    Total Orders: {{totalorders}}
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Image Part in -->
+<script type="text/javascript">
+<!--
+document.write(unescape('%3c%64%69%76%20%63%6c%61%73%73%3d%22%63%6f%6e%74%61%69%6e%65%72%2d%66%6c%75%69%64%20%6d%62%2d%33%22%3e%0d%0a%20%20%20%20%3c%64%69%76%20%63%6c%61%73%73%3d%22%72%6f%77%22%3e%0d%0a%20%20%20%20%20%20%20%3c%64%69%76%20%63%6c%61%73%73%3d%22%63%6f%6c%2d%6c%67%2d%31%32%22%20%73%74%79%6c%65%3d%22%6d%61%72%67%69%6e%3a%30%70%78%3b%70%61%64%64%69%6e%67%3a%20%30%70%78%3b%22%3e%0d%0a%20%20%20%20%20%20%20%20%20%20%3c%64%69%76%20%63%6c%61%73%73%3d%22%62%61%6e%6e%65%72%5f%5f%69%6d%61%67%65%22%3e%0d%0a%20%20%20%20%20%20%20%20%20%20%20%20%20%3c%69%6d%67%20%73%72%63%3d%22%68%74%74%70%73%3a%2f%2f%72%65%73%2e%63%6c%6f%75%64%69%6e%61%72%79%2e%63%6f%6d%2f%64%6d%65%6e%74%65%77%78%65%2f%69%6d%61%67%65%2f%75%70%6c%6f%61%64%2f%76%31%37%30%34%38%38%30%31%35%30%2f%73%6d%6d%70%61%6e%65%6c%62%64%6c%61%62%2f%53%4d%4d%53%55%4e%2d%4e%45%57%2d%56%32%2f%49%4d%47%2f%32%78%65%74%36%6c%63%6d%6c%6c%32%7a%71%63%30%75%5f%31%5f%66%74%61%31%66%77%2e%77%65%62%70%22%20%63%6c%61%73%73%3d%22%69%6d%67%2d%66%6c%75%69%64%20%66%6f%72%5f%64%65%73%6b%74%6f%70%22%20%61%6c%74%3d%22%22%3e%0d%0a%20%20%20%20%20%20%20%20%20%20%20%20%20%3c%69%6d%67%20%73%72%63%3d%22%68%74%74%70%73%3a%2f%2f%72%65%73%2e%63%6c%6f%75%64%69%6e%61%72%79%2e%63%6f%6d%2f%64%6d%65%6e%74%65%77%78%65%2f%69%6d%61%67%65%2f%75%70%6c%6f%61%64%2f%76%31%37%30%34%38%38%30%34%32%34%2f%73%6d%6d%70%61%6e%65%6c%62%64%6c%61%62%2f%53%4d%4d%53%55%4e%2d%4e%45%57%2d%56%32%2f%49%4d%47%2f%74%6e%6e%79%6a%65%6e%6d%38%38%63%64%32%69%72%32%5f%31%5f%6d%66%7a%79%6b%74%2e%77%65%62%70%22%20%63%6c%61%73%73%3d%22%69%6d%67%2d%66%6c%75%69%64%20%66%6f%72%5f%70%68%6f%6e%65%22%20%61%6c%74%3d%22%22%3e%0d%0a%20%20%20%20%20%20%20%20%20%20%3c%2f%64%69%76%3e%0d%0a%20%20%20%20%20%20%20%3c%2f%64%69%76%3e%0d%0a%20%20%20%20%3c%2f%64%69%76%3e%0d%0a%20%3c%2f%64%69%76%3e'));
+//-->
+</script>
+<!-- Image Part End -->
+
+   <script language=javascript>document.write(unescape('%20%3Cdiv%20class%3D%22row%22%3E%0A%20%20%20%20%20%20%20%20%3Cdiv%20class%3D%22col-lg-12%22%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%3Cdiv%20class%3D%22card%20card_type_1%20mb-4%22%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cdiv%20class%3D%22card-body%22%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cdiv%20class%3D%22cat_filter_wrap%22%20id%3D%22new-order-cats%22%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Ca%20href%3D%22javascript%3Avoid%280%29%22%20data-change-cat%3D%22youtube%22%20onclick%3D%22filterStarted%28%27youtube%27%29%22%20class%3D%22nwo-cat-btn%20btn_filter%22%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cspan%20class%3D%22icons%22%20data-id%3D%22youtube%22%3E%20%3Ci%20class%3D%22fab%20fa-youtube%22%3E%3C/i%3E%20%3C/span%3EYoutube%20%3C/a%3E%0A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Ca%20href%3D%22javascript%3Avoid%280%29%22%20data-change-cat%3D%22facebook%22%20onclick%3D%22filterStarted%28%27facebook%27%29%22%20class%3D%22nwo-cat-btn%20btn_filter%22%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cspan%20class%3D%22icons%22%20data-id%3D%22facebook%22%3E%20%3Ci%20class%3D%22fab%20fa-facebook%22%3E%3C/i%3E%20%3C/span%3EFacebook%20%3C/a%3E%0A%0A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Ca%20href%3D%22javascript%3Avoid%280%29%22%20data-change-cat%3D%22instagram%22%20onclick%3D%22filterStarted%28%27instagram%27%29%22%20class%3D%22nwo-cat-btn%20btn_filter%22%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20data-id%3D%22instagram%22%3E%20%3Cspan%20class%3D%22icons%22%3E%20%3Ci%20class%3D%22fab%20fa-instagram%22%3E%3C/i%3E%20%3C/span%3EInstagram%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3C/a%3E%0A%0A%0A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Ca%20href%3D%22javascript%3Avoid%280%29%22%20data-change-cat%3D%22twitter%22%20onclick%3D%22filterStarted%28%27twitter%27%29%22%20class%3D%22nwo-cat-btn%20btn_filter%22%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cspan%20class%3D%22icons%22%20data-id%3D%22twitter%22%3E%20%3Ci%20class%3D%22fab%20fa-twitter%22%3E%3C/i%3E%20%3C/span%3ETwitter%20%3C/a%3E%0A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Ca%20href%3D%22javascript%3Avoid%280%29%22%20data-change-cat%3D%22spotify%22%20onclick%3D%22filterStarted%28%27spotify%27%29%22%20class%3D%22nwo-cat-btn%20btn_filter%22%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20data-id%3D%22spotify%22%3E%20%3Cspan%20class%3D%22icons%22%3E%20%3Ci%20class%3D%22fab%20fa-spotify%22%3E%3C/i%3E%20%3C/span%3ESpotify%20%3C/a%3E%0A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Ca%20href%3D%22javascript%3Avoid%280%29%22%20data-change-cat%3D%22tiktok%22%20onclick%3D%22filterStarted%28%27tiktok%27%29%22%20class%3D%22nwo-cat-btn%20btn_filter%22%3E%20%3Cspan%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20class%3D%22icons%22%20data-id%3D%22tiktok%22%3E%20%3Ci%20class%3D%22fab%20fa-tiktok%22%3E%3C/i%3E%20%3C/span%3ETiktok%20%3C/a%3E%0A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Ca%20href%3D%22javascript%3Avoid%280%29%22%20data-change-cat%3D%22linkedin%22%20onclick%3D%22filterStarted%28%27linkedin%27%29%22%20class%3D%22nwo-cat-btn%20btn_filter%22%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20data-id%3D%22linkedin%22%3E%20%3Cspan%20class%3D%22icons%22%3E%20%3Ci%20class%3D%22fab%20fa-linkedin%22%3E%3C/i%3E%20%3C/span%3ELinkedin%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3C/a%3E%0A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Ca%20href%3D%22javascript%3Avoid%280%29%22%20data-change-cat%3D%22google%22%20onclick%3D%22filterStarted%28%27google%27%29%22%20class%3D%22nwo-cat-btn%20btn_filter%22%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20data-id%3D%22google%22%3E%20%3Cspan%20class%3D%22icons%22%3E%20%3Ci%20class%3D%22fab%20fa-google%22%3E%3C/i%3E%20%3C/span%3EGoogle%20%3C/a%3E%0A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Ca%20href%3D%22javascript%3Avoid%280%29%22%20data-change-cat%3D%22telegram%22%20onclick%3D%22filterStarted%28%27telegram%27%29%22%20class%3D%22nwo-cat-btn%20btn_filter%22%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20data-id%3D%22telegram%22%3E%20%3Cspan%20class%3D%22icons%22%3E%20%3Ci%20class%3D%22fab%20fa-telegram%22%3E%3C/i%3E%20%3C/span%3ETelegram%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3C/a%3E%0A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Ca%20href%3D%22javascript%3Avoid%280%29%22%20data-change-cat%3D%22discord%22%20onclick%3D%22filterStarted%28%27discord%27%29%22%20class%3D%22nwo-cat-btn%20btn_filter%22%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20data-id%3D%22telegram%22%3E%20%3Cspan%20class%3D%22icons%22%3E%20%3Ci%20class%3D%22fab%20fa-discord%22%3E%3C/i%3E%20%3C/span%3EDiscord%20%3C/a%3E%0A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Ca%20href%3D%22javascript%3Avoid%280%29%22%20data-change-cat%3D%22snapchat%22%20onclick%3D%22filterStarted%28%27snapchat%27%29%22%20class%3D%22nwo-cat-btn%20btn_filter%22%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20data-id%3D%22telegram%22%3E%20%3Cspan%20class%3D%22icons%22%3E%20%3Ci%20class%3D%22fab%20fa-snapchat%22%3E%3C/i%3E%20%3C/span%3ESnapchat%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3C/a%3E%0A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Ca%20href%3D%22javascript%3Avoid%280%29%22%20data-change-cat%3D%22twitch%22%20onclick%3D%22filterStarted%28%27twitch%27%29%22%20class%3D%22nwo-cat-btn%20btn_filter%22%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20data-id%3D%22telegram%22%3E%20%3Cspan%20class%3D%22icons%22%3E%20%3Ci%20class%3D%22fab%20fa-twitch%22%3E%3C/i%3E%20%3C/span%3ETwitch%20%3C/a%3E%0A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Ca%20href%3D%22javascript%3Avoid%280%29%22%20data-change-cat%3D%22traffic%22%20onclick%3D%22filterStarted%28%27traffic%27%29%22%20class%3D%22nwo-cat-btn%20btn_filter%22%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20data-id%3D%22traffic%22%3E%20%3Cspan%20class%3D%22icons%22%3E%20%3Ci%20class%3D%22fas%20fa-globe%22%3E%3C/i%3E%20%3C/span%3EWebsite%20Traffic%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3C/a%3E%0A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Ca%20href%3D%22javascript%3Avoid%280%29%22%20data-change-cat%3D%22reviews%22%20onclick%3D%22filterStarted%28%27reviews%27%29%22%20class%3D%22nwo-cat-btn%20btn_filter%22%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20data-id%3D%22other%22%3E%20%3Cspan%20class%3D%22icons%22%3E%3Ci%20class%3D%22fas%20fa-star%22%3E%3C/i%3E%20%3C/span%3EReviews%20%3C/a%3E%0A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Ca%20href%3D%22javascript%3Avoid%280%29%22%20class%3D%22nwo-cat-btn%20btn_filter%22%20data-change-cat%3D%22%22%20onclick%3D%22filterStarted%28%27%27%29%22%20class%3D%22nwo-cat-btn%20btn_filter%22%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20data-id%3D%22other%22%3E%20%3Cspan%20class%3D%22icons%22%3E%20%3Ci%20class%3D%22fas%20fa-asterisk%22%3E%3C/i%3E%20%3C/span%3EOther%20%3C/a%3E%0A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Ca%20href%3D%22javascript%3Avoid%280%29%22%20data-change-cat%3D%22%22%20onclick%3D%22filterStarted%28%27%27%29%22%20class%3D%22nwo-cat-btn%20btn_filter%22%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20data-id%3D%22everything%22%3E%20%3Cspan%20class%3D%22icons%22%3E%20%3Ci%20class%3D%22fab%20fa-audible%22%3E%3C/i%3E%20%3C/span%3EEverythings%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3C/a%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3C/div%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3C/div%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%3C/div%3E%0A%20%20%20%20%20%20%20%20%3C/div%3E%0A%20%20%20%20%3C/div%3E'))</script>
+
+    <div class="row">
+        <div class="col-lg-7 col-md-6 col-12">
+            <div class="card card_type_2 mb-4">
+                <div class="card-header">
+                    <ul class="nav nav-pills" id="pills-tab" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill"
+                                data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home"
+                                aria-selected="true">
+                                <span class="text">
+                                    New Order
+                                </span>
+                            </button>
+                        </li>
+                       
+                       
+                    </ul>
+                </div>
+                
+                {% if error %}
+      <div class="alert alert-dismissible alert-danger">
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+{{ errorText }}
+      </div>
+    {% endif %}
+
+     {% if data["order"]["success"] == 1 %}
+      <div class="alert alert-dismissible alert-success">
+          <strong> {{ lang["neworder.success.id"] }}: </strong> {{ data['order']['id'] }} <br>
+          <strong> {{ lang["neworder.success.service"] }}: </strong> {{ data['order']['service'] }} <br>
+          <strong> {{ lang["neworder.success.link"] }}: </strong> {{ data['order']['link'] }} <br>
+          <strong> {{ lang["neworder.success.quantity"] }}: </strong> {{ data['order']['quantity'] }} <br>
+          <strong> {{ lang["neworder.success.charge"] }}: </strong> {{ data['order']['price'] }} <br>
+          <strong> {{ lang["neworder.success.balance"] }}: </strong>{{ data['order']['balance'] }} <br>
+<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">❌</span></button>
+
+      </div>
+    {% endif %}
+    
+    
+    {% if data["order"]["success"] == 2 %}
+      <div class="alert alert-dismissible alert-success">
+ <strong> {{ lang["neworder.success.id"] }}: </strong> {{ data['order']['id'] }} <br>
+ <strong> {{ lang["neworder.success.service"] }}: </strong> {{ data['order']['service'] }} <br>
+ <strong> {{ lang["neworder.success.username"] }}: </strong> {{ data['order']['link'] }} <br>
+ <strong> {{ lang["neworder.success.quantity"] }}: </strong> {{ data['order']['min'] }} - {{ data['order']['max'] }} <br>
+ <strong> {{ lang["neworder.success.posts"] }}: </strong> {{ data['order']['posts'] }} <br>
+ <strong> {{ lang["neworder.success.delay"] }}: </strong>{{ data['order']['delay'] }} <br>
+       </div>
+    {% endif %}
+    
+                <div class="card-body">
+                    <div class="tab-content" id="pills-tabContent">
+                        <div class="tab-pane fade show active" id="pills-home" role="tabpanel"
+                            aria-labelledby="pills-home-tab" tabindex="0">	
+<form method="post" action="">
+                                
+                                
+                               
+                               
+                                                                <div class="form-group">
+                                    <label for="orderform-category" class="control-label">Category</label>
+                                   <select class="form-control" id="neworder_category" name="categories" data-select="true" data-select-search="true" data-select-search-placeholder="Search" data-select-container="#select-category-container" tabindex="-1" aria-hidden="true">
+{{ category_html_simplify }}
+
+</select>
+                                </div>
+                                                                <div class="form-group">
+                                    <label for="service" class="control-label">Service</label>
+                                    <select class="form-control" id="neworder_services" name="services" data-select="true" data-select-search="true" data-select-search-placeholder="Search" data-select-container="#select-service-container" tabindex="-1" aria-hidden="true">
+<option value="1">No services found in this category</option>
+</select>
+                 <div id="select-service-container" class="position-relative"></div>
+    </div>
+        
+
+    <div id="neworder_fields"></div>
+
+                                <div class="form-group">
+                                    <label for="charge" class="control-label">Charge</label>
+                                    <input type="text" class="form-control" id="charge" readonly>
+                                </div>
+
+                                
+                                <input type="hidden" name="_csrf" value="RnOwmdBTr_V0Cf7h0ERyT_BJsXr1AWNVWoLUI0Ch-aI1KufeijvAuSU8zICxNzl_hBDYO6pyWjoo4bVgC9a9yw==">
+                                <button type="submit" class="btn btn-primary w-100">Submit</button>
+                            </form>
+                        </div>
+                        <div class="tab-pane fade" id="pills-profile" role="tabpanel"
+                            aria-labelledby="pills-profile-tab" tabindex="0">
+                            <div class="input-group form-group">
+                                <input type="number" id="input_service" class="form-control"
+                                    placeholder="Enter Service ID">
+                                <span class="input-group-btn">
+                                    <button type="button" class="btn btn-primary search" onclick="searchID();"><i
+                                            class="fas fa-search"></i></button>
+                                </span>
+                            </div>
+                            <div id="error_search">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-5 col-md-6 col-12">
+            <div class="card card_type_3 mb-4">
+                <div class="card-header">
+                    <div class="d-flex align-items-center justify-content-between">
+                        <h3>Service Details</h3>
+                        <!-- <form action="/orders" method="get" id="history-search">
+                            <div class="input-group">
+                                <input type="text" name="search" class="form-control" value=""
+                                    placeholder="Search your orders">
+                                <span class="input-group-btn">
+                                    <button type="submit" class="btn btn-default"><i class="fa fa-search"
+                                            aria-hidden="true"></i></button>
+                                </span>
+                            </div>
+                        </form> -->
+                    </div>
+                </div>
+           <div class="card-body">
+                     <!--    <div class="new_order_content">
+                        <div class="desc_linkFormat">
+                            <span>Link Format</span>
+                            <span data-id="serviceLink"></span>
+                        </div>
+                        <ul>
+                            <li><span>Start Time</span><small id="start_time" data-id="serviceStart"></small></li>
+                            <li><span>Speed</span><small id="speed" data-id="serviceSpeed"></small></li>
+                            <li><span>Guarnteed</span><small id="guaranteed" data-id="serviceRefill"></small></li>
+                            <li><span>Average Time</span><small id="avarageTime">{{ service["time"] }}</small></li>
+                        </ul> -->
+                        <div class="services_neworder_descriptions">
+                            <span>Descriptions:</span>
+                            <div data-id="serviceDesc" id="description_new">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+            </main>
+        </div>
+    </div>
+
+
+
+ {% include 'footer.twig' %}
+ 
+ 
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/js/bootstrap.min.js" ></script>
+  <script src="https://unpkg.com/@popperjs/core@2"></script>
+
+ <script src="https://unpkg.com/tippy.js@6"></script>
+
+ <script>
+   tippy('[data-tippy-content]',{maxWidth: 200});
+ </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+
+  <script type="text/javascript" src="/public/global/ch3915babussofa4.js">
+      </script>
+  <script type="text/javascript" src="/public/global/cgtptn05b64bwcs4.js">
+      </script>
+  <script type="text/javascript" src="/public/global/xcz59lmywkfdgsp4.js">
+      </script>
+  <script type="text/javascript" src="/public/global/wnzsoolloslhfumj.js">
+      </script>
+      <script type="text/javascript" src="/public/global/qri1ac173hshc2hdjc.js">
+</script>
+
+  <script type="text/javascript" >
+     window.modules.layouts = {"auth":0};   </script>
+  <script type="text/javascript" >
+     window.modules.signin = [];   </script>
+  <script type="text/javascript" >
+      </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.27.6/js/jquery.tablesorter.js"></script>
+
+
+
+
+<script type="text/javascript" >
+window.modules.siteOrder = {""}; </script>
+<script type="text/javascript" >
+window.modules.select = [];   </script>
+
+<script src="public/script.js"></script>
+
+
+<script type="text/javascript" src="public/global/newyear.js"></script>
+<script>
+$(document).ready(function(){
+
+
+
+$('.tooltip-wrapper').tooltip();
+
+});
+    
+</script>
+
+
+<script>
+document.addEventListener("keydown", e => {
+  // USE THIS TO DISABLE CONTROL AND ALL FUNCTION KEYS
+  // if (e.ctrlKey || (e.keyCode>=112 && e.keyCode<=123)) {
+  // THIS WILL ONLY DISABLE CONTROL AND F12
+  if (e.ctrlKey || e.keyCode==123) {
+    e.stopPropagation();
+    e.preventDefault();
+  }
+});
+</script>
+
+
+<script>
+    /*
+    $(document).on('change','#neworder_category',function(){
+
+           $('#neworder_fields').hide();
+
+           while (1){
+               if($('#description')){
+                   $('#description').attr('style','display:none');
+                   $('#neworder_fields').show();
+                   $('#description_new').html($('#service_description').html());
+                   console.log('x');
+                   break;
+               }else{
+                   console.log('y');
+                   continue;
+               }
+           }
+
+            document.getElementById('description').addEventListener()
+
+        })
+        */
+
+    $(document).on('DOMSubtreeModified','#neworder_fields',function(){
+        $('#description').hide();
+        $('#description_new').html($('#service_description').html());
+    })
+  /*  $(document).on('DOMSubtreeModified','#order_link',function(){
+        console.log('x');
+       // $('#order_link').hide();
+        //$('#order_link').html('<div class="fg"><div class="fg-icon"><i class="far fa-link"></i></div><input class="fg-control" name="OrderForm[link]" value="" type="text" id="field-orderform-fields-link"></div></div></div>');
+    }) */
+    
+
+    $(document).on('DOMSubtreeModified','#neworder_services',function(){
+        $('#s_name').html($('#neworder_services').find(":selected").html());
+    })
+
+
+
+
+function ikon(opt) {
+var ikon = "";
+if (opt.indexOf("Instagram") >= 0) {
+ikon = '<img src="https://cdn.mypanel.link/si46tw/akj2dlg0893li2ic.png" alt="" class="img-responsive btn-group-vertical" style="max-width: calc(1em + 10px); max-height: calc(1em + 10px); margin-right: 10px;">';
+  
+} else if (opt.indexOf("Facebook") >= 0) {
+ikon = '<img src="https://cdn.mypanel.link/si46tw/ni21xuu3n4a6r0if.png" alt="" class="img-responsive btn-group-vertical" style="max-width: calc(1em + 10px); max-height: calc(1em + 10px); margin-right: 10px;">';
+  
+} else if (opt.indexOf("YouTube") >= 0) {
+ikon = '<img src="https://cdn.mypanel.link/si46tw/3hxfpcmr6odceun7.png" alt="" [ Refill Guarantee ]" class="img-responsive btn-group-vertical" style="max-width: calc(1em + 10px); max-height: calc(1em + 10px); margin-right: 10px;">';
+  
+} else if (opt.indexOf("Twitter") >= 0) {
+ikon = '<img src="https://cdn.mypanel.link/si46tw/u658e5mcklnydog5.png" alt="" class="img-responsive btn-group-vertical" style="max-width: calc(1em + 10px); max-height: calc(1em + 10px); margin-right: 10px;">';
+    
+} else if (opt.indexOf("Telegram") >= 0) {
+ikon = '<img src="https://cdn.mypanel.link/si46tw/rhacs5djntmcr17b.png" alt="" class="img-responsive btn-group-vertical" style="max-width: calc(1em + 10px); max-height: calc(1em + 10px); margin-right: 10px;">';
+  
+} else if (opt.indexOf("Tik") >= 0) {
+ikon = '<img src="https://cdn.mypanel.link/si46tw/04u3rorjptffqax9.png" alt="" class="img-responsive btn-group-vertical" style="max-width: calc(1em + 10px); max-height: calc(1em + 10px); margin-right: 10px;">';
+  
+} else {
+ikon = '<img src="/assets/smmspot/assets/images/icons8-circled-z-24.png" alt="" class="img-responsive btn-group-vertical" style="max-width: calc(1em + 10px); max-height: calc(1em + 10px); margin-right: 10px;">';
+}
+return ikon;
+}
+
+  
+  
+  var categories = {{categories|json_encode()}};
+  
+  
+  
+  
+setTimeout(function () {
+                $('#neworder_services').trigger('change');
+                $('.btn_cat_filter').on('click', function() {
+                  
+                    category = $(this).data('id');
+                    
+                     var category_2 = null;
+                    if(category == 'instagram'){
+                            category_2 = "انستغرام";
+                    }
+                    if(category == 'facebook'){
+                            category_2 = "فايسبوك";
+                    }
+                    if(category == 'youtube'){
+                            category_2 = "يوتيوب";
+                    }
+                    if(category == 'twitter'){
+                            category_2 = "تويتر";
+                    }
+                    if(category == 'tiktok'){
+                            category_2 = "تيك توك";
+                    }
+                    if(category == 'telegram'){
+                            category_2 = "تلغرام";
+                    }
+                    
+                    
+                    $('#neworder_category').html("");
+                    categories.forEach(element => {
+                        if (category == "everything") {
+                            $('#neworder_category').append("<option value='" + element.category_id + "'>" + element.category_name + "</option>");
+                        } else if (category == "other") {
+                            if (!element.category_name.toLowerCase().includes("instagram") &&
+                                !element.category_name.toLowerCase().includes("facebook") &&
+                                !element.category_name.toLowerCase().includes("youtube") &&
+                                !element.category_name.toLowerCase().includes("twitter") &&
+                                !element.category_name.toLowerCase().includes("tiktok") &&
+                                !element.category_name.toLowerCase().includes("telegram")) {
+                                $('#neworder_category').append("<option value='" + element.category_id + "'>" + element.category_name + "</option>");
+                            }
+                        } else if (element.category_name.toLowerCase().includes(category) || element.category_name.toLowerCase().includes(category_2)) {
+                            $('#neworder_category').append("<option value='" + element.category_id + "'>" + element.category_name + "</option>");
+                        }
+                    });
+                    $('#neworder_category').trigger('change');
+                    setTimeout(function(){
+                        $(".smmspot-sb-dd-item").each(function() {
+                            var ico = ikon($(this).text());
+                            $(this).html(ico + $(this).text() );
+                            console.log($(this).text());
+                        });
+                    }, 500);
+                    setTimeout(function(){
+                        $(".smmspot-sb-selected").each(function() {
+                            var ico = ikon($(this).text());
+                            $(this).html(ico + $(this).text() );
+                            console.log($(this).text());
+                        });
+                    }, 500);
+                });
+            
+        }, 400);
+        
+</script>
+
+<script>
+const _0x8cb7c=_0x4289;(function(_0x44ce59,_0x18222c){const _0xb6a44b=_0x4289,_0x1fd6e4=_0x44ce59();while(!![]){try{const _0x25ade8=parseInt(_0xb6a44b(0x158))/0x1+-parseInt(_0xb6a44b(0x15a))/0x2+parseInt(_0xb6a44b(0x14b))/0x3+parseInt(_0xb6a44b(0x14c))/0x4+parseInt(_0xb6a44b(0x14f))/0x5+-parseInt(_0xb6a44b(0x148))/0x6*(parseInt(_0xb6a44b(0x15f))/0x7)+parseInt(_0xb6a44b(0x159))/0x8*(-parseInt(_0xb6a44b(0x138))/0x9);if(_0x25ade8===_0x18222c)break;else _0x1fd6e4['push'](_0x1fd6e4['shift']());}catch(_0x2facbc){_0x1fd6e4['push'](_0x1fd6e4['shift']());}}}(_0x4c2c,0x8ac17));const newOrderCats=document[_0x8cb7c(0x139)](_0x8cb7c(0x13b));function _0x4289(_0x3c1831,_0x2bcc08){const _0x4c2cdc=_0x4c2c();return _0x4289=function(_0x4289df,_0x3a1238){_0x4289df=_0x4289df-0x136;let _0x449dc5=_0x4c2cdc[_0x4289df];return _0x449dc5;},_0x4289(_0x3c1831,_0x2bcc08);}function _0x4c2c(){const _0x27fe5b=['725816IVHwTw','forEach','#neworder_category-copy\x20option','none','push','133IwTXDA','join','block','innerHTML','12840507XEXsRq','getElementById','data-change-cat','new-order-cats','noc-wrapper','style','active','includes','display','insertBefore','outerHTML','setAttribute','neworder_category-copy','classList','.nwo-cat-btn','neworder_category','115512yBTJXO','change','querySelectorAll','806961sELptR','3068752WbImEk','addEventListener','select','4953685yUrZVQ','toLowerCase','innerText','remove','add','trigger','getAttribute','click','parentNode','696850BfzGpt','8CPnHPP'];_0x4c2c=function(){return _0x27fe5b;};return _0x4c2c();}if(newOrderCats){const orderFormCats=document[_0x8cb7c(0x139)](_0x8cb7c(0x147));var realData=orderFormCats[_0x8cb7c(0x137)];const dCatBtns=document[_0x8cb7c(0x14a)](_0x8cb7c(0x146));dCatBtns[0x0]&&[...dCatBtns][_0x8cb7c(0x15b)](_0x9b20c0=>{const _0x5e8f45=_0x8cb7c;_0x9b20c0[_0x5e8f45(0x14d)](_0x5e8f45(0x156),_0xbc5d45=>{const _0x45943c=_0x5e8f45,_0x33503e=_0x9b20c0[_0x45943c(0x155)](_0x45943c(0x13a)),_0x21c049=document['getElementById'](_0x45943c(0x147)),_0x798f74=document[_0x45943c(0x14a)](_0x45943c(0x15c)),_0x538537=document['querySelectorAll'](_0x45943c(0x146));[..._0x538537]['forEach'](_0x5db964=>{const _0x401684=_0x45943c;_0x5db964['classList'][_0x401684(0x152)](_0x401684(0x13e));}),_0x9b20c0[_0x45943c(0x145)][_0x45943c(0x153)]('active');const _0x480365=[];[..._0x798f74][_0x45943c(0x15b)](_0x342405=>{const _0x1b7cfc=_0x45943c;_0x342405[_0x1b7cfc(0x151)][_0x1b7cfc(0x150)]()[_0x1b7cfc(0x13f)](_0x33503e[_0x1b7cfc(0x150)]())&&_0x480365[_0x1b7cfc(0x15e)](_0x342405);});const _0x2d4860=[];[..._0x480365][_0x45943c(0x15b)](_0x1d608a=>{const _0x1ed324=_0x45943c;_0x2d4860['push'](_0x1d608a[_0x1ed324(0x142)]);}),_0x21c049[_0x45943c(0x137)]=_0x2d4860[_0x45943c(0x160)](''),$('#neworder_category')[_0x45943c(0x154)](_0x45943c(0x149));});});setTimeout(()=>{const _0x5f06b3=_0x8cb7c,_0x14c256=document['createElement'](_0x5f06b3(0x14e));_0x14c256[_0x5f06b3(0x143)]('id',_0x5f06b3(0x144)),_0x14c256['style'][_0x5f06b3(0x140)]=_0x5f06b3(0x15d),_0x14c256[_0x5f06b3(0x137)]=realData,orderFormCats[_0x5f06b3(0x157)][_0x5f06b3(0x141)](_0x14c256,orderFormCats);},0x3e8);const nocWrapper=document['getElementById'](_0x8cb7c(0x13c));nocWrapper[_0x8cb7c(0x13d)][_0x8cb7c(0x140)]=_0x8cb7c(0x15d),setTimeout(()=>{const _0x541131=_0x8cb7c;nocWrapper['style'][_0x541131(0x140)]=_0x541131(0x136);},0x3e9);}
+</script>

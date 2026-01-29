@@ -1,0 +1,105 @@
+{% include 'header.twig' %}
+
+
+            <!-- Main variables *content* -->
+    <main>
+        <section id="signup_wraper">
+    <div class="signup_left">
+        <div class="signup__image">
+            <img src="https://res.cloudinary.com/dmentewxe/image/upload/v1704035342/smmpanelbdlab/SMMSUN-NEW-V2/IMG/signup-best-smm-panel-in-bangladesh_1_zeonep_bmbtiq.png" class="img-fluid"
+                alt="signup-best-smm-panel-in-bangladesh">
+        </div>
+    </div>
+    <div class="signup_right">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-9 col-md-12 col-12">
+                    <div class="signup_title">
+                        <h1 class="text-black">Create an <span class="text-primary-gradient">Account</span></h1>
+
+                        <p>
+                            Would you like to get started? Sign up quickly and enjoy a satisfying experience with our services.
+                        </p>
+                    </div>
+                    <div class="signup__form">
+                        
+                        {% if errorText %}
+        <div class="alert alert-dismissible alert-danger">
+          <button type="button" class="close" data-dismiss="alert">&times;</button>
+          {{ errorText }}
+        </div>
+      {% endif %}
+      {% if successText %}
+        <div class="alert alert-dismissible alert-success">
+          <button type="button" class="close" data-dismiss="alert">&times;</button>
+          {{ successText }}
+        </div>
+      {% endif %}
+                            <form action="" method="post" class="component_form_group component_checkbox">
+                                                        
+                                                        <div class="form-group has_icon">
+                                <span class="icon">
+                                                                        <img src="https://res.cloudinary.com/dmentewxe/image/upload/v1704035402/smmpanelbdlab/SMMSUN-NEW-V2/IMG/smm-panel-username-icon_iprgna.png"
+                                        class="img-fluid icon" alt="smm-panel-username-icon">
+                                                                    </span>
+                                                                <input type="text" class="signup_item form-control" id="login"
+                                    value="" name="username"
+                                    placeholder="Username">
+                                                            </div>
+                                                        <div class="form-group has_icon">
+                                <span class="icon">
+                                                                        <img src="https://res.cloudinary.com/dmentewxe/image/upload/v1704035457/smmpanelbdlab/SMMSUN-NEW-V2/IMG/email-smm-icon_ufufzc.png"
+                                        class="img-fluid icon" alt="email-smm-icon">
+                                                                    </span>
+                                                                <input type="email" class="signup_item form-control" id="email"
+                                    value="" name="email"
+                                    placeholder="Email">
+                                                            </div>
+                                                        <div class="form-group has_icon">
+                                <span class="icon">
+                                                                        <img src="https://res.cloudinary.com/dmentewxe/image/upload/v1704035480/smmpanelbdlab/SMMSUN-NEW-V2/IMG/smm-panel-passoword-icon_o3e7ei.png"
+                                        class="img-fluid icon" alt="smm-panel-passoword-icon">
+                                                                    </span>
+                                                                <input type="password" class="signup_item form-control" id="password"
+                                    value="" name="password"
+                                    placeholder="Password">
+                                <button class="pwd_show_hide" type="button" id="pwdBtn"
+                                    onclick="passwordShowHide('pwdBtn','password')">
+                                    <span class="hide-eye"> <i class="far fa-eye-slash"></i> </span>
+                                    <span class="show-eye"> <i class="far fa-eye"></i> </span>
+                                </button>
+                                                            </div>
+                                                        <div class="form-group has_icon">
+                                <span class="icon">
+                                                                        <img src="https://res.cloudinary.com/dmentewxe/image/upload/v1704035506/smmpanelbdlab/SMMSUN-NEW-V2/IMG/smm-panel-passoword-icon_ylcftt.png"
+                                        class="img-fluid icon" alt="smm-panel-passoword-icon">
+                                                                    </span>
+                                                                <input type="password" class="signup_item form-control" id="password_again"
+                                    value="" name="password_again"
+                                    placeholder="Confirm password">
+                                <button class="pwd_show_hide" type="button" id="pwdBtn2"
+                                    onclick="passwordShowHide('pwdBtn2','password_again')">
+                                    <span class="hide-eye"> <i class="far fa-eye-slash"></i> </span>
+                                    <span class="show-eye"> <i class="far fa-eye"></i> </span>
+                                </button>
+                                                            </div>
+                                                                                                               <div class="checkbox">
+            <label>
+              <input type="checkbox" name="terms" value="1"> I have read and agreed with <a href='terms'>Terms of service</a>
+            </label>
+          </div>
+                                                    
+                            <button type="submit" class="w-100 btn btn-primary">
+                                Sign up
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+    </main>
+
+
+ {% include 'footer.twig' %}

@@ -1,0 +1,911 @@
+{% include 'header.twig' %}
+
+ <main class="main_content">
+                <div class="container-fluid">
+        <div class="row">
+        <div class="col-lg-12 col-12">
+            <div class="card card_type_3 mb-5">
+                <div class="card-header">
+                    <h4 class="mb-0">API Details</h4>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6 col-12">
+                            <div class="api__item">
+                                <h4>API URL</h4>
+                                <p>
+                                    {{ site['url'] }}/api/v2
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-12">
+                            <div class="api__item">
+                                <h4>API Key</h4>
+                                <p>
+                                    Get an API key on the <a
+                                        href="/account" class="link">Account</a> page
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-12">
+                            <div class="api__item">
+                                <h4>HTTP Method</h4>
+                                <p>
+                                    POST
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-12">
+                            <div class="api__item">
+                                <h4>Response format</h4>
+                                <p>
+                                    JSON
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-12">
+                            <div class="api__item">
+                                <h4>Example Code
+                                </h4>
+                                <p>
+                                    <a
+                                        href="{{ site['url'] }}/example.txt" class="link" target="_blank">{{ site['url'] }}/example.txt</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+                        <div class="card card_type_3 mb-5">
+                <div class="card-header">
+                    <h4 class="mb-0">Service list</h4>
+                </div>
+                <div class="card-body">
+                    
+                    <div class="row">
+                                                <div class="col-lg-3 col-md-4 col-6">
+                            <div class="api__item">
+                                <h4>key</h4>
+                                <p>Your API key</p>
+                            </div>
+                        </div>
+                                                <div class="col-lg-3 col-md-4 col-6">
+                            <div class="api__item">
+                                <h4>action</h4>
+                                <p>services</p>
+                            </div>
+                        </div>
+                                            </div>
+
+                                    </div>
+            </div>
+            <pre class="mb-5">[
+    {
+        "service": 1,
+        "name": "Followers",
+        "type": "Default",
+        "category": "First Category",
+        "rate": "0.90",
+        "min": "50",
+        "max": "10000",
+        "refill": true,
+        "cancel": true
+    },
+    {
+        "service": 2,
+        "name": "Comments",
+        "type": "Custom Comments",
+        "category": "Second Category",
+        "rate": "8",
+        "min": "10",
+        "max": "1500",
+        "refill": false,
+        "cancel": true
+    }
+]</pre>
+                        <div class="card card_type_3 mb-5">
+                <div class="card-header">
+                    <h4 class="mb-0">Add order</h4>
+                </div>
+                <div class="card-body">
+                                                            <div class="row">
+                        <div class="col-lg-4 col-12">
+                            <form class="form-inline">
+                                <div class="form-group">
+                                    <select class="form-select" id="service_type">
+                                                                                <option value="0">Default</option>
+                                                                                <option value="1">SEO</option>
+                                                                                <option value="2">Custom Comments</option>
+                                                                                <option value="9">Mentions</option>
+                                                                                <option value="4">Mentions Custom List</option>
+                                                                                <option value="6">Mentions Hashtag</option>
+                                                                                <option value="7">Mentions User Followers</option>
+                                                                                <option value="17">Poll</option>
+                                                                            </select>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                                                            <div id="type_0" style="display:none;">
+                        <div class="row">
+                                                        <div class="col-lg-3 col-md-4 col-6">
+                                <div class="api__item">
+                                    <h4>
+                                        key
+                                    </h4>
+                                    <p>
+                                        Your API key
+                                    </p>
+                                </div>
+                            </div>
+                                                        <div class="col-lg-3 col-md-4 col-6">
+                                <div class="api__item">
+                                    <h4>
+                                        action
+                                    </h4>
+                                    <p>
+                                        add
+                                    </p>
+                                </div>
+                            </div>
+                                                        <div class="col-lg-3 col-md-4 col-6">
+                                <div class="api__item">
+                                    <h4>
+                                        service
+                                    </h4>
+                                    <p>
+                                        Service ID
+                                    </p>
+                                </div>
+                            </div>
+                                                        <div class="col-lg-3 col-md-4 col-6">
+                                <div class="api__item">
+                                    <h4>
+                                        link
+                                    </h4>
+                                    <p>
+                                        Link to page
+                                    </p>
+                                </div>
+                            </div>
+                                                        <div class="col-lg-3 col-md-4 col-6">
+                                <div class="api__item">
+                                    <h4>
+                                        quantity
+                                    </h4>
+                                    <p>
+                                        Needed quantity
+                                    </p>
+                                </div>
+                            </div>
+                                                        <div class="col-lg-3 col-md-4 col-6">
+                                <div class="api__item">
+                                    <h4>
+                                        runs (optional)
+                                    </h4>
+                                    <p>
+                                        Runs to deliver
+                                    </p>
+                                </div>
+                            </div>
+                                                        <div class="col-lg-3 col-md-4 col-6">
+                                <div class="api__item">
+                                    <h4>
+                                        interval (optional)
+                                    </h4>
+                                    <p>
+                                        Interval in minutes
+                                    </p>
+                                </div>
+                            </div>
+                                                    </div>
+                    </div>
+                                        <div id="type_1" style="display:none;">
+                        <div class="row">
+                                                        <div class="col-lg-3 col-md-4 col-6">
+                                <div class="api__item">
+                                    <h4>
+                                        key
+                                    </h4>
+                                    <p>
+                                        Your API key
+                                    </p>
+                                </div>
+                            </div>
+                                                        <div class="col-lg-3 col-md-4 col-6">
+                                <div class="api__item">
+                                    <h4>
+                                        action
+                                    </h4>
+                                    <p>
+                                        add
+                                    </p>
+                                </div>
+                            </div>
+                                                        <div class="col-lg-3 col-md-4 col-6">
+                                <div class="api__item">
+                                    <h4>
+                                        service
+                                    </h4>
+                                    <p>
+                                        Service ID
+                                    </p>
+                                </div>
+                            </div>
+                                                        <div class="col-lg-3 col-md-4 col-6">
+                                <div class="api__item">
+                                    <h4>
+                                        link
+                                    </h4>
+                                    <p>
+                                        Link to page
+                                    </p>
+                                </div>
+                            </div>
+                                                        <div class="col-lg-3 col-md-4 col-6">
+                                <div class="api__item">
+                                    <h4>
+                                        quantity
+                                    </h4>
+                                    <p>
+                                        Needed quantity
+                                    </p>
+                                </div>
+                            </div>
+                                                        <div class="col-lg-3 col-md-4 col-6">
+                                <div class="api__item">
+                                    <h4>
+                                        keywords
+                                    </h4>
+                                    <p>
+                                        Keywords list separated by \r\n or \n
+                                    </p>
+                                </div>
+                            </div>
+                                                    </div>
+                    </div>
+                                        <div id="type_2" style="display:none;">
+                        <div class="row">
+                                                        <div class="col-lg-3 col-md-4 col-6">
+                                <div class="api__item">
+                                    <h4>
+                                        key
+                                    </h4>
+                                    <p>
+                                        Your API key
+                                    </p>
+                                </div>
+                            </div>
+                                                        <div class="col-lg-3 col-md-4 col-6">
+                                <div class="api__item">
+                                    <h4>
+                                        action
+                                    </h4>
+                                    <p>
+                                        add
+                                    </p>
+                                </div>
+                            </div>
+                                                        <div class="col-lg-3 col-md-4 col-6">
+                                <div class="api__item">
+                                    <h4>
+                                        service
+                                    </h4>
+                                    <p>
+                                        Service ID
+                                    </p>
+                                </div>
+                            </div>
+                                                        <div class="col-lg-3 col-md-4 col-6">
+                                <div class="api__item">
+                                    <h4>
+                                        link
+                                    </h4>
+                                    <p>
+                                        Link to page
+                                    </p>
+                                </div>
+                            </div>
+                                                        <div class="col-lg-3 col-md-4 col-6">
+                                <div class="api__item">
+                                    <h4>
+                                        comments
+                                    </h4>
+                                    <p>
+                                        Comments list separated by \r\n or \n
+                                    </p>
+                                </div>
+                            </div>
+                                                    </div>
+                    </div>
+                                        <div id="type_9" style="display:none;">
+                        <div class="row">
+                                                        <div class="col-lg-3 col-md-4 col-6">
+                                <div class="api__item">
+                                    <h4>
+                                        key
+                                    </h4>
+                                    <p>
+                                        Your API key
+                                    </p>
+                                </div>
+                            </div>
+                                                        <div class="col-lg-3 col-md-4 col-6">
+                                <div class="api__item">
+                                    <h4>
+                                        action
+                                    </h4>
+                                    <p>
+                                        add
+                                    </p>
+                                </div>
+                            </div>
+                                                        <div class="col-lg-3 col-md-4 col-6">
+                                <div class="api__item">
+                                    <h4>
+                                        service
+                                    </h4>
+                                    <p>
+                                        Service ID
+                                    </p>
+                                </div>
+                            </div>
+                                                        <div class="col-lg-3 col-md-4 col-6">
+                                <div class="api__item">
+                                    <h4>
+                                        link
+                                    </h4>
+                                    <p>
+                                        Link to page
+                                    </p>
+                                </div>
+                            </div>
+                                                        <div class="col-lg-3 col-md-4 col-6">
+                                <div class="api__item">
+                                    <h4>
+                                        quantity
+                                    </h4>
+                                    <p>
+                                        Needed quantity
+                                    </p>
+                                </div>
+                            </div>
+                                                        <div class="col-lg-3 col-md-4 col-6">
+                                <div class="api__item">
+                                    <h4>
+                                        usernames
+                                    </h4>
+                                    <p>
+                                        Usernames list separated by \r\n or \n
+                                    </p>
+                                </div>
+                            </div>
+                                                    </div>
+                    </div>
+                                        <div id="type_4" style="display:none;">
+                        <div class="row">
+                                                        <div class="col-lg-3 col-md-4 col-6">
+                                <div class="api__item">
+                                    <h4>
+                                        key
+                                    </h4>
+                                    <p>
+                                        Your API key
+                                    </p>
+                                </div>
+                            </div>
+                                                        <div class="col-lg-3 col-md-4 col-6">
+                                <div class="api__item">
+                                    <h4>
+                                        action
+                                    </h4>
+                                    <p>
+                                        add
+                                    </p>
+                                </div>
+                            </div>
+                                                        <div class="col-lg-3 col-md-4 col-6">
+                                <div class="api__item">
+                                    <h4>
+                                        service
+                                    </h4>
+                                    <p>
+                                        Service ID
+                                    </p>
+                                </div>
+                            </div>
+                                                        <div class="col-lg-3 col-md-4 col-6">
+                                <div class="api__item">
+                                    <h4>
+                                        link
+                                    </h4>
+                                    <p>
+                                        Link to page
+                                    </p>
+                                </div>
+                            </div>
+                                                        <div class="col-lg-3 col-md-4 col-6">
+                                <div class="api__item">
+                                    <h4>
+                                        usernames
+                                    </h4>
+                                    <p>
+                                        Usernames list separated by \r\n or \n
+                                    </p>
+                                </div>
+                            </div>
+                                                    </div>
+                    </div>
+                                        <div id="type_6" style="display:none;">
+                        <div class="row">
+                                                        <div class="col-lg-3 col-md-4 col-6">
+                                <div class="api__item">
+                                    <h4>
+                                        key
+                                    </h4>
+                                    <p>
+                                        Your API key
+                                    </p>
+                                </div>
+                            </div>
+                                                        <div class="col-lg-3 col-md-4 col-6">
+                                <div class="api__item">
+                                    <h4>
+                                        action
+                                    </h4>
+                                    <p>
+                                        add
+                                    </p>
+                                </div>
+                            </div>
+                                                        <div class="col-lg-3 col-md-4 col-6">
+                                <div class="api__item">
+                                    <h4>
+                                        service
+                                    </h4>
+                                    <p>
+                                        Service ID
+                                    </p>
+                                </div>
+                            </div>
+                                                        <div class="col-lg-3 col-md-4 col-6">
+                                <div class="api__item">
+                                    <h4>
+                                        link
+                                    </h4>
+                                    <p>
+                                        Link to page
+                                    </p>
+                                </div>
+                            </div>
+                                                        <div class="col-lg-3 col-md-4 col-6">
+                                <div class="api__item">
+                                    <h4>
+                                        quantity
+                                    </h4>
+                                    <p>
+                                        Needed quantity
+                                    </p>
+                                </div>
+                            </div>
+                                                        <div class="col-lg-3 col-md-4 col-6">
+                                <div class="api__item">
+                                    <h4>
+                                        hashtag
+                                    </h4>
+                                    <p>
+                                        Hashtag to scrape usernames from
+                                    </p>
+                                </div>
+                            </div>
+                                                    </div>
+                    </div>
+                                        <div id="type_7" style="display:none;">
+                        <div class="row">
+                                                        <div class="col-lg-3 col-md-4 col-6">
+                                <div class="api__item">
+                                    <h4>
+                                        key
+                                    </h4>
+                                    <p>
+                                        Your API key
+                                    </p>
+                                </div>
+                            </div>
+                                                        <div class="col-lg-3 col-md-4 col-6">
+                                <div class="api__item">
+                                    <h4>
+                                        action
+                                    </h4>
+                                    <p>
+                                        add
+                                    </p>
+                                </div>
+                            </div>
+                                                        <div class="col-lg-3 col-md-4 col-6">
+                                <div class="api__item">
+                                    <h4>
+                                        service
+                                    </h4>
+                                    <p>
+                                        Service ID
+                                    </p>
+                                </div>
+                            </div>
+                                                        <div class="col-lg-3 col-md-4 col-6">
+                                <div class="api__item">
+                                    <h4>
+                                        link
+                                    </h4>
+                                    <p>
+                                        Link to page
+                                    </p>
+                                </div>
+                            </div>
+                                                        <div class="col-lg-3 col-md-4 col-6">
+                                <div class="api__item">
+                                    <h4>
+                                        quantity
+                                    </h4>
+                                    <p>
+                                        Needed quantity
+                                    </p>
+                                </div>
+                            </div>
+                                                        <div class="col-lg-3 col-md-4 col-6">
+                                <div class="api__item">
+                                    <h4>
+                                        username
+                                    </h4>
+                                    <p>
+                                        URL to scrape followers from
+                                    </p>
+                                </div>
+                            </div>
+                                                    </div>
+                    </div>
+                                        <div id="type_17" style="display:none;">
+                        <div class="row">
+                                                        <div class="col-lg-3 col-md-4 col-6">
+                                <div class="api__item">
+                                    <h4>
+                                        key
+                                    </h4>
+                                    <p>
+                                        Your API key
+                                    </p>
+                                </div>
+                            </div>
+                                                        <div class="col-lg-3 col-md-4 col-6">
+                                <div class="api__item">
+                                    <h4>
+                                        action
+                                    </h4>
+                                    <p>
+                                        add
+                                    </p>
+                                </div>
+                            </div>
+                                                        <div class="col-lg-3 col-md-4 col-6">
+                                <div class="api__item">
+                                    <h4>
+                                        service
+                                    </h4>
+                                    <p>
+                                        Service ID
+                                    </p>
+                                </div>
+                            </div>
+                                                        <div class="col-lg-3 col-md-4 col-6">
+                                <div class="api__item">
+                                    <h4>
+                                        link
+                                    </h4>
+                                    <p>
+                                        Link to page
+                                    </p>
+                                </div>
+                            </div>
+                                                        <div class="col-lg-3 col-md-4 col-6">
+                                <div class="api__item">
+                                    <h4>
+                                        quantity
+                                    </h4>
+                                    <p>
+                                        Needed quantity
+                                    </p>
+                                </div>
+                            </div>
+                                                        <div class="col-lg-3 col-md-4 col-6">
+                                <div class="api__item">
+                                    <h4>
+                                        answer_number
+                                    </h4>
+                                    <p>
+                                        Answer number of the poll
+                                    </p>
+                                </div>
+                            </div>
+                                                    </div>
+                    </div>
+                                                        </div>
+            </div>
+            <pre class="mb-5">{
+    "order": 23501
+}</pre>
+                        <div class="card card_type_3 mb-5">
+                <div class="card-header">
+                    <h4 class="mb-0">Order status</h4>
+                </div>
+                <div class="card-body">
+                    
+                    <div class="row">
+                                                <div class="col-lg-3 col-md-4 col-6">
+                            <div class="api__item">
+                                <h4>key</h4>
+                                <p>Your API key</p>
+                            </div>
+                        </div>
+                                                <div class="col-lg-3 col-md-4 col-6">
+                            <div class="api__item">
+                                <h4>action</h4>
+                                <p>status</p>
+                            </div>
+                        </div>
+                                                <div class="col-lg-3 col-md-4 col-6">
+                            <div class="api__item">
+                                <h4>order</h4>
+                                <p>Order ID</p>
+                            </div>
+                        </div>
+                                            </div>
+
+                                    </div>
+            </div>
+            <pre class="mb-5">{
+    "charge": "0.27819",
+    "start_count": "3572",
+    "status": "Partial",
+    "remains": "157",
+    "currency": "USD"
+}</pre>
+                        <div class="card card_type_3 mb-5">
+                <div class="card-header">
+                    <h4 class="mb-0">Multiple orders status</h4>
+                </div>
+                <div class="card-body">
+                    
+                    <div class="row">
+                                                <div class="col-lg-3 col-md-4 col-6">
+                            <div class="api__item">
+                                <h4>key</h4>
+                                <p>Your API key</p>
+                            </div>
+                        </div>
+                                                <div class="col-lg-3 col-md-4 col-6">
+                            <div class="api__item">
+                                <h4>action</h4>
+                                <p>status</p>
+                            </div>
+                        </div>
+                                                <div class="col-lg-3 col-md-4 col-6">
+                            <div class="api__item">
+                                <h4>orders</h4>
+                                <p>Order IDs (separated by a comma, up to 100 IDs)</p>
+                            </div>
+                        </div>
+                                            </div>
+
+                                    </div>
+            </div>
+            <pre class="mb-5">{
+    "1": {
+        "charge": "0.27819",
+        "start_count": "3572",
+        "status": "Partial",
+        "remains": "157",
+        "currency": "USD"
+    },
+    "10": {
+        "error": "Incorrect order ID"
+    },
+    "100": {
+        "charge": "1.44219",
+        "start_count": "234",
+        "status": "In progress",
+        "remains": "10",
+        "currency": "USD"
+    }
+}</pre>
+                        <div class="card card_type_3 mb-5">
+                <div class="card-header">
+                    <h4 class="mb-0">Create refill</h4>
+                </div>
+                <div class="card-body">
+                    
+                    <div class="row">
+                                                <div class="col-lg-3 col-md-4 col-6">
+                            <div class="api__item">
+                                <h4>key</h4>
+                                <p>Your API key</p>
+                            </div>
+                        </div>
+                                                <div class="col-lg-3 col-md-4 col-6">
+                            <div class="api__item">
+                                <h4>action</h4>
+                                <p>refill</p>
+                            </div>
+                        </div>
+                                                <div class="col-lg-3 col-md-4 col-6">
+                            <div class="api__item">
+                                <h4>order</h4>
+                                <p>Order ID</p>
+                            </div>
+                        </div>
+                                            </div>
+
+                                    </div>
+            </div>
+            <pre class="mb-5">{
+    "refill": "1"
+}</pre>
+                        <div class="card card_type_3 mb-5">
+                <div class="card-header">
+                    <h4 class="mb-0">Create multiple refill</h4>
+                </div>
+                <div class="card-body">
+                    
+                    <div class="row">
+                                                <div class="col-lg-3 col-md-4 col-6">
+                            <div class="api__item">
+                                <h4>key</h4>
+                                <p>Your API key</p>
+                            </div>
+                        </div>
+                                                <div class="col-lg-3 col-md-4 col-6">
+                            <div class="api__item">
+                                <h4>action</h4>
+                                <p>refill</p>
+                            </div>
+                        </div>
+                                                <div class="col-lg-3 col-md-4 col-6">
+                            <div class="api__item">
+                                <h4>orders</h4>
+                                <p>Order IDs (separated by a comma, up to 100 IDs)</p>
+                            </div>
+                        </div>
+                                            </div>
+
+                                    </div>
+            </div>
+            <pre class="mb-5">[
+    {
+        "order": 1,
+        "refill": 1
+    },
+    {
+        "order": 2,
+        "refill": 2
+    },
+    {
+        "order": 3,
+        "refill": {
+            "error": "Incorrect order ID"
+        }
+    }
+]</pre>
+                        <div class="card card_type_3 mb-5">
+                <div class="card-header">
+                    <h4 class="mb-0">Get refill status</h4>
+                </div>
+                <div class="card-body">
+                    
+                    <div class="row">
+                                                <div class="col-lg-3 col-md-4 col-6">
+                            <div class="api__item">
+                                <h4>key</h4>
+                                <p>Your API key</p>
+                            </div>
+                        </div>
+                                                <div class="col-lg-3 col-md-4 col-6">
+                            <div class="api__item">
+                                <h4>action</h4>
+                                <p>refill_status</p>
+                            </div>
+                        </div>
+                                                <div class="col-lg-3 col-md-4 col-6">
+                            <div class="api__item">
+                                <h4>refill</h4>
+                                <p>Refill ID</p>
+                            </div>
+                        </div>
+                                            </div>
+
+                                    </div>
+            </div>
+            <pre class="mb-5">{
+    "status": "Completed"
+}</pre>
+                        <div class="card card_type_3 mb-5">
+                <div class="card-header">
+                    <h4 class="mb-0">Get multiple refill status</h4>
+                </div>
+                <div class="card-body">
+                    
+                    <div class="row">
+                                                <div class="col-lg-3 col-md-4 col-6">
+                            <div class="api__item">
+                                <h4>key</h4>
+                                <p>Your API key</p>
+                            </div>
+                        </div>
+                                                <div class="col-lg-3 col-md-4 col-6">
+                            <div class="api__item">
+                                <h4>action</h4>
+                                <p>refill_status</p>
+                            </div>
+                        </div>
+                                                <div class="col-lg-3 col-md-4 col-6">
+                            <div class="api__item">
+                                <h4>refills</h4>
+                                <p>Refill IDs (separated by a comma, up to 100 IDs)</p>
+                            </div>
+                        </div>
+                                            </div>
+
+                                    </div>
+            </div>
+            <pre class="mb-5">[
+    {
+        "refill": 1,
+        "status": "Completed"
+    },
+    {
+        "refill": 2,
+        "status": "Rejected"
+    },
+    {
+        "refill": 3,
+        "status": {
+            "error": "Refill not found"
+        }
+    }
+]</pre>
+                        <div class="card card_type_3 mb-5">
+                <div class="card-header">
+                    <h4 class="mb-0">User balance</h4>
+                </div>
+                <div class="card-body">
+                    
+                    <div class="row">
+                                                <div class="col-lg-3 col-md-4 col-6">
+                            <div class="api__item">
+                                <h4>key</h4>
+                                <p>Your API key</p>
+                            </div>
+                        </div>
+                                                <div class="col-lg-3 col-md-4 col-6">
+                            <div class="api__item">
+                                <h4>action</h4>
+                                <p>balance</p>
+                            </div>
+                        </div>
+                                            </div>
+
+                                    </div>
+            </div>
+            <pre class="mb-5">{
+    "balance": "100.84292",
+    "currency": "USD"
+}</pre>
+                    </div>
+    </div>
+</div>
+            </main>
+        </div>
+    </div>
+
+
+
+ {% include 'footer.twig' %}

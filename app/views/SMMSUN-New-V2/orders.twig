@@ -1,0 +1,169 @@
+{% include 'header.twig' %}
+
+
+  <main class="main_content">
+                <div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-12">
+            <div class="card card_type_3">
+                <div class="card-header">
+                    <div class="orders_navbar">
+                        <ul class="nav nav-pills orderNavs ">
+                           <li class="nav-item" >
+		<a {% if 'all' == status %}  class="nav-link active" {% endif %} class="nav-link" href="orders">All</a>
+		</li>
+        <li class="nav-item"><a {% if 'pending' == status %}  class="nav-link active" {% endif %} class="nav-link" href="orders/pending">{{ lang['orders.status.pending'] }}</a></li>
+        <li class="nav-item"><a {% if 'inprogress' == status %}  class="nav-link active" {% endif %} class="nav-link" href="orders/inprogress">{{ lang['orders.status.inprogress'] }}</a></li>
+        <li class="nav-item"><a {% if 'completed' == status %}  class="nav-link active" {% endif %} class="nav-link" href="orders/completed">{{ lang['orders.status.completed'] }}</a></li>
+        <li class="nav-item"><a {% if 'partial' == status %}  class="nav-link active" {% endif %} class="nav-link" href="orders/partial">{{ lang['orders.status.partial'] }}</a></li>
+        <li class="nav-item"><a {% if 'processing' == status %}  class="nav-link active" {% endif %} class="nav-link" href="orders/processing">{{ lang['orders.status.processing'] }}</a></li>
+        <li class="nav-item"><a {% if 'canceled' == status %}  class="nav-link active" {% endif %} class="nav-link" href="orders/canceled">{{ lang['orders.status.canceled'] }}</a></li>
+     
+                        </ul>
+
+                        <form action="/orders" method="get" id="history-search">
+                            <div class="input-group">
+                                <input type="text" name="search" class="form-control" value=""
+                                    placeholder="Search">
+                                <span class="input-group-btn">
+                                    <button type="submit" class="btn btn-default"><i class="fa fa-search"
+                                            aria-hidden="true"></i></button>
+                                </span>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="card-body p-0">
+                    <div class="table-responsive">
+                        <table class="table ">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Date</th>
+                                    <th>Link</th>
+                                    <th>Charge</th>
+                                    <th>Start count</th>
+                                    <th>Quantity</th>
+                                    <th>Service</th>
+                                    <th>Remains</th>
+                                    <th>Status</th>
+                                                                    </tr>
+                            </thead>
+                            <tbody>
+                                                        
+                                        {% for order in orders %}
+              <tr>
+<td>
+<span class="order_id" id="order-{{ order['id'] }}">{{ order['id'] }}</span>
+
+                                <!-- Refill Status -->
+
+                                     {% if order['refillButton'] %}
+							 <div class="col-lg-6 col-12">
+							 {% elseif order['cancelButton'] %}
+							 <div class="col-lg-6 col-12">
+							 {% else %}
+							 <div class="col-lg-8 col-12">
+							 {% endif %}
+                                    
+                                    <!-- Refill Status -->
+                                    
+                                        
+{% if order['order_where'] == "api"  %}<a class="btn btn-actions">Api</a>{% endif %} </td>
+
+
+
+
+                <td>
+                <div class="order_date">
+                                                {{ order['date'] }}
+                                            </div>
+                </td>
+                
+                
+                <td>
+                <div class="order_link_wrap">
+                                                <a href="{{ order['link'] }}" target="_blank" class="order_link">
+                                                    <span> <i class="far fa-link"></i> {{ order['link'] }}</span>
+                                                </a>
+                                            </div></td>
+            
+            
+                 <td>{{order["charge"]}}</td>
+                <td class="nowrap">{{ order['start_count'] }}</td>
+                <td>{{ order['quantity'] }}</td>
+                <td>{{ order['service'] }}</td>
+                
+                <td>{{ order['remains'] }}</td>
+                
+                 
+               <td> <span class="badge  badge-completed  "> {{ order['status'] }}</span></td>
+                 
+                 
+                 
+              </tr>
+            {% endfor %}
+
+                                        
+                                                                            </tbody>
+                                </table>
+                                                            </div>
+                                                            
+                                                             {% if pagination["count"] > 1 %}
+        <ul class="pagination">
+
+          {% if pagination["current"] != 1 %}
+            <li>
+              <a class="btn btn-actions" href="orders/{{ status }}/{{ pagination["previous"] }}{% if search %}?search={{ search }}{% endif %}" aria-label="Previous">
+                <span aria-hidden="true">«</span>
+              </a>
+            </li>
+          {% endif %}
+
+          {% set r, l = 3, 3 %}
+
+          {% if pagination['current'] == 1 %}
+            {% set r = 7 %}
+          {% endif %}
+
+          {% if pagination['current'] == 2 %}
+            {% set r = 5 %}
+          {% endif %}
+
+          {% if pagination['current'] >= pagination['count'] %}
+            {% set l = 5 %}
+          {% endif %}
+
+          {% for page in 1..pagination["count"] %}
+            {% if page >= (pagination['current']-l) and page <= (pagination['current']+r) %}
+              <li{% if page == pagination['current'] %} class="active" {%endif%}><a class="btn btn-actions" 
+ href="orders/{{ status }}/{{ page }}{% if search %}?search={{ search }}{% endif %}">{{ page }}</a></li>
+            {%endif%}
+          {% endfor %}
+
+          {% if pagination['current'] < pagination['count'] %}
+            <li>
+              <a class="btn btn-actions" href="orders/{{ status }}/{{ pagination['next'] }}{% if search %}?search={{ search }}{% endif %}" aria-label="Next">
+                <span aria-hidden="true">»</span>
+              </a>
+            </li>
+          {% endif %}
+
+        </ul>
+      {% endif %}
+
+                                                            
+                    </div>
+                   </div>
+               </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+                </div>
+            </div>
+        </main>
+
+
+{% include 'footer.twig' %}

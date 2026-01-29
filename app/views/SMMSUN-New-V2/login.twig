@@ -1,0 +1,1413 @@
+ {% include 'header.twig' %}
+ 
+ 
+ <!-- Main variables *content* -->
+    <main>
+        <section id="hero">
+    <div class="container">
+        <div class="row d-flex align-items-center">
+            <div class="col-lg-6 col-md-12 col-12">
+                <div class="hero_content">
+                    <h4 class="text-black font-poppins">{{ site['site_name'] }} -Top-Rated SMM Panel</h4>
+                    <h1 class="text-black">
+                        <span class="text-primary-gradient">#1 Cheapest SMM </span> <br> Panel in India.
+                    </h1>
+                    <p>
+                        Experience unparalleled growth on social media with our expert SMM services.
+                    </p>
+                </div>
+                
+                {% if errorText %}
+        <div class="alert alert-dismissible alert-danger">
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          {{ errorText }}
+        </div>
+      {% endif %}
+      {% if successText %}
+        <div class="alert alert-dismissible alert-success">
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          {{ successText }}
+        </div>
+      {% endif %}
+      
+                <form  method="post" action="/">
+                    <div class="login-hero">
+                        
+                                                <div class="top__login__group">
+                            <div class="form-group has_icon">
+                                <span class="icon">
+                                    <img src="https://cdn.smmsun.com/images/smm-panel-username-icon.png"
+                                        class="img-fluid icon" alt="smm-panel-username-icon">
+                                </span>
+                                <input type="text" placeholder="Username" id="username" name="username" class="form-control">
+                            </div>
+                            <div class="form-group has_icon has_password">
+                                <span class="icon">
+                                    <img src="https://cdn.smmsun.com/images/smm-panel-passoword-icon.png"
+                                        class="img-fluid icon" alt="smm-panel-passoword-icon">
+                                </span>
+                                <input type="password" placeholder="Password" id="password" name="password" class="form-control">
+                                <button class="pwd_show_hide" type="button" id="pwdBtn"
+                                    onclick="passwordShowHide('pwdBtn','password')">
+                                    <span class="hide-eye"> <i class="far fa-eye-slash"></i> </span>
+                                    <span class="show-eye"> <i class="far fa-eye"></i> </span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="middle__login__group">
+                            <div class="form-check ms-1">
+                                <input class="form-check-input" type="checkbox" value="1" id="flexCheckDefault" name="remember" >
+                                <label class="form-check-label text-black" for="flexCheckDefault">
+                                    Remember me
+                                </label>
+                            </div>
+                                                        <a href="/resetpassword" class="link forgotpassword text-primary">Forgot password?</a>
+                                                    </div>
+                                                <div class="bottom__login__group">
+                            <input type="hidden" name="_csrf" value="7XGOHXUP-cdAV3-xRctypmBc6KkmKt1DYZDjkEMAcOS4NvYkH2q8rgItL8VxmkGfESixxHV95Bwi1NqlJGoZqg==">
+                            <button type="submit" class="btn btn-primary btn-signin">Sign in</button>
+                                                        <p class="mb-0">
+                                Do not have an account?  <a href="/signup" class="link">Sign up</a>
+                            </p>
+                                                    </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-lg-6 col-md-12 col-12">
+                <div class="hero_image text-end">
+                    <img src="https://cdn.smmsun.com/images/best-smm-panel-service-in-bangladesh.webp"
+                        class="img-fluid" alt="best-smm-panel-service-in-bangladesh">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Counter Section -->
+<section id="counter">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-md-6 col-6">
+                <div class="counter__item">
+                    <div class="icon">
+                        <img src="https://cdn.smmsun.com/images/order-completed-of-smm-panel.png" class="img-fluid"
+                            alt="order-completed-of-smm-panel">
+                    </div>
+                    <h4>432798</h4>
+                    <p>Order Completed</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-6">
+                <div class="counter__item">
+                    <div class="icon">
+                        <img src="https://cdn.smmsun.com/images/active-services-of-smm-panel.png" class="img-fluid"
+                            alt="active-services-of-smm-panel">
+                    </div>
+                    <h4>1886</h4>
+                    <p>Active Services</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-6">
+                <div class="counter__item">
+                    <div class="icon">
+                        <img src="https://cdn.smmsun.com/images/active-user-of-smm-panel.png" class="img-fluid" alt="active-user-of-smm-panel">
+                    </div>
+                    <h4>15178</h4>
+                    <p>Active Users</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-6">
+                <div class="counter__item">
+                    <div class="icon">
+                        <img src="https://cdn.smmsun.com/images/world-wide-rank-smm-panel.png" class="img-fluid"
+                            alt="world-wide-rank-smm-panel">
+                    </div>
+                    <h4>#1</h4>
+                    <p>World Wide Rank</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Our Services -->
+<section id="ourServices">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="def__title__wrap text-center">
+                    <h4>Our Services</h4>
+                    <h2>
+                        Diverse <span class="text-primary line-below">SMM Panels</span> for Every Need
+                    </h2>
+                    <p>
+                        Explore our comprehensive range of SMM panels, designed to cater to every aspect of your
+                        social media needs. From boosting your Instagram followers to enhancing your LinkedIn
+                        network, our specialized services are tailored to ensure maximum impact and growth for
+                        your online presence. With -{{ site['site_name'] }}, experience the power of targeted and effective social
+                        media marketing.
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-12 col-12">
+                <div class="card home-service-card">
+                    <div class="card-header">
+                        <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link active" id="pills-facebook-tab" data-bs-toggle="pill"
+                                    data-bs-target="#pills-facebook" type="button" role="tab"
+                                    aria-controls="pills-facebook" aria-selected="true">
+                                    <span class="icon">
+                                        <img src="https://cdn.smmsun.com/images/facebook-smm-panel-icon.png"
+                                            class="img-fluid" alt="facebook-smm-panel-icon">
+                                    </span>
+                                    <span class="text">Facebook</span>
+                                </button>
+                            </li>
+
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="pills-instagram-tab" data-bs-toggle="pill"
+                                    data-bs-target="#pills-instagram" type="button" role="tab"
+                                    aria-controls="pills-instagram" aria-selected="false">
+                                    <span class="icon">
+                                        <img src="https://cdn.smmsun.com/images/instagram-smm-panel-icon.png"
+                                            class="img-fluid" alt="instagram-smm-panel-icon">
+                                    </span>
+                                    <span class="text">Instagram</span>
+                                </button>
+                            </li>
+
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="pills-youtube-tab" data-bs-toggle="pill"
+                                    data-bs-target="#pills-youtube" type="button" role="tab"
+                                    aria-controls="pills-youtube" aria-selected="false">
+                                    <span class="icon">
+                                        <img src="https://cdn.smmsun.com/images/youtube-smm-panel-icon.png"
+                                            class="img-fluid" alt="youtube-smm-panel-icon">
+                                    </span>
+                                    <span class="text">Youtube</span>
+                                </button>
+                            </li>
+
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="pills-tiktok-tab" data-bs-toggle="pill"
+                                    data-bs-target="#pills-tiktok" type="button" role="tab" aria-controls="pills-tiktok"
+                                    aria-selected="false">
+                                    <span class="icon">
+                                        <img src="https://cdn.smmsun.com/images/tiktok-smm-panel-icon.png"
+                                            class="img-fluid" alt="tiktok-smm-panel-icon">
+                                    </span>
+                                    <span class="text">TikTok</span>
+                                </button>
+                            </li>
+
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="pills-linkedin-tab" data-bs-toggle="pill"
+                                    data-bs-target="#pills-linkedin" type="button" role="tab"
+                                    aria-controls="pills-linkedin" aria-selected="false">
+                                    <span class="icon">
+                                        <img src="https://cdn.smmsun.com/images/linkedin-smm-panel-icon.png"
+                                            class="img-fluid" alt="linkedin-smm-panel-icon">
+                                    </span>
+                                    <span class="text">Linkedin</span>
+                                </button>
+                            </li>
+
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="pills-telegram-tab" data-bs-toggle="pill"
+                                    data-bs-target="#pills-telegram" type="button" role="tab"
+                                    aria-controls="pills-telegram" aria-selected="false">
+                                    <span class="icon">
+                                        <img src="https://cdn.smmsun.com/images/telegram-smmpanel-icon.png"
+                                            class="img-fluid" alt="telegram-smmpanel-icon">
+                                    </span>
+                                    <span class="text">Telegram</span>
+                                </button>
+                            </li>
+
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="pills-discord-tab" data-bs-toggle="pill"
+                                    data-bs-target="#pills-discord" type="button" role="tab"
+                                    aria-controls="pills-discord" aria-selected="false">
+                                    <span class="icon">
+                                        <img src="https://cdn.smmsun.com/images/smm-panel-discord-icon.png"
+                                            class="img-fluid" alt="smm-panel-discord-icon">
+                                    </span>
+                                    <span class="text">Discord</span>
+                                </button>
+                            </li>
+
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="pills-x-tab" data-bs-toggle="pill"
+                                    data-bs-target="#pills-x" type="button" role="tab" aria-controls="pills-x"
+                                    aria-selected="false">
+                                    <span class="icon">
+                                        <img src="https://cdn.smmsun.com/images/twitter-smm-panel-icon.png" class="img-fluid"
+                                            alt="twitter-smm-panel-icon">
+                                    </span>
+                                    <span class="text">X-Twitter</span>
+                                </button>
+                            </li>
+
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="pills-pinterest-tab" data-bs-toggle="pill"
+                                    data-bs-target="#pills-pinterest" type="button" role="tab"
+                                    aria-controls="pills-pinterest" aria-selected="false">
+                                    <span class="icon">
+                                        <img src="https://cdn.smmsun.com/images/pinterest-icon.png"
+                                            class="img-fluid" alt="">
+                                    </span>
+                                    <span class="text">Pinterest</span>
+                                </button>
+                            </li>
+
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="pills-twich-tab" data-bs-toggle="pill"
+                                    data-bs-target="#pills-twich" type="button" role="tab" aria-controls="pills-twich"
+                                    aria-selected="false">
+                                    <span class="icon">
+                                        <img src="https://cdn.smmsun.com/images/twich-smm-panel.png"
+                                            class="img-fluid" alt="twich-smm-panel">
+                                    </span>
+                                    <span class="text">Twitch</span>
+                                </button>
+                            </li>
+
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="pills-soundcloud-tab" data-bs-toggle="pill"
+                                    data-bs-target="#pills-soundcloud" type="button" role="tab"
+                                    aria-controls="pills-soundcloud" aria-selected="false">
+                                    <span class="icon">
+                                        <img src="https://cdn.smmsun.com/images/sound-cloud-icon.png"
+                                            class="img-fluid" alt="sound-cloud-icon">
+                                    </span>
+                                    <span class="text">Sound Cloud</span>
+                                </button>
+                            </li>
+
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="pills-web-tab" data-bs-toggle="pill"
+                                    data-bs-target="#pills-web" type="button" role="tab" aria-controls="pills-web"
+                                    aria-selected="false">
+                                    <span class="icon">
+                                        <img src="https://cdn.smmsun.com/images/website-traffic-of-smm-panel-icon.png"
+                                            class="img-fluid" alt="website-traffic-of-smm-panel-icon">
+                                    </span>
+                                    <span class="text">Web Traffic</span>
+                                </button>
+                            </li>
+
+                        </ul>
+                    </div>
+                    <div class="card-body">
+                        <div class="tab-content" id="pills-tabContent">
+                            <div class="tab-pane fade show active" id="pills-facebook" role="tabpanel"
+                                aria-labelledby="pills-facebook-tab" tabindex="0">
+                                <div class="services_content_wrap">
+                                    <div class="services_content_left">
+                                        <h2 class="text-primary">Facebook SMM Panel</h2>
+                                        <p>
+                                            Discover the best SMM panel for Facebook to skyrocket your page's
+                                            engagement and reach. Experience affordable, impactful growth with
+                                            our expert Facebook marketing strategies.
+                                        </p>
+                                    </div>
+                                    <div class="services_content_right">
+                                        <img src="https://cdn.smmsun.com/images/facebook-smm-panel.webp"
+                                            class="img-fluid" alt="facebook-smm-panel">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="pills-instagram" role="tabpanel"
+                                aria-labelledby="pills-instagram-tab" tabindex="0">
+                                <div class="services_content_wrap">
+                                    <div class="services_content_left">
+                                        <h2 class="text-primary">Instagram SMM Panel</h2>
+                                        <p>
+                                            Elevate your Instagram presence with our specialized Instagram SMM
+                                            panel. Gain authentic followers and likes at competitive prices,
+                                            enhancing your visibility and influence.
+                                        </p>
+                                    </div>
+                                    <div class="services_content_right">
+                                        <img src="https://cdn.smmsun.com/images/instagram-smm-panel.webp"
+                                            class="img-fluid" alt="instagram-smm-panel">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="pills-youtube" role="tabpanel"
+                                aria-labelledby="pills-youtube-tab" tabindex="0">
+                                <div class="services_content_wrap">
+                                    <div class="services_content_left">
+                                        <h2 class="text-primary">YouTube SMM Panel</h2>
+                                        <p>
+                                            Boost your YouTube channel with our dedicated YouTube SMM panel.
+                                            Increase views, subscribers, and engagement with our cost-effective
+                                            and targeted solutions.
+                                        </p>
+                                    </div>
+                                    <div class="services_content_right">
+                                        <img src="https://cdn.smmsun.com/images/youtube-smm-panel.png"
+                                            class="img-fluid" alt="youtube-smm-panel">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="pills-tiktok" role="tabpanel"
+                                aria-labelledby="pills-tiktok-tab" tabindex="0">
+                                <div class="services_content_wrap">
+                                    <div class="services_content_left">
+                                        <h2 class="text-primary">TikTok SMM Panel</h2>
+                                        <p>
+                                            Tap into the viral power of TikTok with our bespoke TikTok SMM
+                                            panel. Amplify your content reach and gain real, active followers
+                                            effortlessly and affordably.
+                                        </p>
+                                    </div>
+                                    <div class="services_content_right">
+                                        <img src="https://cdn.smmsun.com/images/tiktok-smm-panel.webp"
+                                            class="img-fluid" alt="tiktok-smm-panel">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="pills-linkedin" role="tabpanel"
+                                aria-labelledby="pills-linkedin-tab" tabindex="0">
+                                <div class="services_content_wrap">
+                                    <div class="services_content_left">
+                                        <h2 class="text-primary">LinkedIn SMM Panel</h2>
+                                        <p>
+                                            Enhance your professional network with the best SMM panel for
+                                            LinkedIn. Build connections and elevate your profile in the
+                                            corporate world with our targeted strategies.
+                                        </p>
+                                    </div>
+                                    <div class="services_content_right">
+                                        <img src="https://cdn.smmsun.com/images/linkedin-smm-panel.webp"
+                                            class="img-fluid" alt="linkedin-smm-panel">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="pills-telegram" role="tabpanel"
+                                aria-labelledby="pills-telegram-tab" tabindex="0">
+                                <div class="services_content_wrap">
+                                    <div class="services_content_left">
+                                        <h2 class="text-primary">Telegram SMM Panel</h2>
+                                        <p>
+                                            Expand your Telegram channel's influence with our efficient Telegram
+                                            SMM panel. Grow your subscriber base and engagement with our
+                                            reliable and affordable services.
+                                        </p>
+                                    </div>
+                                    <div class="services_content_right">
+                                        <img src="https://cdn.smmsun.com/images/telegram-smm-panel.webp"
+                                            class="img-fluid" alt="telegram-smm-panel">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="pills-discord" role="tabpanel"
+                                aria-labelledby="pills-discord-tab" tabindex="0">
+                                <div class="services_content_wrap">
+                                    <div class="services_content_left">
+                                        <h2 class="text-primary">Discord SMM Panel</h2>
+                                        <p>
+                                            Strengthen your community on Discord with our specialized Discord
+                                            SMM panel. Boost server activity and engagement with our tailored
+                                            and cost-effective solutions.
+                                        </p>
+                                    </div>
+                                    <div class="services_content_right">
+                                        <img src="https://cdn.smmsun.com/images/smm-panel-discord.webp"
+                                            class="img-fluid" alt="smm-panel-discord">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="pills-x" role="tabpanel" aria-labelledby="pills-x-tab"
+                                tabindex="0">
+                                <div class="services_content_wrap">
+                                    <div class="services_content_left">
+                                        <h2 class="text-primary">X - Twitter SMM Panel</h2>
+                                        <p>
+                                            Amplify your Twitter impact with our targeted Twitter SMM panel.
+                                            Increase followers, retweets, and engagement with our dynamic and
+                                            affordable Twitter strategies.
+                                        </p>
+                                    </div>
+                                    <div class="services_content_right">
+                                        <img src="https://cdn.smmsun.com/images/twitter-smm-panel.png"
+                                            class="img-fluid" alt="twitter-smm-panel">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="pills-pinterest" role="tabpanel"
+                                aria-labelledby="pills-pinterest-tab" tabindex="0">
+                                <div class="services_content_wrap">
+                                    <div class="services_content_left">
+                                        <h2 class="text-primary">Pinterest SMM Panel</h2>
+                                        <p>
+                                            Boost your brand's visual appeal with our Pinterest SMM panel. Drive
+                                            traffic and engagement through creative and strategic Pinterest
+                                            marketing solutions.
+                                        </p>
+                                    </div>
+                                    <div class="services_content_right">
+                                        <img src="https://cdn.smmsun.com/images/pinterest-smm-panel.webp"
+                                            class="img-fluid" alt="pinterest-smm-panel">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="pills-twich" role="tabpanel"
+                                aria-labelledby="pills-twich-tab" tabindex="0">
+                                <div class="services_content_wrap">
+                                    <div class="services_content_left">
+                                        <h2 class="text-primary">Twitch SMM Panel</h2>
+                                        <p>
+                                            Elevate your Twitch streaming success with our dedicated Twitch SMM
+                                            panel. Grow your viewer base and engagement with our specialized and
+                                            affordable Twitch services.
+                                        </p>
+                                    </div>
+                                    <div class="services_content_right">
+                                        <img src="https://cdn.smmsun.com/images/Twitch-smm-panel-banner.webp"
+                                            class="img-fluid" alt="Twitch-smm-panel-banner">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="pills-soundcloud" role="tabpanel"
+                                aria-labelledby="pills-soundcloud-tab" tabindex="0">
+                                <div class="services_content_wrap">
+                                    <div class="services_content_left">
+                                        <h2 class="text-primary">Soundcloud SMM Panel</h2>
+                                        <p>
+                                            Enhance your music and audio presence with our Soundcloud SMM panel.
+                                            Gain more plays, followers, and recognition in the Soundcloud
+                                            community efficiently.
+                                        </p>
+                                    </div>
+                                    <div class="services_content_right">
+                                        <img src="https://cdn.smmsun.com/images/soundcloud-smm-panel.webp"
+                                            class="img-fluid" alt="soundcloud-smm-panel">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="pills-web" role="tabpanel" aria-labelledby="pills-web-tab"
+                                tabindex="0">
+                                <div class="services_content_wrap">
+                                    <div class="services_content_left">
+                                        <h2 class="text-primary">Website Traffic</h2>
+                                        <p>
+                                            Drive targeted visitors to your website with our effective Website
+                                            Traffic services. Increase your site's visibility and user
+                                            engagement with our strategic traffic-boosting solutions.
+                                        </p>
+                                    </div>
+                                    <div class="services_content_right">
+                                        <img src="https://cdn.smmsun.com/images/website-traffic-of-smm-panel-banner.webp"
+                                            class="img-fluid" alt="website-traffic-of-smm-panel-banner">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Ready To Transform Your -->
+<section id="ready">
+    <div class="container">
+        <div class="row d-flex align-items-center">
+            <div class="col-lg-6 col-md-12 col-12">
+                <div class="def__title__wrap">
+                    <h2>
+                        Ready to <span class="text-primary-gradient">Transform</span> Your Social Media
+                        Presence?
+                    </h2>
+                    <p>
+                        Boost your online influence effortlessly. Discover the power of our specialized SMM
+                        panels tailored for success. Affordable, impactful, and ready to launch your brand to
+                        new heights.
+                    </p>
+                    <a href="/signup" class="btn btn-primary">Elevate Your Social Game Now</a>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-12 col-12">
+                <div class="ready-social-media">
+                    <img src="https://cdn.smmsun.com/images/smm-panel-in-bangladesh-ready-social-media.webp"
+                        class="img-fluid" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- How it works -->
+<section id="howItWorks">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="def__title__wrap text-center">
+                    <h4>How It Works?</h4>
+                    <h2>
+                        Start Your <span class="text-primary-gradient">Success Story</span> <br> with -{{ site['site_name'] }} in
+                        Four
+                        Easy Steps
+                    </h2>
+                    <p>
+                        Explore our comprehensive range of SMM panels, designed to cater to every aspect of your
+                        social media needs. From boosting your Instagram followers to enhancing your LinkedIn
+                        network, our specialized services are tailored to ensure maximum impact and growth for
+                        your online presence. With -{{ site['site_name'] }}, experience the power of targeted and effective social
+                        media marketing.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-md-6 col-12">
+                <div class="step-item">
+                    <div class="top_step">
+                        <h3>01</h3>
+                        <p>Step</p>
+                    </div>
+                    <div class="step_content">
+                        <h3>Easy Sign-Up</h3>
+                        <p>
+                            Kickstart your adventure by creating an account with us. Quick, straightforward, and
+                            the first step towards a thrilling social media journey.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-12">
+                <div class="step-item">
+                    <div class="top_step">
+                        <h3>02</h3>
+                        <p>Step</p>
+                    </div>
+                    <div class="step_content">
+                        <h3>Customize Your Plan</h3>
+                        <p>
+                            Dive into our array of SMM services and select the one that suits your needs. Tailor
+                            it perfectly, ensuring it aligns seamlessly with your unique brand goals.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-12">
+                <div class="step-item">
+                    <div class="top_step">
+                        <h3>03</h3>
+                        <p>Step</p>
+                    </div>
+                    <div class="step_content">
+                        <h3>Make a Secure Payment</h3>
+                        <p>
+                            Proceed with confidence using our secure payment gateway. Your safety and privacy
+                            are paramount as you take this vital step.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-12">
+                <div class="step-item">
+                    <div class="top_step">
+                        <h3>04</h3>
+                        <p>Step</p>
+                    </div>
+                    <div class="step_content">
+                        <h3>Watch Your Growth & Enjoy</h3>
+                        <p>
+                            Now, sitting back and watching your social media presence flourish is exciting.
+                            Revel in the growth and engagement, knowing you've made an intelligent choice with
+                            -{{ site['site_name'] }}.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- About US -->
+<section id="aboutus">
+    <div class="container">
+        <div class="row d-flex align-items-center">
+            <div class="col-lg-6 col-md-12 col-12">
+                <div class="def__title__wrap">
+                    <h4>About -{{ site['site_name'] }}</h4>
+                    <h2>
+                        Your Premier SMM <br>
+                        Partner
+                    </h2>
+                    <p>
+                        At -{{ site['site_name'] }}, we specialize in unlocking the full potential of your social media platforms.
+                        As Bangladesh's #1 cheapest and most trusted SMM panel provider, we offer a
+                        comprehensive suite of services tailored to your brand's unique needs. From Facebook and
+                        Instagram to TikTok and LinkedIn, we aim to elevate your online presence with
+                        cost-effective, result-oriented strategies. Our commitment to quality and affordability
+                        has made us the go-to choice for businesses seeking impactful digital growth. Join us
+                        and experience the transformative power of expert social media marketing.
+                    </p>
+                    <a href="/about-us" class="btn btn-primary">More About Us</a>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-12 col-12">
+                <div class="aboutus_image">
+                    <img src="https://cdn.smmsun.com/images/smm-sun-about-us.webp" class="img-fluid"
+                        alt="smm-sun-about-us">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Why Choose Us -->
+<section id="whyChooseUs">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="def__title__wrap text-center">
+                    <h4>Why Choose -{{ site['site_name'] }}?</h4>
+                    <h2>
+                        Unveiling the Reasons Behind <br>
+                        Our <span class="text-primary-gradient">Success</span>
+                    </h2>
+                    <p>
+                        When elevating your social media presence, choosing the right partner is crucial. At
+                        -{{ site['site_name'] }}, we stand out as the best SMM panel provider in Bangladesh, offering an array of
+                        compelling reasons to select our services. Here's why we're the top choice for
+                        businesses and individuals alike:
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4 col-md-6 col-12">
+                <div class="why_choose_item">
+                    <div class="icon">
+                        <img src="https://cdn.smmsun.com/images/proven-expertise-of-smm-panel.png" class="img-fluid"
+                            alt="proven-expertise-of-smm-panel">
+                    </div>
+                    <div class="text">
+                        <h3>Proven Expertise</h3>
+                        <p>
+                            With years of experience, -{{ site['site_name'] }} is renowned as the top-rated SMM panel in
+                            Bangladesh, consistently delivering exceptional results.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-12">
+                <div class="why_choose_item">
+                    <div class="icon">
+                        <img src="https://cdn.smmsun.com/images/wide-range-of-smm-panel-services.png" class="img-fluid"
+                            alt="wide-range-of-smm-panel-services">
+                    </div>
+                    <div class="text">
+                        <h3>Wide Range Of Services</h3>
+                        <p>
+                            From Facebook to TikTok, our diverse services cater to all your social media needs,
+                            making us a one-stop solution for digital growth.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-12">
+                <div class="why_choose_item">
+                    <div class="icon">
+                        <img src="https://cdn.smmsun.com/images/affordable-smm-panel-pricing-in-bangladeh.png" class="img-fluid"
+                            alt="affordable-smm-panel-pricing-in-bangladeh">
+                    </div>
+                    <div class="text">
+                        <h3>Affordable Pricing</h3>
+                        <p>
+                            As a cheap SMM panel provider, we ensure that our high-quality services are
+                            accessible to all, balancing affordability with excellence.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-12">
+                <div class="why_choose_item">
+                    <div class="icon">
+                        <img src="https://cdn.smmsun.com/images/customer-centric-approach-of-smm-panel.png"
+                            class="img-fluid" alt="customer-centric-approach-of-smm-panel">
+                    </div>
+                    <div class="text">
+                        <h3>Customer-Centric Approach</h3>
+                        <p>
+                            We prioritize your needs, tailoring our services to meet your specific goals and
+                            ensuring a personalized experience.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-12">
+                <div class="why_choose_item">
+                    <div class="icon">
+                        <img src="https://cdn.smmsun.com/images/rapid-result-smm-panel.png" class="img-fluid" alt="rapid-result-smm-panel">
+                    </div>
+                    <div class="text">
+                        <h3>Rapid Results</h3>
+                        <p>
+                            We prioritize your needs, tailoring our services to meet your specific goals and
+                            ensuring a personalized experience.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-12">
+                <div class="why_choose_item">
+                    <div class="icon">
+                        <img src="https://cdn.smmsun.com/images/unmatced-support.png" class="img-fluid"
+                            alt="unmatced-support">
+                    </div>
+                    <div class="text">
+                        <h3>Unmatched Support</h3>
+                        <p>
+                            We prioritize your needs, tailoring our services to meet your specific goals and
+                            ensuring a personalized experience.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="testimonials">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-md-12 col-12">
+                <div class="testimonials_image">
+                    <img src="https://res.cloudinary.com/dmentewxe/image/upload/v1704881048/smmpanelbdlab/SMMSUN-NEW-V2/IMG/testimonials-image_1_idk39t.webp" alt="testimonials-image">
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-12 col-12">
+                <div class="testimonial__wraper">
+                    <h2>
+                        Hear from <span class="text-primary-gradient">Our Happy Clients</span> - Real <br>
+                        Stories, Real Success
+                    </h2>
+                    <p>
+                        Nothing speaks louder than the voices of satisfied customers. At -{{ site['site_name'] }}, we pride
+                        ourselves on the positive impacts we've made on our clients. Here are genuine reviews
+                        from some of our valued customers in Bangladesh, sharing their experiences and their
+                        success with our SMM services.
+                    </p>
+                </div>
+                <div class="testimonials__comments">
+                    <div class="swiper">
+
+                        <!-- Additional required wrapper -->
+                        <div class="swiper-wrapper">
+                            <!-- Slides -->
+                            <div class="swiper-slide">
+                                <div class="testimonials_text_wrap">
+                                    <div class="testi_comments">
+                                        <div class="qoute_top">
+                                             <img src="https://cdn.smmsun.com/images/quote-Icon.png"
+                                                class="img-fluid" alt="qoute-icon">
+                                        </div>
+                                        <p>
+                                            As a small business owner in Dhaka, I was struggling to make a mark
+                                            on social media. That's when I turned to -{{ site['site_name'] }}. Their Facebook SMM
+                                            panel boosted my page's engagement and significantly increased my
+                                            sales. It's been a game-changer for my business!
+                                        </p>
+                                        <div class="qoute_last">
+                                            <img src="https://cdn.smmsun.com/images/quote-Icon-1.png"
+                                                class="img-fluid" alt="qoute-icon">
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div class="user__infos">
+                                        <div class="star">
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                        </div>
+                                        <h4>Mahmudul Hasan</h4>
+                                        <p>~ Dhaka</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="testimonials_text_wrap">
+                                    <div class="testi_comments">
+                                        <div class="qoute_top">
+                                            <img src="https://cdn.smmsun.com/images/quote-Icon.png"
+                                                class="img-fluid" alt="qoute-icon">
+                                        </div>
+                                        <p>
+                                            I never knew how impactful Instagram could be until I used -{{ site['site_name'] }}'s
+                                            services. Their Instagram panel helped me gain genuine followers and
+                                            increased my brand's visibility. Truly the best SMM service provider
+                                            in Bangladesh!
+                                        </p>
+                                        <div class="qoute_last">
+                                           <img src="https://cdn.smmsun.com/images/quote-Icon-1.png"
+                                                class="img-fluid" alt="qoute-icon">
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div class="user__infos">
+                                        <div class="star">
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                        </div>
+                                        <h4>Ayesha Siddiqua</h4>
+                                        <p>~ Chittagong</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="testimonials_text_wrap">
+                                    <div class="testi_comments">
+                                        <div class="qoute_top">
+                                             <img src="https://cdn.smmsun.com/images/quote-Icon.png"
+                                                class="img-fluid" alt="qoute-icon">
+                                        </div>
+                                        <p>
+                                            Being new to the digital world, I was skeptical about using an SMM
+                                            panel. But -{{ site['site_name'] }} made it so easy and effective! Their tailored
+                                            approach and consistent results on my YouTube channel have been
+                                            remarkable. Highly recommended!
+                                        </p>
+                                        <div class="qoute_last">
+                                           <img src="https://cdn.smmsun.com/images/quote-Icon-1.png"
+                                                class="img-fluid" alt="qoute-icon">
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div class="user__infos">
+                                        <div class="star">
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                        </div>
+                                        <h4>Rakibul Islam</h4>
+                                        <p>~Sylhet</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="testimonials_text_wrap">
+                                    <div class="testi_comments">
+                                        <div class="qoute_top">
+                                             <img src="https://cdn.smmsun.com/images/quote-Icon.png"
+                                                class="img-fluid" alt="qoute-icon">
+                                        </div>
+                                        <p>
+                                            As a small business owner in Dhaka, I was struggling to make a mark
+                                            on
+                                            social media. That's when I turned to -{{ site['site_name'] }}. Their Facebook SMM
+                                            panel
+                                            boosted my page's engagement and significantly increased my sales.
+                                            It's
+                                            been a game-changer for my business!
+                                        </p>
+                                        <div class="qoute_last">
+                                           <img src="https://cdn.smmsun.com/images/quote-Icon-1.png"
+                                                class="img-fluid" alt="qoute-icon">
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div class="user__infos">
+                                        <div class="star">
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                        </div>
+                                        <h4>Mahmudul Hasan</h4>
+                                        <p>CEO, Mx Tech Corp.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="testimonials_text_wrap">
+                                    <div class="testi_comments">
+                                        <div class="qoute_top">
+                                             <img src="https://cdn.smmsun.com/images/quote-Icon.png"
+                                                class="img-fluid" alt="qoute-icon">
+                                        </div>
+                                        <p>
+                                            As a small business owner in Dhaka, I was struggling to make a mark
+                                            on
+                                            social media. That's when I turned to -{{ site['site_name'] }}. Their Facebook SMM
+                                            panel
+                                            boosted my page's engagement and significantly increased my sales.
+                                            It's
+                                            been a game-changer for my business!
+                                        </p>
+                                        <div class="qoute_last">
+                                           <img src="https://cdn.smmsun.com/images/quote-Icon-1.png"
+                                                class="img-fluid" alt="qoute-icon">
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div class="user__infos">
+                                        <div class="star">
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                        </div>
+                                        <h4>Mahmudul Hasan</h4>
+                                        <p>CEO, Mx Tech Corp.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="testimonials_text_wrap">
+                                    <div class="testi_comments">
+                                        <div class="qoute_top">
+                                             <img src="https://cdn.smmsun.com/images/quote-Icon.png"
+                                                class="img-fluid" alt="qoute-icon">
+                                        </div>
+                                        <p>
+                                            As a small business owner in Dhaka, I was struggling to make a mark
+                                            on
+                                            social media. That's when I turned to -{{ site['site_name'] }}. Their Facebook SMM
+                                            panel
+                                            boosted my page's engagement and significantly increased my sales.
+                                            It's
+                                            been a game-changer for my business!
+                                        </p>
+                                        <div class="qoute_last">
+                                           <img src="https://cdn.smmsun.com/images/quote-Icon-1.png"
+                                                class="img-fluid" alt="qoute-icon">
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div class="user__infos">
+                                        <div class="star">
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                        </div>
+                                        <h4>Mahmudul Hasan</h4>
+                                        <p>CEO, Mx Tech Corp.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="testimonials_text_wrap">
+                                    <div class="testi_comments">
+                                        <div class="qoute_top">
+                                             <img src="https://cdn.smmsun.com/images/quote-Icon.png"
+                                                class="img-fluid" alt="qoute-icon">
+                                        </div>
+                                        <p>
+                                            As a small business owner in Dhaka, I was struggling to make a mark
+                                            on
+                                            social media. That's when I turned to -{{ site['site_name'] }}. Their Facebook SMM
+                                            panel
+                                            boosted my page's engagement and significantly increased my sales.
+                                            It's
+                                            been a game-changer for my business!
+                                        </p>
+                                        <div class="qoute_last">
+                                           <img src="https://cdn.smmsun.com/images/quote-Icon-1.png"
+                                                class="img-fluid" alt="qoute-icon">
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div class="user__infos">
+                                        <div class="star">
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                        </div>
+                                        <h4>Mahmudul Hasan</h4>
+                                        <p>CEO, Mx Tech Corp.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="swiper_slider_button">
+                            <div class="swiper-prev">
+                                <img src="https://cdn.smmsun.com/images/arrow-left.png" class="img-fluid"
+                                    alt="Arrow left">
+                            </div>
+                            <div class="swiper-next">
+                                <img src="https://cdn.smmsun.com/images/arrow-right.png" class="img-fluid"
+                                    alt="Arrow Right">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Benifits -->
+<section id="benifits">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="def__title__wrap text-center">
+                    <h2>
+                        Discover Who Can Benefit from SMM <br> Panels –
+                        <span class="text-primary-gradient">
+                            Is It You?
+                        </span>
+
+                    </h2>
+                    <p>
+                        In today's digital-first world, the power of social media is undeniable. Whether you're
+                        a budding entrepreneur, a thriving business, or an influencer aiming to broaden your
+                        reach, understanding the role of SMM (Social Media Marketing) panels can be a
+                        game-changer. But who needs an SMM panel, and how can it revolutionize your digital
+                        strategy? Let's dive in.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-8 col-md-12 col-12">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="benifits_box first_b_box">
+                            <h3>Small Business Owners and Startups</h3>
+                            <p>
+                                Small businesses need to make their mark in Bangladesh, where the startup
+                                ecosystem is booming. With over 60 million Facebook users in the country as of
+                                2023, the opportunity to reach a vast audience is immense. An SMM panel can help
+                                these businesses target their local audience effectively, ensuring higher
+                                engagement and conversion rates.
+                            </p>
+                            <div class="first__image">
+                                <img src="https://cdn.smmsun.com/images/small-buiness-smm-panel.webp"
+                                    class="img-fluid" alt="small-buiness-smm-panel">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-12">
+                        <div class="benifits_box second_b_box">
+                            <h3>E-commerce Platforms</h3>
+                            <p>
+                                The e-commerce sector in Bangladesh has seen exponential growth, with a 70%
+                                increase in online shopping reported recently. An SMM panel can drive targeted
+                                traffic to these e-commerce platforms, increasing brand visibility and sales.
+                            </p>
+                            <div class="two__image">
+                                <img src="https://cdn.smmsun.com/images/cart-smm-panel-in-bd.webp"
+                                    class="img-fluid" alt="cart-smm-panel-in-bd">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-12">
+                        <div class="benifits_box third_b_box">
+                            <h3>Corporates and Large Enterprises</h3>
+                            <p>
+                                For larger corporations, maintaining a strong social media presence is essential
+                                for brand image and customer engagement. SMM panels offer a way to manage
+                                multiple social media accounts efficiently, ensuring consistent and impactful
+                                communication.
+                            </p>
+                            <div class="three__image">
+                                <img src="https://cdn.smmsun.com/images/corporate-and-larges-of-smm-panel.webp"
+                                    class="img-fluid" alt="corporate-and-larges-of-smm-panel">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="benifits_box forth_b_box">
+                            <h3>Educational Institutions and NGO’s</h3>
+                            <p>
+                                Educational bodies and NGOs can use SMM panels to spread awareness about their
+                                causes, programs, and initiatives. In a country with a growing youth population
+                                eager for education and social change, social media is a powerful tool to
+                                disseminate information and rally support.
+                            </p>
+                            <div class="four__image">
+                                <img src="https://cdn.smmsun.com/images/educational-institutions-of-smm-panel-in-bangladesh.webp"
+                                    class="img-fluid" alt="educational-institutions-of-smm-panel-in-bangladesh">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-12 col-12">
+                <div class="row">
+                    <div class="col-lg-12 col-md-6 col-12">
+                        <div class="benifits_box six_b_box">
+                            <h3>Influencers and Content Creators</h3>
+                            <p>
+                                Small businesses need to make their mark in Bangladesh, where the startup ecosystem is booming. With over 60 million Facebook users in the country as of 2023, the opportunity to reach a vast audience is immense. An SMM panel can help these businesses target their local audience effectively, ensuring higher engagement and conversion rates.
+                            </p>
+                            <div class="six__image">
+                                <img src="https://cdn.smmsun.com/images/clipboard-of-smm-panel-bd.webp"
+                                    class="img-fluid" alt="clipboard-of-smm-panel-bd">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-12 col-md-6 col-12">
+                        <div class="benifits_box seven_b_box">
+                            <h3>Event Organizers</h3>
+                            <p>
+                                With events and festivals being a core part of Bangladeshi culture, event
+                                organizers can leverage SMM panels to boost event awareness and attendance.
+                                Targeted campaigns can effectively reach potential attendees, making every event
+                                a success.
+                            </p>
+                            <div class="seven__image">
+                                <img src="https://cdn.smmsun.com/images/event-organizers-of-smm-panel.webp"
+                                    class="img-fluid" alt="event-organizers-of-smm-panel">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Faq -->
+<section id="faq">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-12">
+                <div class="def__title__wrap text-center">
+                    <h2>
+                        FAQ
+                    </h2>
+                    <p>
+                        In today's digital-first world, the power of social media is undeniable. Whether you're
+                        a budding entrepreneur, a thriving business, or an influencer aiming to broaden your
+                        reach, understanding the role of SMM (Social Media Marketing) panels can be a
+                        game-changer. But who needs an SMM panel, and how can it revolutionize your digital
+                        strategy? Let's dive in.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="accordion accordion-flush home-acc-faq" id="accordionFlushExample">
+            <div class="row">
+                <div class="col-lg-6 col-md-12 col-12">
+                    <div class="accordion-item">
+                        <h3 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#flush-collapseOne" aria-expanded="false"
+                                aria-controls="flush-collapseOne">
+                                What is an SMM Panel?
+                            </button>
+                        </h3>
+                        <div id="flush-collapseOne" class="accordion-collapse collapse"
+                            data-bs-parent="#accordionFlushExample">
+                            <div class="accordion-body">
+                                <p>
+                                    An SMM (Social Media Marketing) Panel is an online service platform that
+                                    allows individuals and businesses to buy social media services like
+                                    followers, likes, comments, and views. These services are designed to boost
+                                    the online presence and engagement on various social media platforms.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <h3 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#flush-collapseTwo" aria-expanded="false"
+                                aria-controls="flush-collapseTwo">
+                                How does -{{ site['site_name'] }}'s SMM Panel work?
+                            </button>
+                        </h3>
+                        <div id="flush-collapseTwo" class="accordion-collapse collapse"
+                            data-bs-parent="#accordionFlushExample">
+                            <div class="accordion-body">
+                                <p>
+                                    {{ site['site_name'] }}'s SMM Panel is straightforward to use. After signing up and logging
+                                    in, you can browse through our range of services, select the ones that suit
+                                    your needs, customize your plan, and make a secure payment. Once done,
+                                    you'll see tangible results in your social media growth.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h3 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#flush-collapseThree" aria-expanded="false"
+                                aria-controls="flush-collapseThree">
+                                Is using an SMM Panel safe for my social media accounts?
+                            </button>
+                        </h3>
+                        <div id="flush-collapseThree" class="accordion-collapse collapse"
+                            data-bs-parent="#accordionFlushExample">
+                            <div class="accordion-body">
+                                <p>
+                                    Absolutely. At -{{ site['site_name'] }}, we prioritize the safety and security of your social
+                                    media accounts. Our services comply with the terms and conditions of social
+                                    media platforms, ensuring no risk to your accounts.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h3 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#flush-collapseFour" aria-expanded="false"
+                                aria-controls="flush-collapseFour">
+                                What platforms does -{{ site['site_name'] }} offer services for?
+                            </button>
+                        </h3>
+                        <div id="flush-collapseFour" class="accordion-collapse collapse"
+                            data-bs-parent="#accordionFlushExample">
+                            <div class="accordion-body">
+                                <p>
+                                    We offer a wide range of services for various platforms including Facebook,
+                                    Instagram, YouTube, TikTok, LinkedIn, Twitter, Pinterest, and more. Our
+                                    panels are tailored to each platform's unique audience and algorithms.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h3 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#flush-collapseFive" aria-expanded="false"
+                                aria-controls="flush-collapseFive">
+                                Can I track the progress of my orders?
+                            </button>
+                        </h3>
+                        <div id="flush-collapseFive" class="accordion-collapse collapse"
+                            data-bs-parent="#accordionFlushExample">
+                            <div class="accordion-body">
+                                <p>
+                                    Yes, you can. Once you place an order, you can track its progress through
+                                    your -{{ site['site_name'] }} account dashboard. This feature allows you to see real-time
+                                    updates and the impact of our services.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-12 col-12">
+                    <div class="accordion-item">
+                        <h3 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#flush-collapseSix" aria-expanded="false"
+                                aria-controls="flush-collapseSix">
+                                Are the followers or likes provided by -{{ site['site_name'] }} real?
+                            </button>
+                        </h3>
+                        <div id="flush-collapseSix" class="accordion-collapse collapse"
+                            data-bs-parent="#accordionFlushExample">
+                            <div class="accordion-body">
+                                <p>
+                                    Yes, at -{{ site['site_name'] }}, we ensure that all followers, likes, and views are from real
+                                    and active accounts. We focus on genuine engagement to enhance your social
+                                    media credibility.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <h3 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#flush-collapseSeven" aria-expanded="false"
+                                aria-controls="flush-collapseSeven">
+                                What payment methods are accepted by -{{ site['site_name'] }}?
+                            </button>
+                        </h3>
+                        <div id="flush-collapseSeven" class="accordion-collapse collapse"
+                            data-bs-parent="#accordionFlushExample">
+                            <div class="accordion-body">
+                                <p>
+                                    We accept a variety of payment methods for our clients in Bangladesh,
+                                    including credit/debit cards, e-wallets, and local payment options like
+                                    bKash and Nagad.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h3 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#flush-collapseEight" aria-expanded="false"
+                                aria-controls="flush-collapseEight">
+                                What should I do if I face any issues with my order?
+                            </button>
+                        </h3>
+                        <div id="flush-collapseEight" class="accordion-collapse collapse"
+                            data-bs-parent="#accordionFlushExample">
+                            <div class="accordion-body">
+                                <p>
+                                    If you encounter any issues or have any concerns, our customer support team
+                                    is available to assist you. You can reach out to us via email or WhatsApp
+                                    for prompt resolution.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h3 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#flush-collapseNine" aria-expanded="false"
+                                aria-controls="flush-collapseNine">
+                                How long does it take to see results after placing an order?
+                            </button>
+                        </h3>
+                        <div id="flush-collapseNine" class="accordion-collapse collapse"
+                            data-bs-parent="#accordionFlushExample">
+                            <div class="accordion-body">
+                                <p>
+                                    The timeframe for seeing results varies depending on the service and the
+                                    size of the order. However, we strive to deliver quick and effective
+                                    results, with many clients seeing improvements within a short period after
+                                    placing their order.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h3 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#flush-collapseTen" aria-expanded="false"
+                                aria-controls="flush-collapseTen">
+                                Does -{{ site['site_name'] }} offer customized packages?
+                            </button>
+                        </h3>
+                        <div id="flush-collapseTen" class="accordion-collapse collapse"
+                            data-bs-parent="#accordionFlushExample">
+                            <div class="accordion-body">
+                                <p>
+                                    Yes, we do. We understand that every client has unique needs. Therefore, we
+                                    offer customizable packages to cater specifically to your requirements and
+                                    budget.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+    </main>
+    
+    
+{% include 'footer.twig' %}

@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+	{% for lang in site['languages'] %}
+		{% if lang['active'] %}
+			<html lang="{{ lang['code'] }}">
+			{% endif %}
+		{% endfor %}
+
+		<head>
+			<base href="{{ site['url'] }}">
+
+
+			<title>
+				{% if pagetitle %}
+					{{ pagetitle }}
+				{% else %}
+					{{ title }}
+				{% endif %}
+			</title>
+			<meta property="og:title" content="{% if pagetitle %} {{ pagetitle }} {% else %} {{ title }} {% endif %}"/>
+			<meta charset="utf-8">
+			<meta http-equiv="X-UA-Compatible" content="IE=edge">
+			<meta name="viewport" content="width=device-width, initial-scale=1">
+			<meta name="keywords" content="{% if pagekeywords %} {{ pagekeywords }} {% else %} {{ site[" keywords"]}} {% endif %}">
+			<meta name="description" content="{% if pagedescription %} {{ pagedescription }} {% else %} {{ site['description'] }} {% endif %}">
+			<meta property="og:description" content="{% if pagedescription %} {{ pagedescription }} {% else %} {{ site['description'] }} {% endif %}"/>
+			{% if site['favicon'] %}
+				<link rel="shortcut icon" type="image/ico" href="{{ site['favicon'] }}"/>
+			{% endif %}
+
+
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
+<link rel="stylesheet" type="text/css" href="/app/views/SMMSUN-New-V2/css/xxts6jj9jyyjimp0_wzaech.css">
+<link rel="stylesheet" type="text/css" href="/app/views/SMMSUN-New-V2/css/swiper-bundle.min_phxsaq.css">
+ <link rel="stylesheet" type="text/css" href="/app/views/SMMSUN-New-V2/css/xxts6jj9jyyjimp0.css">
+        <link rel="stylesheet" type="text/css" href="/app/views/SMMSUN-New-V2/css/t7cd5r4rroirox6e.css">
+        <link rel="stylesheet" type="text/css" href="https://cdn.mypanel.link/libs/bootstrap-datetimepicker/4.17.47/bootstrap-datetimepicker.min.css">
+        <link rel="stylesheet" type="text/css" href="https://cdn.mypanel.link/css/font-awesome/css/all.min.css">
+        <link rel="stylesheet" type="text/css" href="https://cdn.mypanel.link/global/tp2jssyocan4ndm1.css">
+        <script>
+        window.modules = {};
+    </script>
+    
+			{{ headerCode }}
+		</head>
+		{% if user['auth'] %}
+
+		
+<body oncontextmenu="return false" class="auth" id="body" >
+        <script>
+        if (localStorage.getItem('smmstoreCurrentMode')) {
+            const bodyFire2 = document.getElementById('body');
+            bodyFire2.classList.add('nightmode');
+        }
+    </script>
+    <div class="full_dashboard" id="fullDashboard">
+        <div class="dashboard_sidebar">
+            <button class="sidebartoglle_button" onclick="sidebarToggler()">
+                <img src="https://cdn.smmsun.com/images/arrow-sidebar-left.png" class="img-fluid sidebar-open"
+                    alt="arrow-sidebar-left">
+            </button>
+            <div class="bg_sidebars">
+                <img src="https://cdn.smmsun.com/images/sidebar-effect-bg.png" alt="">
+            </div>
+            <div class="sidebar-logo">
+                
+																    
+																	<a target="_self" href="/">
+																		{% if site["logo"] %}
+																			<img style="max-width:200px;" src="{{ site['logo'] }}" alt="" title="">
+																		{% else %}
+																			<span style="text-transform: ">
+																				<span style="font-size: 24px">
+																					<span style="letter-spacing: 1.0px">
+																						<span style="line-height: 0px">
+																							<strong style="font-weight: bold">{{ site["site_name"]
+                                      }}</strong>
+																						</span>
+																					</span>
+																				</span>
+																			</span>
+																		{% endif %}
+																	</a>
+            </div>
+            <div class="user_box">
+                <div class="user__status">
+                                        NEW
+                                    </div>
+                <div class="box_avatar">
+                    <img src="https://cdn.smmsun.com/images/avatar.png" class="img-fluid" alt="">
+                </div>
+                <h4>{{ user["username"]  }}</h4>
+                <p>
+                    {{ user["balance"] }}
+                </p>
+            </div>
+            <div class="sidebar_menu_wrap">
+                <ul class="sidebar_menu">
+                    
+                                        <li {% if active_menu == "neworder" %} class="sidebar_menu_item active" {% endif %} class="sidebar_menu_item ">
+                        <a href="/" class="sidebar_link">
+                            <span class="icon">
+                                                                <i class="far fa-tachometer-alt-slowest m-icon"></i>
+                                                            </span>
+                            <span class="text">New order</span>
+                        </a>
+                    </li>
+                                        
+                                        <li {% if active_menu == "services" %} class="sidebar_menu_item active" {% endif %} class="sidebar_menu_item ">
+                        <a href="/services" class="sidebar_link">
+                            <span class="icon">
+                                                                <i class="far fa-list-ul m-icon"></i>
+                                                            </span>
+                            <span class="text">Services</span>
+                        </a>
+                    </li>
+                                        
+                                        <li {% if active_menu == "orders" %} class="sidebar_menu_item active" {% endif %} class="sidebar_menu_item ">
+                        <a href="/orders" class="sidebar_link">
+                            <span class="icon">
+                                                                <i class="far fa-box-heart m-icon"></i>
+                                                            </span>
+                            <span class="text">Orders</span>
+                        </a>
+                    </li>
+                                        
+                                        <li {% if active_menu == "addfunds" %} class="sidebar_menu_item active" {% endif %} class="sidebar_menu_item ">
+                        <a href="/addfunds" class="sidebar_link">
+                            <span class="icon">
+                                                                <i class="far fa-wallet m-icon"></i>
+                                                            </span>
+                            <span class="text">Add funds</span>
+                        </a>
+                    </li>
+                                        
+                                        <li {% if active_menu == "tickets" %} class="sidebar_menu_item active" {% endif %} class="sidebar_menu_item ">
+                        <a href="/tickets" class="sidebar_link">
+                            <span class="icon">
+                                                                <i class="far fa-headset m-icon"></i>
+                                                            </span>
+                            <span class="text">Tickets</span>
+                        </a>
+                    </li>
+                                        
+                    
+                                        
+                    
+                                        
+                    
+                                        
+                    
+                                        
+                    
+                                        
+                                        <li {% if active_menu == "massorder" %} class="sidebar_menu_item active" {% endif %} class="sidebar_menu_item ">
+                        <a href="/massorder" class="sidebar_link">
+                            <span class="icon">
+                                                                <i class="far fa-box-full m-icon"></i>
+                                                            </span>
+                            <span class="text">Mass order</span>
+                        </a>
+                    </li>
+                                                        </ul>
+                <div class="showmore__wrap">
+                    <div class="text-center">
+                        <button class="showmore__btn" onclick="showmoreButton()">
+                            <span class="text">Show more</span>
+                            <span class="icon">
+                                <i class="fas fa-angle-double-down"></i>
+                            </span>
+                        </button>
+                    </div>
+                    <div class="show_more_menu d-none" id="showmore_menu">
+                        <ul class="sidebar_menu">
+                            
+                            
+                                                        
+                            
+                                                        
+                            
+                                                        
+                            
+                                                        
+                            
+                                                        
+                                                       <!-- <li class="sidebar_menu_item ">
+                                <a href="/dashboard" class="sidebar_link">
+                                    <span class="icon">
+                                                                                <i class="fas fa-columns m-icon"></i>
+                                                                            </span>
+                                    <span class="text">Dashboard</span>
+                                </a>
+                            </li> -->
+                                                        
+                                                       <li {% if active_menu == "child-panels" %} class="sidebar_menu_item active" {% endif %} class="sidebar_menu_item ">
+                                <a href="/child-panels" class="sidebar_link">
+                                    <span class="icon">
+                                                                                <i class="fas fa-child m-icon"></i>
+                                                                            </span>
+                                    <span class="text">Child panel</span>
+                                </a>
+                            </li>
+                                                        
+                                                       <li {% if active_menu == "api" %} class="sidebar_menu_item active" {% endif %} class="sidebar_menu_item ">
+                                <a href="/api" class="sidebar_link">
+                                    <span class="icon">
+                                                                                <i class="far fa-code m-icon"></i>
+                                                                            </span>
+                                    <span class="text">API</span>
+                                </a>
+                            </li>
+                                                        
+                                                        <li {% if active_menu == "refer" %} class="sidebar_menu_item active" {% endif %} class="sidebar_menu_item ">
+                                <a href="/refer" class="sidebar_link">
+                                    <span class="icon">
+                                                                                <i class="far fa-user-friends m-icon"></i>
+                                                                            </span>
+                                    <span class="text">Affiliates</span>
+                                </a>
+                            </li>
+                                                        
+                                                        <li {% if active_menu == "updates" %} class="sidebar_menu_item active" {% endif %} class="sidebar_menu_item ">
+                                <a href="/updates" class="sidebar_link">
+                                    <span class="icon">
+                                                                                <i class="fas fa-pen-square m-icon"></i>
+                                                                            </span>
+                                    <span class="text">Updates</span>
+                                </a>
+                            </li>
+                                                        
+                            
+                                                        
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="dashboard_content">
+            <div class="dashboard_header">
+                <button class="sidebartoglle_button2" onclick="sidebarToggler()">
+                    <img src="https://cdn.smmsun.com/images/arrow-sidebar-right.png" class="img-fluid sidebar-open"
+                        alt="arrow sidebar right">
+                </button>
+                <div class="dashboard_header_wraper">
+                    <div class="dash-header mb-3 mt-3 d-flex justify-content-between">
+                        <div class="align-self-center header_first">
+                            <p>
+                                <a href="/account">
+                                    <img class="gender_img" src="https://cdn.smmsun.com/images/profile1.png"
+                                        style="max-height: 40px;" alt=""></a>
+                                You are currently on: 
+                                <strong>
+                                                                        {% if pagetitle %}  {{ pagetitle }}  {% else %} {{ title }} {% endif %}
+                                                                    </strong>
+                            </p>
+                        </div>
+                        <div class="align-self-center ml-auto header_mid">Total Orders <strong>{{totalorders}}</strong>
+                        </div>
+                        <div class="ml-auto header_last">
+                            <div class="align-self-center ml-auto">Welcome, <strong>{{ user["username"]  }}!</strong> Your
+                                balance is
+                                <strong class="viewmoney">
+                                   {{ user["balance"] }}
+                                </strong>
+                            </div>
+                            <div class="logo_mob">
+                                <a href="/">
+                                    <img src="{{ site['logo'] }}" class="logo__mobile" alt="">
+                                </a>
+                            </div>
+                            <ul class="align-self-center action-btn">
+                             
+                             
+                                
+                                <li class="setting">
+                                    <a href="/account" class="setting"><i class="fas fa-cog" aria-hidden="true"></i></a>
+                                </li>
+                                <li><a href="/logout" class="logout"><i class="fas fa-sign-out-alt"
+                                            aria-hidden="true"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <script>
+document.addEventListener("keydown", e => {
+  // USE THIS TO DISABLE CONTROL AND ALL FUNCTION KEYS
+  // if (e.ctrlKey || (e.keyCode>=112 && e.keyCode<=123)) {
+  // THIS WILL ONLY DISABLE CONTROL AND F12
+  if (e.ctrlKey || e.keyCode==123) {
+    e.stopPropagation();
+    e.preventDefault();
+  }
+});
+</script>
+
+
+				{% else %}
+
+
+<body oncontextmenu="return false" class="notAuth" >
+        <!-- header Part -->
+    <header class="sticky-top">
+        <nav class="navbar navbar-expand-lg bg-white">
+            <div class="container">
+              
+																    
+																	<a target="_self" href="/">
+																		{% if site["logo"] %}
+																			<img style="max-width:200px;" src="{{ site['logo'] }}" alt="" title="">
+																		{% else %}
+																			<span style="text-transform: ">
+																				<span style="font-size: 24px">
+																					<span style="letter-spacing: 1.0px">
+																						<span style="line-height: 0px">
+																							<strong style="font-weight: bold">{{ site["site_name"]
+                                      }}</strong>
+																						</span>
+																					</span>
+																				</span>
+																			</span>
+																		{% endif %}
+																	</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                                                                        <li class="nav-item">
+                            <a class="nav-link {% if active_menu == "login" %} nav-link {% endif %}" href="/">
+                                                                Sign in
+                            </a>
+                        </li>
+                                                                                                <li class="nav-item">
+                            <a class="nav-link {% if active_menu == "services" %} nav-link {% endif %}" href="/services">
+                                                                Services
+                            </a>
+                        </li>
+                                                                                                <li class="nav-item">
+                            <a class="nav-link {% if active_menu == "about-us" %} nav-link {% endif %}" href="/about-us">
+                                                                About Us
+                            </a>
+                        </li>
+                                                                                                <li class="nav-item">
+                            <a class="nav-link {% if active_menu == "blog" %} nav-link {% endif %}" href="/blog">
+                                                                Blog
+                            </a>
+                        </li>
+                                                                                             
+                                                                                               
+                                                        
+                                                                    </ul>
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a href="/signup" class="nav-button btn btn-nav">Sign Up</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+        
+        <script>
+document.addEventListener("keydown", e => {
+  // USE THIS TO DISABLE CONTROL AND ALL FUNCTION KEYS
+  // if (e.ctrlKey || (e.keyCode>=112 && e.keyCode<=123)) {
+  // THIS WILL ONLY DISABLE CONTROL AND F12
+  if (e.ctrlKey || e.keyCode==123) {
+    e.stopPropagation();
+    e.preventDefault();
+  }
+});
+</script>
+
+						{% endif %}
+					</body>

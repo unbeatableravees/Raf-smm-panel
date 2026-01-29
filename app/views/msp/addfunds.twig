@@ -1,0 +1,235 @@
+{% include 'header.twig' %}
+
+<!-- Main variables *content* -->
+  <!-- app-header -->
+         <div class="app-content">
+            <!-- page-content -->
+            <div class="container-fluid">
+               <div class="row mt-4">
+                  <div class="col-lg-12">
+               <section class="order-side">
+                  <div class="row">
+                     <div class="col-lg-7 col-12 mb-5 mb-lg-0">
+                        <div class="d-card dc-dblue">
+                           <div class="d-card-body" id="dc-body">
+							      {% if error %}
+                                      <div class="alert alert-dismissible alert-danger">
+                                        <button type="button" class="close" data-dismiss="alert">×</button>
+                                        {{ errorText }}
+                                      </div>
+                                    {% endif %}
+                                    {% if success %}
+                                      <div class="alert alert-dismissible alert-success">
+                                        <button type="button" class="close" data-dismiss="alert">×</button>
+                                        {{ successText }}
+                                      </div>
+                                    {% endif %}
+                                    {% if paymentsList %}
+                                   
+                                    
+                              			<br>
+                                          <form method="post" action="addfunds">
+                            
+                                            <div class="form-group">
+                                              <label for="method" class="control-label">{{ lang['addfunds.method'] }}</label>
+                                              <select class="form-control" id="payment_method" name="payment_type">
+               {% for payment in paymentsList %}
+                        {% if payment['id'] != 20 %}
+                        <option value="{{ payment['id'] }}" {% if data['payment_type'] == payment['id'] %} selected {% endif %} >{{ payment['method_name'] }}</option>
+        {% endif %}
+                        {% endfor %}
+                                              </select>
+                                            </div>
+                            
+                                              <div class="form-group">
+                                                  <label for="method" class="control-label">{{ lang['addfunds.amount'] }}</label>
+                                                  <input class="form-control" name="payment_amount" value="{{ data['payment_amount'] }}">
+                                              </div>
+                            
+                                            <button type="submit" class="btn btn-block btn-primary" style="padding:0px;">{{ lang['addfunds.button'] }}</button>
+                                            <button type="button" class="btn btn-block btn-primary" data-toggle="modal" data-target="#papara-modal" style="padding:0px;">Bank Transfer</button>
+                                          </form>
+                                                                                                       
+                                                                                                     
+                                    {% endif %}
+                           </div>
+                        </div>
+                        <!-- d-card end -->
+                     </div>
+                     <!-- col item end-->
+                     <div class="col-lg-5 col-12 mb-5 mb-lg-0">				 
+                        <div class="d-card dc-dblue">
+                           <ul class="nav nav-pills fastside">
+                              <li class="nav-item col-6 mb-2" style="padding:0">
+                                 <a class="nav-link active" data-toggle="pill" href="#payInfo" role="tab" aria-controls="pills-payInfo" aria-selected="true">Information</a>
+                              </li>
+                              <li class="nav-item col-6 mb-2" style="padding:0">
+                                 <a class="nav-link second" data-toggle="pill" href="#payAll" role="tab" aria-controls="pills-payAll" aria-selected="false">Transaction History</a>
+                              </li>
+                           </ul>
+                           <div class="d-card-body" id="dc2-body" style="overflow-y: auto; max-height: 500px">
+                              <div class="tab-content mt-3">
+                                 <div class="tab-pane fade active show" id="payInfo" role="tabpanel" aria-labelledby="payInfo">
+									
+									{% if PaytmQR == 2 %}
+                                        <div class="">
+                                           <div class="">
+                                            <div class="card-body">
+                                             <h1><center>
+                                                PAYTM QR
+                                    			 </h1></center>
+                                                                
+                                              <div class="panel-body">
+                                                <form method="post" action="addfunds">
+                                                                                     <div class="justify-content-center" style="max-width:300px;  margin:0 auto;"><center><img width="70%" src="{{ PaytmQRimage }}"></center></div><br><br>
+                                                    <div class="form-group col-md-12">
+                                                        <label for="method" class="control-label">Amount in INR</label>
+                                                        <input class="form-control" name="payment_amount" value="{{ data['payment_amount'] }}" placeholder="10">
+                                                    </div>
+                                                    <div class="form-group col-md-12">
+                                                        <label for="method" class="control-label">Order ID</label>
+                                                        <p>Enter Transaction/Order ID without spaces.</p>
+                                                        <input class="form-control" name="paytmqr_orderid" value="{{ data['paytmqr_orderid'] }}" placeholder="202110122210100058">
+                                                    </div>
+                    <input type="hidden" class="form-control" name="payment_type" value="20">
+                                                    <div class="col-md-12">
+                                                      <button type="submit"  class="btn btn-block btn-primary">Submit</button>
+                                                    </div>
+                                                </form>
+                                                                                                                  
+                                              </div>
+                                            </div>  
+                                          </div>
+                                                                                                                
+                                        </div>
+                                      {% endif %}
+									
+									
+									
+									
+									
+                                 </div>
+                                 <div class="tab-pane fade" id="payAll" role="tabpanel" aria-labelledby="payAll-tab">
+																		  <table class="table">
+										 <thead>
+											<tr>
+											   <th>ID</th>
+											   <th>Date</th>
+											   <th>Method</th>
+											   <th>Amount</th>
+											</tr>
+										 </thead>
+										 <tbody>
+										     {% for transaction in transactions %}
+										 											<tr>
+											   <td>{{ transaction['payment_id'] }}</td>
+											   <td><span class="nowrap">{{ transaction['payment_create_date'] }}</span></td>
+											   <td>₹ Paytm / UPI / Cards/Netbanking{{ transaction['method_name'] }}</td>
+											   <td><strong>{{ transaction['payment_amount'] }}</strong></td>
+											</tr>
+											{% endfor %}
+										 </tbody>
+										 
+									  </table>
+									  
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </section>
+            </div>
+            <!-- page-content end -->
+            
+         </div>
+         
+ <br>
+ <div class="wrapper-content__header">
+          </div>
+    <div class="wrapper-content__body">
+      <!-- Main variables *content* -->
+      <div id="block_20">
+    <div class="add-funds__form">
+        <div class="bg"></div>
+        <div class="divider-top"></div>
+        <div class="divider-bottom"></div>
+        <div class="container-fluid">
+            <div class="row add-funds__form-alignment">
+                <div class="col-lg-12">
+                    <div class="component_card">
+                        <div class="card">
+    <div class="col-md-12">
+
+        <div class="well">
+          <form method="post" action="kupon">
+            <div class="form-group">
+              <label for="subject" class="control-label">Coupon Code</label>
+              <input type="text" class="form-control" id="kuponadi" name="kuponadi">
+            </div>
+            <button type="submit" class="btn btn-block btn-primary">Use</button>
+          </form>
+        </div>
+        
+         <!-- app-content -->
+			</div>
+		</div>
+				
+
+		
+      </div>
+
+
+<!-- Papara -->
+<div class="modal fade" id="papara-modal">
+   <div class="modal-dialog">
+      <div class="modal-content">
+         <!-- Modal Header -->
+         <div class="modal-header">
+            <h4 class="modal-title">Load Balance with Bank transfer</h4>
+            <button type="button" class="close" data-dismiss="modal">×</button>
+         </div>
+         <!-- Modal body -->
+         <div class="modal-body">
+            <div class="card-box-top" style="color: #2a255c; padding: 20px;border-radius: 10px; margin: 0 0 25px 0; background: rgba(42, 37, 92, 0.15)">
+               <p>You need create a support ticket after sending bank transfer. Sample;<br /><br />
+                  <strong>Sender Name:</strong><br />
+                  <strong>Time of Payment:</strong><br />
+                  <strong>Amount Sent:</strong><br />
+               <p>        
+            </div>
+            <div class="payout mb-5">
+               <table class="table">
+                  <thead class="paHead">
+                     
+                     <tr>
+                        <th scope="col">Acc. Number</th>
+                        <th scope="col">Ifsc</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Bank Name</th>
+                        <th scope="col">IBAN</th>
+                     </tr>
+                  </thead>
+                  <tbody>
+                     {% for bank in bankList %}
+                    <tr>
+                        <td>{{ bank['bank_hesap'] }}</td>
+                        <td>
+                           <p id="Bank Account"><code>{{ bank['bank_sube'] }}</code> <a id="paparaCopy" href="#" onclick="copywalletid('#papara')"><small><span  data-toggle="tooltip" data-placement="top" title="" data-original-title="Bank Details" class="far fa-copy"></span></small></a> </p>
+                            </td>
+                        <td>{{ bank["bank_alici"] }}</td>
+                        <td>{{ bank['bank_name'] }}</td>
+                        <td><b>{{ bank['bank_iban'] }}</b><br></td>
+                    </tr>
+                  {% endfor %}
+                  </tbody>
+               </table>
+            </div>
+            <a href="tickets"><button type="button" class="btn btn-primary btn-block">Make Payment Notification</button></a>
+         </div>
+      </div>
+   </div>
+</div>
+
+
+{% include 'footer.twig' %}

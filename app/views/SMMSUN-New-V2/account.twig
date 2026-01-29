@@ -1,0 +1,184 @@
+{% include 'header.twig' %}
+
+
+<main class="main_content">
+                <div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-12">
+            <div class="card card_type_3">
+                <div class="card-header">
+                    <h4>@{{ user['username'] }}</h4>
+                </div>
+                <div class="card-body">
+                                        
+                                  {% if error %}
+        <div class="alert alert-dismissible alert-danger">
+          <button type="button" class="close" data-dismiss="alert">×</button>
+          {{ errorText }}
+        </div>
+      {% endif %}
+      {% if success %}
+        <div class="alert alert-dismissible alert-success">
+          <button type="button" class="close" data-dismiss="alert">×</button>
+          {{ successText }}
+        </div>
+      {% endif %}              
+                        <div class="account__items">
+                            <form  method="post" action="">
+                                <div class="row">
+                                    <div class="col-12">
+                                                                            </div>
+                                    <div class="col-lg-4 col-md-4 col-12">
+                                        <div class="form-group">
+                                            <label for="current" class="control-label">Current password</label>
+                                            <input type="password" class="form-control" id="current"
+                                                name="current_password">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-4 col-12">
+                                        <div class="form-group">
+                                            <label for="new" class="control-label">New password</label>
+                                            <input type="password" class="form-control" id="new"
+                                                name="password">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-4 col-12">
+                                        <div class="form-group">
+                                            <label for="confirm" class="control-label">Confirm new password</label>
+                                            <input type="password" class="form-control" id="confirm"
+                                                name="confirm_password">
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="col-12">
+                                        <button type="submit" class="btn btn-primary w-100">Change password</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+
+                        <div class="account__items">
+                            <form id="changeEmailForm" method="post" action="">
+                                <div id="changeEmailError"
+                                    class="error-summary alert alert-dismissible alert-danger hidden">
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-4 col-md-4 col-12">
+                                        <div class="form-group">
+                                            <label for="current-email">Current email</label>
+                                            <span class="form-control" id="current-email" disabled>{{ user['email'] }}</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-4 col-12">
+                                        <div class="form-group">
+                                            <label for="new-email">New email</label>
+                                            <input type="email" class="form-control" id="new-email"
+                                                name="email">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-4 col-12">
+                                        <div class="form-group">
+                                            <label for="current-password">Current password</label>
+                                            <input type="password" class="form-control" id="current-password"
+                                                name="password">
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <button type="submit" class="btn btn-primary w-100" id="changeEmailSubmitBtn">Change email</button>
+                            </form>
+                        </div>
+
+                     <!--   <div class="account__items">
+                            <div class="row">
+                                <div class="col-lg-12 col-12">
+                                    <div id="2fa-approve-error-block"
+                                        style=" display: none; "
+                                        class="alert alert-dismissible alert-danger ">
+                                        <button type="button" class="close">×</button>
+                                        <span id="2fa-error-text"></span>
+                                    </div>
+
+                                    <label class="control-label">
+                                        Two-factor authentication
+                                                                            </label>
+
+                                    <!-- 2FA Form generate code -->
+                                  <!--  <form id="2fa-generate-form" method="post"  action="/account/2fa/generate"
+                                        style=" display: block; ">
+                                        <p class="alert alert-warning fs-16">Email-based option to add an extra layer of protection to your account. When signing in you’ll need to enter a code that will be sent to your email address.</p>
+                                        <input type="hidden" name="enabled" value="1">
+                                        <input type="hidden" name="_csrf" value="-AqVAnJe56FDCp5EBGci8NriW49bUOocjUuCDqr1Vp27bvdnBzaV0xlCzilbK3aosY0e_RAqrXbjO80-3pox0g==">
+                                        <button id="2fa-generate" type="submit" class="btn btn-primary w-100">
+                                                                                        Enable
+                                                                                    </button>
+                                    </form>
+
+                                    <!-- 2FA Form approve code -->
+                                <!--    <form id="2fa-approve-form" method="post"  action="/account/2fa/approve"
+                                        style=" display: none; ">
+                                        <p>Please check your email and enter the code below.</p>
+                                        <div class="form-group">
+                                            <label for="code" class="control-label">Code</label>
+                                            <input type="text" id="code" name="code" class="form-control">
+                                        </div>
+                                        <input type="hidden" name="enabled" value="1">
+                                        
+                                        <button id="2fa-approve" type="submit" class="btn btn-primary w-100">
+                                                                                        Enable
+                                                                                    </button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>  -->
+
+                        
+                        <div class="account__items">
+                            <form  action="" method="post">
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-6 col-12">
+                                        <div class="form-group">
+                                            <select name="SettingsFrom[timezone]" id="timezone" class="form-select">
+                                                                                                <option value="-43200" >(UTC +6:00) Bangladesh Standard Time, Bhutan Time, Omsk Time</option>
+                                                                                                
+                                                                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-12">
+                                        <input type="hidden" name="_csrf" value="-AqVAnJe56FDCp5EBGci8NriW49bUOocjUuCDqr1Vp27bvdnBzaV0xlCzilbK3aosY0e_RAqrXbjO80-3pox0g==">
+                                        <button type="submit" class="btn btn-primary w-100">Save</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+
+                        <div class="account__items">
+                            <form  action="/account/newapikey" method="post">
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-6 col-12">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" id="api_key"
+                                                value="********************************" readonly>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-12">
+                                        <input type="hidden" name="_csrf" value="-AqVAnJe56FDCp5EBGci8NriW49bUOocjUuCDqr1Vp27bvdnBzaV0xlCzilbK3aosY0e_RAqrXbjO80-3pox0g==">
+                                        <button type="submit" class="btn btn-primary w-100">Generate new</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+            </main>
+        </div>
+    </div>
+
+
+            
+
+ {% include 'footer.twig' %}

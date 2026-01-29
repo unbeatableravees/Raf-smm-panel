@@ -1,0 +1,195 @@
+{% include 'header.twig' %}
+
+
+
+            <!-- Main variables *content* -->
+    <main>
+        <div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-12">
+            <div class="card card_type_3 service__card__wrap">
+                <div class="card-header">
+                    <div class="update__nav">
+                        <form action="/services" method="get" id="history-search">
+                            <div class="input-group">
+                                <input type="text" class="form-control"
+                                    placeholder="Search"
+                                    data-search-service="#service-table">
+                                <span class="input-group-btn">
+                                    <button type="submit" class="btn btn-default"><i class="fa fa-search"
+                                            aria-hidden="true"></i></button>
+                                </span>
+                            </div>
+                        </form>
+                        <div class="dropdown update_dropDwon service_filters">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                <span class="fal fa-filter"></span>
+                                <span data-filter-active-category="true" class="text-service-filters">Service
+                                    Filter</span>
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu service_filter-drop">
+                                                                <li>
+                                            <a class="dropdown-item" href="#" data-filter-category-id="All">All</a>{% for category in serviceCategory %}
+                                                                                                                                                                                                <a class="dropdown-item" href="services#" data-filter-category-id="{{ category["category_id"] }}" data-filter-category-name="{{ category["category_name"] }}">{{ category["category_name"] }}</a>{% endfor %}
+                                                                                                                                   
+                                                                                                                                   </li>
+                                                                                                                                   </ul>                                                             
+                                                                                                                                          
+                                        </div>
+                                    </div>
+                                </div>
+                               
+
+</ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table" id="service-table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th class="width-service-name">Service</th>
+                                    <th class="nowrap">Rate per 1000</th>
+                                    <th class="nowrap">Min order</th>
+                                    <th class="nowrap">Max order</th>
+                                                                        <th class="avarage_time_Services">Average time </th>
+                                                                                                            <th>Description</th>
+                                                                    </tr>
+                            </thead>
+                                    <tbody> 
+                                    
+                                    {% for category in serviceCategory %}
+             <tbody>
+                                                                                                <tr data-filter-table-category-id="{{ category["category_id"] }}">
+                                    <td colspan="100%" class="service_category_title">
+                                                                                                                                                                <span></span>
+                                                                                                                        <strong>{{ category["category_name"] }}</strong>
+                                    </td>
+                                </tr>
+                                                
+
+                {% for service in category['services'] %}
+                   <tr data-filter-table-category-id="{{ category["category_id"] }}">
+                                    <td data-filter-table-service-id="{{ service["service_id"] }}">
+                                                                                {{ service["service_id"] }}
+                                    </td>
+                                    <td class="service-name" data-filter-table-service-name="true">{{ service["service_name"] }}
+                                    </td>
+                                    <td>
+                      
+{% if user["auth"] == "1" %} 
+{{service["service_price"]}}
+
+{% else %}
+{{service["without_login_service_price"]}}
+{% endif %}
+                    </td>
+                                    <td>{{ service["service_min"] }}</td>
+                                    <td>{{ service["service_max"] }}</td>
+                                                                        <td class="avarage_time_Services">{{ service["time"] }}</td>
+                                                                                                        
+                                                                                        <td>
+                     <!-- Modal -->
+                        <div class="modal fade" id="servis{{ service["service_id"] }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                          <div class="modal-dialog modal-dialog-centered" role="document">
+                            <div class="modal-content">
+                              <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">{{ service["service_name"] }} </h5> 
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                  <span aria-hidden="true">×</span>
+                                </button>
+                              </div>
+                              <div class="modal-body text-left">
+                                <p class="detail-data details-split-959"> {{ service["service_description"] }}</p>
+                              </div>
+                              <div class="modal-footer">
+                                <button type="button" class="btn btn-actions" data-dismiss="modal">Close</button>
+                              </div>
+                            </div>
+                          </div>
+						  
+                        </div><a href="javascript:void(0)" class="btn btn-view-details " data-toggle="modal" data-target="#servis{{ service["service_id"] }}">
+                         Details
+                      </a>
+                   
+                        </td>         
+                                                                                                
+                                                                                                
+                                                                                                     <!------   
+                                                                                                            <td>
+                                        <button class="btn btn-view-details" data-bs-toggle="modal"
+                                            data-bs-target="#exampleModal"
+                                            onclick="showModalContent('{{ service["service_name"] }}','{{ service["service_id"] }}')">
+                                            Details</button>
+                                        <span class="d-none" id="service-description-49{{ service["service_id"] }}">{{ service["service_description"] }}</span>
+                                    </td>   ------>
+
+                                                                    </tr>
+                                              
+                                            <!--  <div class="modal fade " tabindex="-1" role="dialog" id="service-description-49">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+          <i style="color: #b4c6d3;" class="fas fa-times"></i>
+        </button>
+        <div class="service-description-content"></div>
+        <button class="btn btn-block btn-big-primary" style="margin-top: 24px;" type="button" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div> -->
+                  
+                  
+                {% endfor %}
+              {% endfor %}
+
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div></div>
+</div>
+</div></div></div>
+
+
+{% if contentText2 %}
+{{ contentText2 }}
+{% endif %}
+
+
+{% include 'footer.twig' %}
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+
+  <script type="text/javascript" src="/public/global/ch3915babussofa4.js">
+      </script>
+  <script type="text/javascript" src="/public/global/cgtptn05b64bwcs4.js">
+      </script>
+  <script type="text/javascript" src="/public/global/xcz59lmywkfdgsp4.js">
+      </script>
+  <script type="text/javascript" src="/public/global/wnzsoolloslhfumj.js">
+      </script>
+      <script type="text/javascript" src="/public/global/qri1ac173hshc2hdjc.js">
+</script>
+
+  <script type="text/javascript" >
+     window.modules.layouts = {"auth":0};   </script>
+  <script type="text/javascript" >
+     window.modules.signin = [];   </script>
+  <script type="text/javascript" >
+      </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.27.6/js/jquery.tablesorter.js"></script>
+
+
+
+
+</body>
+</html>

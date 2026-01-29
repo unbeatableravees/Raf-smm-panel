@@ -1,0 +1,212 @@
+{% include 'header.twig' %}
+
+
+
+<div class="paddingbody"></div>
+	
+	<div class="container-fluid container-fluid-spacious">
+		<div class="row">
+			<div class="col-md-10 col-md-offset-1">
+				<div class="Kpcss" class="well well-float table-responsive"  style="">
+					<h1 style="text-align: center; " helvetica="" neue",="" helvetica,="" arial,="" sans-serif;="" color:="" rgb(0,="" 0,="" 0);="" text-align:="" center;"=""></h1><div style="text-align: center;"><h1 style="margin-top: 0px; margin-bottom: 1rem; font-variant-numeric: normal; font-variant-east-asian: normal; font-weight: 700; font-stretch: normal; font-size: 3.5rem; line-height: 4.125rem; font-family: " open="" sans",="" sans-serif;="" letter-spacing:="" -0.2px;="" text-align:="" left;"=""><img src="https://cdn.mypanel.link/7o9f2j/64jiohf87y5i5ki5.png" width="40" height="40" alt="MySmmStore Verified" style="color: rgb(255, 255, 255); font-family: " open="" sans",="" sans-serif;="" font-size:="" 3.5rem;="" letter-spacing:="" -0.2px;="" text-align:="" left;="" border-style:="" none;="" width:="" 57.2969px;="" height:="" 57.2969px;"=""><span style="color: rgb(1, 1, 1); font-size: 3.5rem;">Cheapest Rates</span> </div>
+				</div>
+		<div class="Kpcss2" class="well"><div class="form-group">
+		<form method="post" action="">
+<div class="component_button_forms">
+<div class="form-group" bis_skin_checked="1"><div class="search_sevices_content" bis_skin_checked="1"><span class="parent_searches"><span><input type="search" id="search_services_field" class="form-control" placeholder="Search for a service..." data-gtm-form-interact-field-id="0"></span></span></div><div id="dropdown_for_search" class="dropdown" style="display: block;" bis_skin_checked="1">
+
+
+</div></div>
+      
+	      
+	  <div class="table-responsive">
+        <table class="table ">
+<thead>
+<tr>
+<th>{{ lang['services.id'] }}</th>
+<th class="width-service-name">{{ lang['services.name'] }}</th>
+<th class="nowrap">{{ lang['services.price'] }}</th>
+<th class="nowrap">{{ lang['services.min'] }}</th>
+<th class="nowrap">{{ lang['services.max'] }}</th>
+<th class="nowrap">Description</th>
+
+</tr>
+</thead>
+
+<tbody>
+          {% for category in serviceCategory %}
+                <tr class="services-list-category-title service_cat_header">
+<td colspan="7" ><strong>
+    
+  {{ category["category_name"] }}
+    
+    </strong>
+
+
+                                                   </div>
+                                                </td>
+                                            </tr>
+                {% for service in category['services'] %}
+                  <tr>
+                    <td>{{ service["service_id"] }}</td>
+                    <td>{{ service["service_name"] }}</td>
+                    
+                    <td>
+{{ service["without_login_service_price"] }}
+</td>
+<td>{{ service["service_min"] }}</td>
+<td>{{ service["service_max"] }}</td>
+          
+                   
+                                                                                            <td> {{ service["service_description"] }}  </td>     
+                     <td>
+                                                                                            </div>
+                                                                                        </div>
+                   
+                   
+                   
+           <!-- Modal -->
+                        
+                  <div class="modal fade" id="service{{ service["service_id"] }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                          <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                              <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel"> {{ service["service_name"] }} </h5> 
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                  <span aria-hidden="true">×</span>
+                                </button>
+                              </div>
+                              <div class="modal-body text-left">
+                                <p class="detail-data details-split-959">
+                {{ service["service_description"] }}
+              </p>
+                              </div>
+                              <div class="modal-footer">
+                                <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                              </div>
+                            </div>
+                          </div>      
+                       
+                    
+                                           
+                  
+                        </td>
+                  </tr>
+                {% endfor %}
+              {% endfor %}
+</tr>
+
+
+
+          </tbody>
+        </table>
+
+
+</div>
+				
+				<div  class="well well-float table-responsive" style="display:none;">
+					
+				</div>
+			</div>
+		</div>
+	</div></tbody>
+</table>
+</div>        
+                     
+</div>
+</div>
+</div>
+
+	<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+<script>
+function serviceclicked(sid,cid){
+ 
+ console.log(sid, cid)
+ $(`#neworder_category option[value=${cid}]`).prop('selected', 'selected').change();
+setTimeout(servd, 1000)
+function servd(){
+  console.log('run after 1 second');
+ $(`#neworder_services option[value=${sid}]`).prop('selected', 'selected').change();
+  var h23 = $(`#neworder_services option[value=${sid}]`).attr('data-content');
+  console.log(h23);
+ h23 = h23.replace('<span class="badge badge-secondary style-text-primary badge-rounded">','');
+ h23 = h23.replace('</span>','');
+ h23 = h23.replace('</b>','');
+ h23 = h23.replace('<b>','');
+  $('#dropdown_for_search').html('');
+ 
+  $('#search_services_field').val(h23);
+}
+
+
+ 
+ }
+$(document).ready(function () {
+    // Event listener for changes in the serviceSearch input
+ 
+    $('#search_services_field').on('input', function () {
+        // Get the input value
+        var inputValue = $(this).val();
+if(!inputValue){
+   $('#dropdown_for_search').html('');
+}else{
+        // Making an AJAX request
+        $.ajax({
+            type: 'POST',
+            url: '/ajax_data',  // Replace '/neworder' with the actual URL of your neworder route
+            data: { 
+                action: 'service_search' ,
+                search_term: inputValue
+            },
+            beforeSend: function(){
+               $('#dropdown_for_search').html(`<div class="dropdown-item"  bis_skin_checked="1" style="padding: 6px 9px; cursor: pointer;"><span class="badge service_id_badge bg-primary">Searching</span> Please Wait...</div>`);
+            },
+            success: function (response) {
+                // Handle the response from the server
+              
+                 $('#dropdown_for_search').html(response);
+              
+                // You can update the DOM or perform other actions based on the response
+            },
+            error: function (error) {
+                console.error('AJAX error:', error);
+            }
+        });
+    }});
+});
+</script>					
+
+    
+        
+<script>
+
+
+{% include 'footer.twig' %}
+<style>
+#dropdown_for_search {
+    display: none;
+    max-height: 300px;
+    overflow-y: auto;
+    border: 1px solid #fdfdfd;
+    border-radius: 5px;
+    position: inherit;
+    z-index: 1000;
+    background: white;
+}
+
+.selectme {
+    padding: 10px;
+    cursor: pointer;
+    list-style-type: none; 
+}
+
+.selectme:hover {
+    background-color: #ff8c00; 
+}
+
+.highlight {
+    font-weight: bold; 
+}
+
+</style>

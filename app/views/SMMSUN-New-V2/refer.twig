@@ -1,0 +1,97 @@
+{% include 'header.twig' %}
+
+
+ <main class="main_content">
+                <div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-12 col-12">
+            <div class="card card_type_3 mb-5">
+                <div class="card-header">
+                    <h3>Affiliates</h3>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-12">
+                            <div class="api__item">
+                                <h4>Referral link</h4>
+                                <p>
+                                    {{ site["url"] }}/affiliates?ref={{ user['ref_code'] }}
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-12">
+                            <div class="api__item">
+                                <h4>Commission rate</h4>
+                                <p>
+                                    {{settings["referral_commision"]}}%
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-12">
+                            <div class="api__item">
+                                <h4>Minimum payout</h4>
+                                <p>
+                                    {{settings["referral_payout"]}}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-12 col-12">
+            <div class="card card_type_3 mb-5">
+                <div class="card-header">
+                    <h3>Affiliates Statistics</h3>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-lg-3 col-md-4 col-6">
+                            <div class="api__item">
+                                <h4>Visits</h4>
+                                <p>{{ ref['referral_clicks'] }}</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-6">
+                            <div class="api__item">
+                                <h4>Registrations</h4>
+                                <p>{{ ref['referral_sign_up'] }}</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-6">
+                            <div class="api__item">
+                                <h4>Referrals</h4>
+                                <p>0</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-6">
+                            <div class="api__item">
+                                <h4>Conversion rate</h4>
+                                <p>0.00%</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-6">
+                            <div class="api__item">
+                                <h4>Total earnings</h4>
+                                <p>$0.00</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-6">
+                            <div class="api__item">
+                                <h4>Available earnings</h4>
+                                <p>$0.00</p>
+                            </div>
+                        </div>
+                                            </div>
+                </div>
+            </div>
+        </div>
+
+            </div>
+</div>
+            </main>
+        </div>
+    </div>
+    
+    
+ {% include 'footer.twig' %}

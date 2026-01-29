@@ -1,0 +1,125 @@
+{% include 'header.twig' %}
+
+<div class="app-content">
+            <!-- page-content -->
+            <div class="container-fluid">
+               <div class="row mt-4">
+                  <div class="col-lg-12">
+                     <section class="order-side">
+                        <div class="row">
+                           <div class="col-lg-6 col-12 mb-5 mb-lg-0">
+                              <div class="d-card dc-blue">
+                                 <div class="d-card-body" id="dc-body">
+                                     {% if error %}
+                                        <div class="alert alert-dismissible alert-danger">
+                                          <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                          {{ errorText }}
+                                        </div>
+                                      {% endif %}
+                                      {% if success %}
+                                        <div class="alert alert-dismissible alert-success">
+                                          <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                          {{ successText }}
+                                        </div>
+                                      {% endif %}
+								  <div class="form-group mb-4">
+                                    <label style="color: #fff">{{ lang['account.username'] }}</label>
+                                    <div class="input-group">
+                                       <input class="form-control" type="text" value="{{ user['username'] }}" readonly>
+                                    </div>
+                                 </div>
+                                 <div class="form-group mb-4">
+                                    <label style="color: #fff">{{ lang['account.name'] }}</label>
+                                    <div class="input-group">
+                                       <input class="form-control" type="text" value="{{ user['name'] }}" readonly>
+                                    </div>
+                                 </div>
+                                 <div class="form-group mb-4">
+                                    <label style="color: #fff">{{ lang['account.telephone'] }}</label>
+                                    <div class="input-group">
+                                       <input class="form-control" type="text" value="{{ user['telephone'] }}" readonly>
+                                    </div>
+                                 </div>
+                                 <div class="form-group mb-4">
+                                    <label style="color: #fff">{{ lang['account.email'] }}</label>
+                                    <div class="input-group">
+                                       <input class="form-control" type="text" value="{{ user['email'] }}" readonly>
+                                    </div>
+                                 </div>
+                                 </div>
+                              </div>
+                              <!-- d-card end -->
+                              <div class="d-card mt-4">
+                                 <div class="d-card-body" id="dc-body">
+									<form  method="post" action="account">
+									  	<div class="form-group mb-4">
+											<label>{{ lang['account.password.current'] }}</label>
+											<div class="input-group">
+											   <input class="form-control" type="password" id="current" name="current_password">
+											</div>
+										 </div>
+										 <div class="form-group mb-4">
+											<label>{{ lang['account.password.new'] }}</label>
+											<div class="input-group">
+											   <input class="form-control" type="password" id="new" name="password">
+											</div>
+										 </div>
+										 <div class="form-group mb-4">
+											<label>{{ lang['account.password.confirm'] }}</label>
+											<div class="input-group">
+											   <input class="form-control" type="password" id="confirm" name="confirm_password">
+											</div>
+										 </div>
+										 <button class="btn btn-primary btn-lg btn-block mb-4">                                   <font style="vertical-align: inherit;">                                     <font style="vertical-align: inherit;">                                       Change Password                                     </font>                                   </font>                                 </button>									 </form>
+                                 </div>
+                              </div>
+                              <!-- d-card end -->
+                             
+                              
+                             
+                             <!-- d-card end -->
+                           </div>
+                           <!-- col item end-->
+                           <div class="col-lg-6 col-12 mb-5 mb-lg-0">
+						   
+														
+                              <div class="d-card dc-dblue">
+                                <div class="d-card-body" id="dc2-body">
+								 <form  action="account/timezone" method="post">
+								 <div class="form-group mb-4">
+									<label for="language" class="control-label">{{ lang['account.timezone.title'] }}</label>
+									<select name="timezone" id="timezone" class="form-control">
+									        {% for timezone in timezones %}
+                                             <option {% if timezone["timezone"] == user['timezone'] %} selected {% endif %} value="{{ timezone["timezone"] }}">{{ timezone["label"] }}</option>
+                                            {% endfor %}
+									</select>
+								 </div>
+									<button class="btn btn-primary btn-lg btn-block my-4">                                     <font style="vertical-align: inherit;">                                       <font style="vertical-align: inherit;">                                         Save                                       </font>                                     </font>                                   </button>
+									 </form>
+                                 </div>
+                              </div>
+                              <div class="d-card dc-orange mt-4">
+                                <div class="d-card-body" id="dc2-body">
+								 <form  action="/account/newapikey" method="post">
+								 <div class="form-group mb-4">
+									<label for="language" style="color: #fff" class="control-label">API Key</label>
+									<input class="form-control" type="text" id="api_key" value="{{ user['apikey'] }}" readonly>
+								 </div>
+									<button class="btn btn-outline btn-lg btn-block my-4">                                         <font style="vertical-align: inherit;">                                           <font style="vertical-align: inherit;">                                             Generate new                                           </font>                                         </font>                                       </button> 
+								 </form>
+                                </div>
+                              </div>
+							  
+                           </div>
+                        </div>
+                     </section>
+                  </div>
+                  <!-- page-content end -->
+               </div>
+               <!-- app-content -->
+            </div>
+         </div>
+
+      </div>
+
+{% include 'footer.twig' %}

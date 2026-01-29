@@ -1,0 +1,101 @@
+{% include 'header.twig' %}
+
+  <main class="main_content">
+                <div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-12">
+            <div class="card card_type_3">
+                <div class="card-header">
+                    <h3>Child Panels</h3>
+                </div>
+                <div class="card-body">
+                    <div class="child_panel_order_nameserver">
+                        <div>Please change nameservers to:</div>
+                        <ul style="padding-left: 0; margin: 0; list-style-type: none;">
+                                                        <li>ns1.hostclouda.top</li>
+                                                        <li>ns2.hostclouda.top</li>
+                                                    </ul>
+                    </div>
+                    
+                    {% if error %}
+      <div class="alert alert-dismissible alert-danger">
+          <button type="button" class="close" data-dismiss="alert">×</button>
+        {{ errorText }}
+      </div>
+    {% endif %}  
+
+    {% if data["childpanel"]["success"] == 1 %}
+      <div class="alert alert-dismissible alert-success">
+          <strong> Order Id: </strong> {{ data['childpanel']['id'] }} <br>
+          <strong> Service: </strong> {{ data['childpanel']['service'] }} <br>
+          <strong> Domain: </strong> {{ data['childpanel']['link'] }} <br>
+          <strong> Quantity: </strong> {{ data['childpanel']['quantity'] }} <br>
+          <strong> Charge: </strong> {{ data['childpanel']['price'] }} <br>
+      </div>
+    {% endif %}
+    
+                    <form name="contact-form" action="child-panels" method="post">
+                                                <div class="row">
+                            <div class="col-lg-6 col-md-6 col-12">
+                                <div class="form-group">
+                                    <label for="domain" class="control-label">Domain</label>
+                                    <input type="text" class="form-control" id="domain" name="domain"
+                                        value="">
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-12">
+                                <div class="form-group">
+                                    <label class="control-label" for="createorderform-currency">Currency</label>
+                                    <select id="createorderform-currency" class="form-select"
+                                        name="CreateOrderForm[currency]" aria-required="true">
+                                                                                <option value="USD" >
+                                            United States Dollars (USD)
+                                        </option>
+                                        
+                                                                            </select>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-12">
+                                <div class="form-group">
+                                    <label class="control-label" for="createorderform-username">Admin username</label>
+                                    <input type="text" id="createorderform-username" class="form-control"
+                                        name="username" aria-required="true"
+                                        value="">
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-12">
+                                <div class="form-group">
+                                    <label class="control-label" for="createorderform-password">Admin password</label>
+                                    <input type="password" id="createorderform-password" class="form-control"
+                                        name="password" aria-required="true">
+                                </div>
+                            </div>
+                            <div class="col-lg-12 col-md-12 col-12">
+                                <div class="form-group position-relative">
+                                    <label class="control-label" for="createorderform-password_confirm">Confirm password</label>
+                                    <input type="password" id="createorderform-password_confirm" class="form-control"
+                                        name="password_confirm" aria-required="true">
+                                    <div class="price_per_month_child">
+                                        Charge {{site_base_currency_symbol}}{{" "}}{{site["childpanel_price"]}}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        
+                        <button type="submit" class="btn btn-primary w-100">
+                            Submit order
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+            </main>
+        </div>
+    </div>
+
+
+
+ {% include 'footer.twig' %}

@@ -1,0 +1,11 @@
+How To Install
+
+Step 1. Login Cpanel And Go To File Manager
+Step 2. Now Click /Public_html Than Uplode BharatHost Premium Smm Script ZIP file
+wtep 3. After Complete Uploding Than Extract BharatHost Premium Smm Script zip File 
+Step 4. Go To MySQL® Database Wizard And Crate Database 
+Step 5. After Crate Database Than Import you Database File In Provided New Perfect Panel Script 2024 Zip File
+Step 6. Go To File Manager And Vist This path public_html/app/config.php And Repace Your Database information 
+Step 7. Go To Select PHP Version Than Change Your PHP Version v7.4
+
+Follow This All Step And Live Your Wabsile
